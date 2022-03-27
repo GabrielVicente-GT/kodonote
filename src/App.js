@@ -1,6 +1,7 @@
 import React from "react"
 import "./styles/App.css"
 
+// Probando...
 const App = () => {
 
     const registerMode = false
