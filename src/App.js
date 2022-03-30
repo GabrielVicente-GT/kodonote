@@ -1,21 +1,22 @@
-import React from "react"
+import React, { useState } from "react"
 import "./styles/App.css"
+import LoginForm from "./components/LoginForm.js"
+import RegisterForm from "./components/RegisterForm"
 
-// Probando...
+// App -> echa para porbar el iniciar sesion
 const App = () => {
 
-    const registerMode = false
+    const [isLogged, setisLogged] = useState(true)
+
+    //El formulario log-in debe recibir la funcion necesaria para poder
+    // cambiar de pagina en base a isLogged
+
+    const giveRegister = () => {
+        setisLogged(false)
+    }
 
     return (
-        (registerMode) ? (
-            <div className="page">
-                
-            </div>
-        ) : (
-            <div className="page">
-
-            </div>
-        )
+        isLogged ? <LoginForm giveRegister = {giveRegister} /> : <RegisterForm /> 
     )
 }
 
