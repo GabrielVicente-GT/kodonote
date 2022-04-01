@@ -1,4 +1,5 @@
 import React from "react"
+import Login from "./components/Login.js"
 import "./styles/App.css"
 
 // Probando...
@@ -8,13 +9,9 @@ const App = () => {
 
     return (
         (registerMode) ? (
-            <div className="page">
-                
-            </div>
+            <Login />
         ) : (
-            <div className="page">
-
-            </div>
+            <Login />
         )
     )
 }
