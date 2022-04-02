@@ -3,8 +3,9 @@ import "../styles/LoginPage.css"
 
 // Formulario de iniciar sesion
 const LoginForm = ({giveRegister}) => {
-
+    
     return (
+        <div className = "pagina">
         <div className = "login-form">
             <div className = "limits">
                 <h1 className = "lf-titulo"> Bienvenid@</h1>
@@ -18,6 +19,7 @@ const LoginForm = ({giveRegister}) => {
                 </div>
 
             </div>
+        </div>
         </div>
     )
 }

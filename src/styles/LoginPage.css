@@ -2,11 +2,9 @@ body {
     background-color: rgb(100, 120, 100);
     color: black;
     font-family: Inter, sans-serif; 
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
+
+
 
 .pagina {
     width: 100%;
@@ -21,7 +19,7 @@ body {
 
 .login-form {
     background-color: white;
-    width: 40%;
+    width: 400px;
     max-width: 400px;
     display: flex;
     margin: 0;

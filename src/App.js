@@ -16,7 +16,8 @@ const App = () => {
     }
 
     return (
-        isLogged ? <LoginForm giveRegister = {giveRegister} /> : <RegisterForm /> 
+        isLogged ? <LoginForm className = "pagina" giveRegister = {giveRegister} /> : <RegisterForm />
+        
     )
 }
 

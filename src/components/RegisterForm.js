@@ -3,6 +3,7 @@ import "../styles/LoginPage.css"
 
 const RegisterForm = () => {
     return(
+        <div className = "pagina">
         <div className= "login-form">
             <div className = "limits">
                 <h1 className = "lf-titulo"> Registrarse</h1>
@@ -16,6 +17,7 @@ const RegisterForm = () => {
                     <button className = "form-btn-reg">Registrarse</button>
                 </div>
             </div>
+        </div>
         </div>
     )
 }
