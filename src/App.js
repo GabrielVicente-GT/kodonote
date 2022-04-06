@@ -5,10 +5,12 @@ import "./styles/App.css"
 //import Notebooks from "./components/Notebooks.jsx"
 //import data from "./components/Notebooks.json"
 import GridContainer from "./components/ContainerNB.jsx"
+import Options from "./components/options.jsx"
 
 // App -> echa para porbar el iniciar sesion
 const App = () => {
 
+    
     //const [isLogged, setisLogged] = useState(true)
 
     //El formulario log-in debe recibir la funcion necesaria para poder
@@ -20,9 +22,16 @@ const App = () => {
 
     return (
         //isLogged ? <LoginForm className = "pagina" giveRegister = {giveRegister} /> : <RegisterForm />
-        
-        <GridContainer/>
-
+        <body>
+            <header class="header">
+                <h2 class="title">KodoNote</h2>
+            </header>
+            <div class="content">
+                <Options/>
+                <GridContainer/> 
+            </div> 
+        </body>
+         
     )
 }
 
