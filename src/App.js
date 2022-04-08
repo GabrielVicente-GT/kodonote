@@ -6,6 +6,7 @@ import "./styles/App.css"
 //import data from "./components/Notebooks.json"
 import GridContainer from "./components/ContainerNB.jsx"
 import Options from "./components/options.jsx"
+import PrefPopUp from "./components/PopupPref.jsx"
 
 // App -> echa para porbar el iniciar sesion
 const App = () => {
@@ -29,6 +30,7 @@ const App = () => {
             <div class="content">
                 <Options/>
                 <GridContainer/> 
+                <PrefPopUp/>
             </div> 
         </body>
          

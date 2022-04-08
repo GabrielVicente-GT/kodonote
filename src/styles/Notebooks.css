@@ -3,9 +3,9 @@
  */
 .tablero{
   /*Grid*/
-  background: blue;
+  background: white;
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 150px);
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;
   grid-auto-flow: row;

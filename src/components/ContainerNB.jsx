@@ -11,7 +11,7 @@ const GridContainer = () => {
           key={cuaderno.id}
           Title={cuaderno.Title}
           LastTimeUse={cuaderno.LastTimeUse} 
-          Classname = {cuaderno.ClassName}/>
+          Classname = {cuaderno.Classname}/>
         ))
       }
     </div>
