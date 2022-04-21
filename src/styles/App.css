@@ -1,7 +1,13 @@
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0px;
-    padding: 0px;
+.app{
+    background-color: #B50013;
+    font-family: Inter, sans-serif;
+    overflow: hidden;
+    height: 100%;
+}
+
+html{
+    background-color: #181A1B;
+    margin: 0;
 }
 
 .page {
