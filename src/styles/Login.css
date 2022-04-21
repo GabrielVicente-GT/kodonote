@@ -1,5 +1,5 @@
 body {
-    background-color: rgb(100, 120, 100);
+    background-color: white;
     color: black;
     font-family: Inter, sans-serif; 
     
@@ -103,5 +103,5 @@ button {
 }
 
 button:hover {
-    background-color: rgb(100, 120, 100);
+    background-color: white;
 }
