@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+:root {
+    --main-color: #B50013;
+    --secondary-color: #113743;
+    --accent-color-black: #181A1B;
+    --accent-color-white: #E4E3DB;
+}
+
 html{
     overflow: hidden;
 }
@@ -9,34 +16,47 @@ html{
     
     align-items: center;
     flex-direction: column;
-    background-color: #B50013;
+    background-color: var(--main-color);
 
     overflow: hidden;
 }
 
 .logreg-page > img {
     height: 200px;
-    margin-top: 30px;
-    margin-bottom: 100px;
+    margin-top: 20px;
+    margin-bottom: 50px;
 }
 
-.logreg-form, .pw-block {
-    background-color: #181A1B;
+.logreg-form {
+    background-color: var(--secondary-color);
     width: 400px;
+    height: auto;
+    padding: 50px;
     max-width: 400px;
     display: flex;
-    justify-content: center;
-    height: auto;
+
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
     border-radius: 10px;
     box-shadow: 0 2px 25px rgb(0,0,0,0.25);
 }
 
+.pw-block{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .lf-titulo {
     font-family: 'Poppins', sans-serif;
-    font-weight: 500px;
-    color: #E4E3DB;
+    margin: 10px;
+
+    font-weight: bold;
+    color: var(--accent-color-white);
 }
 
 input {
@@ -46,17 +66,18 @@ input {
 
     width: 80%;
     padding: 10px 0;
-    color: #E4E3DB;
-    margin-bottom: 30px;
+    color: var(--accent-color-white);
+
+    margin: 10px;
     border: none;
-    border-bottom: 1px solid #fff;
+    border-bottom: 0.125rem solid var(--accent-color-white);
     outline: none;
     background: transparent;
 }
 
 button {
-    background-color: #E4E3DB;
-    color: #181A1B;
+    background-color: var(--accent-color-white);
+    color: var(--accent-color-black);;
     
     height: 50px;
     border-radius: 4px;
@@ -70,9 +91,9 @@ button {
 }
 
 button:hover {
-    background-color: #181A1B;
-    color: #E4E3DB;
+    background-color: var(--accent-color-black);;
+    color: var(--accent-color-white);
     border-style: solid;
-    border-width: .125rem;
+    border-width: 0.125rem;
 }
 

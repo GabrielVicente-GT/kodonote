@@ -10,7 +10,7 @@ function LogregPage() {
   return (
     <div className = 'logreg-page'>
       <img src = {logo}></img>
-      <LoginForm/>
+      <RegisterForm/>
       
     </div>
   )

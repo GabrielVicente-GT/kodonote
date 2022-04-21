@@ -8,7 +8,7 @@ const LoginForm = ({giveRegister}) => {
 
     return (
         <div className = "logreg-form">
-            <h1 className = "lf-titulo"> Kodonote</h1>
+            <h1 className = "lf-titulo">Bienvenid@</h1>
             <input type="username" id="username " name="username" placeholder="Username" required />
             <input type="password" id="password" name="password" placeholder="Contraseña" required />
             <button className = "form-btn-is">Iniciar Sesion</button>
