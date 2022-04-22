@@ -4,7 +4,7 @@ import Login from "./components/Login.js"
 import TextEditor from './components/TextEditor';
 //probando 3
 // Probando...
-const App = () => {
+const EditorContainer = () => {
 
     const registerMode = false
 
@@ -19,4 +19,4 @@ const App = () => {
     )
 }
 
-export default App
+export default EditorContainer
