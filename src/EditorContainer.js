@@ -1,5 +1,4 @@
 import React from "react"
-import Login from "./components/Login.js"
 
 import TextEditor from './components/TextEditor';
 //probando 3

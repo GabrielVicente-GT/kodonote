@@ -2,24 +2,26 @@
  * Menu.css
  */
 
-:root {
-    --header-background-color: rgb(35, 35, 35);
-    --sidebar-background-color: rgb(100, 120, 100);
-    --option-link-hover-color: rgb(200, 135, 50);
+ :root {
+    --main-color: #B50013;
+    --secondary-color: #113743;
+    --accent-color-black: #181A1B;
+    --accent-color-white: #E4E3DB;
+    --titles-important: 'Poppins', sans-serif;
+    --subtitles: 'Merriweather Sans', sans-serif;
+    --text: 'Hind Madurai', sans-serif;
 }
 
 *, ::before, ::after {
     margin: 0;
     padding: 0;
-    font-size: 20px;
-    box-sizing: border-box;
-    font-family: 'Fira Code', monospace;
 }
 
 .header {
-    background-color: var(--header-background-color);
+    background-color: var(--secondary-color);
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100vw;
     height: 5vh;
     min-width: 200px;
@@ -29,7 +31,8 @@
 .title {
     color: white;
     padding: 10px;
-    font-size: 1.25em;
+    font-size: 30px;
+    font-family: var(--titles-important);
 }
 
 .content {

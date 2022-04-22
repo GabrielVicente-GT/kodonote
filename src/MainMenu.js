@@ -1,3 +1,5 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
 import "./styles/App.css"
 import GridContainer from "./components/ContainerNB.js"
 import Options from "./components/options.js"

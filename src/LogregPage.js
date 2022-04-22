@@ -2,16 +2,23 @@ import React from 'react'
 import RegisterForm from './components/LogregPage/RegisterForm'
 import LoginForm from './components/LogregPage/LoginForm'
 
-import logo from './graphic-resources/logo-negative.png'
+
 
 import "./styles/LoginPage.css"
 
 function LogregPage() {
+
+  const [isReg, setisReg] = React.useState(false)
+
+  const giveRegister = () => {
+    setisReg(true)
+  }
+
   return (
     <div className = 'logreg-page'>
-      <img src = {logo}></img>
-      <RegisterForm/>
-      
+      {
+        isReg ? <RegisterForm/> : <LoginForm giveRegister = {giveRegister}/>
+      }
     </div>
   )
 }

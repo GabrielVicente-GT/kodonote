@@ -47,6 +47,8 @@ module.exports = {
   
       compress: true,
       port: 3010, // default 8000
+      
+      historyApiFallback: true,
   },
   
 };

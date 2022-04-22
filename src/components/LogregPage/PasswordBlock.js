@@ -1,5 +1,7 @@
 import React from 'react'
 import "../../styles/LoginPage.css"
+import {Link} from "react-router-dom"
+
 function PasswordBlock() {
     const verifypassword = () => {
 
@@ -24,9 +26,11 @@ function PasswordBlock() {
     }
   return (
     <div className = "pw-block">
-      <input type="password" id="password" name="password" placeholder="Contrase&ntilde;a" required="" id = "input-password"/>
-      <input input type="password" id="password" name="password" placeholder="Confirmar contrase&ntilde;a" required="" id = "input-confirm-password"/>
-      <button className = "form-btn-reg" onClick = {verifypassword}>Registrarse</button>
+      <input type="password" name="password" placeholder="Contrase&ntilde;a" required="" id = "input-password"/>
+      <input input type="password" name="password" placeholder="Confirmar contrase&ntilde;a" required="" id = "input-confirm-password"/>
+      <Link to="/main" className = "link">
+        <button className = "form-btn-reg" onClick = {verifypassword}>Registrarse</button>
+      </Link>
     </div>
   )
 }
