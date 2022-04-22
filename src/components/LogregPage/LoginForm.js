@@ -14,7 +14,7 @@ const LoginForm = ({giveRegister}) => {
             <input type="password" id="password" name="password" placeholder="Contraseña" required />
 
 
-            <Link to="/main" className = "link">
+            <Link to="/main"  className = "link-log">
                 <button className = "form-btn-is">Iniciar Sesion</button>
             </Link>
 

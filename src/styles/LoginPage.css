@@ -55,7 +55,7 @@ html{
     color: var(--accent-color-white);
 }
 
-.link{
+.link-log{
     width: 100%;
     display: flex;
     justify-content: center;

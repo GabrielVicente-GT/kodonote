@@ -9,18 +9,23 @@ import { getAnalytics } from "firebase/analytics"
 //REact Router
 import { BrowserRouter, Routes, Route 
   } from "react-router-dom"
+
+// React router -> electron
+import {
+    HashRouter,
+  } from "react-router-dom";
 // Pages
 import LogregPage from "./LogregPage"
 import App from "./App";
 import EditorContainer from "./EditorContainer"
 
 ReactDOM.render(
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<LogregPage />} />
         <Route path="/main" element={<App />} />
         <Route path="/editor" element={<EditorContainer />} />
       </Routes>
-    </BrowserRouter>,
+    </HashRouter>,
     document.getElementById("root")
   );

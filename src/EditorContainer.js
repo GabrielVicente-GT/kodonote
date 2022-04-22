@@ -1,5 +1,5 @@
 import React from "react"
-
+import "./styles/EditorPage.css"
 import TextEditor from './components/TextEditor';
 //probando 3
 // Probando...
@@ -10,7 +10,7 @@ const EditorContainer = () => {
     return (
 
 
-    <div>
+    <div className = "editor-cont">
       <TextEditor/>
     </div>
 
