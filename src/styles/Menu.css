@@ -1,0 +1,143 @@
+/*
+ * Menu.css
+ */
+
+:root {
+    --header-background-color: rgb(35, 35, 35);
+    --sidebar-background-color: rgb(100, 120, 100);
+    --option-link-hover-color: rgb(200, 135, 50);
+}
+
+*, ::before, ::after {
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    box-sizing: border-box;
+    font-family: 'Fira Code', monospace;
+}
+
+.header {
+    background-color: var(--header-background-color);
+    display: flex;
+    align-items: center;
+    width: 100vw;
+    height: 5vh;
+    min-width: 200px;
+    min-height: 30px;
+}
+
+.title {
+    color: white;
+    padding: 10px;
+    font-size: 1.25em;
+}
+
+.content {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.options {
+    float: left;
+    word-break: break-word;
+    background: var(--sidebar-background-color);
+    height: 100%;
+    width: 20%;
+    min-width: 250px;
+    margin: 0;
+}
+
+.search-bar-box {
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    width: 90%;
+    height: 2em;
+    margin: 10px;
+    padding: 5px;
+    outline: none;
+}
+
+.option-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+}
+
+.option-list > button {
+    color: white;
+    background-color: var(--sidebar-background-color);
+    border-color: transparent;
+    padding: 0.5em;
+}
+
+.option-list > *:hover {
+    color: var(--option-link-hover-color);
+}
+
+.container {
+    display: inline-block;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: space-around;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 80%;
+    min-width: 250px;
+    background-color: white;
+}
+
+.popup {
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    color: white;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.popup-text {
+    text-align: center;
+    font-weight: bold;
+}
+
+.active {
+    display: flex;
+}
+
+.btn-close{
+    display: block;
+}
+
+.popup-body {
+    font-family: 'Fira Code', monospace;
+    background-color: white;
+    border-radius: 10px;
+    padding: 2.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.titulo-popup{
+    font-weight: bolder;
+    padding: 20px;
+    font-size: 50px;
+}
+
+/* .popup.active{
+    visibility: visible;
+} */
+
+.hide {
+    display: none;
+}

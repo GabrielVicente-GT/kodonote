@@ -1,8 +1,11 @@
 import React from "react"
-import "../styles/Login.css"
+import "../styles/LoginPage.css"
 
-const Login = () => {
+// Formulario de iniciar sesion
+const LoginForm = ({giveRegister}) => {
+
     return (
+        <div className = "pagina">
         <div className = "login-form">
             <div className = "limits">
                 <h1 className = "lf-titulo"> Bienvenid@</h1>
@@ -12,12 +15,13 @@ const Login = () => {
                 </div>
                 <div className = "form-buttons">
                     <button className = "form-btn-is">Iniciar Sesion</button>
-                    <button className = "form-btn-reg">Registrarse</button>
+                    <button className = "form-btn-reg" onClick = {giveRegister} >Registrarse</button>
                 </div>
 
             </div>
         </div>
+        </div>
     )
 }
 
-export default Login;
+export default LoginForm;
