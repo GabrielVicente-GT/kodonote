@@ -1,6 +1,5 @@
 import React from "react"
 import "../../styles/LoginPage.css"
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import PasswordBlock from "./PasswordBlock";
 
 const RegisterForm = () => {
