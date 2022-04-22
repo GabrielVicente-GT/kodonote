@@ -1,14 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import "./styles/App.css"
-import Login from "./components/Login.js"
-// Probando...
+import LogregPage from "./LogregPage"
+
+
+// App -> echa para porbar el iniciar sesion
 const App = () => {
 
-    const registerMode = false
-
-    return (
-        <div>
-            <Login />
+    return(
+        <div className = "App">
+            <LogregPage />
         </div>
     )
 }

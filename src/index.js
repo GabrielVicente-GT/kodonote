@@ -1,9 +1,11 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import EditorContainer from "./EditorContainer"
-import App from "./App.js"
+import App from "./App"
+import firebaseConfig from "./firebase-config"
+//Firebase & aunthentication
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
-ReactDOM.render(
-    <EditorContainer />,
-    document.getElementById("root")
-)
+ReactDOM.render((
+    <App />
+), document.getElementById("root"))
