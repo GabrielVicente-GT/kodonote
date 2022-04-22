@@ -1,5 +1,5 @@
 import React from "react"
-import Notebooks from "./Notebooks.jsx"
+import Notebooks from "./Notebooks.js"
 import data from "./Notebooks.json"
 
 const GridContainer = () => {
