@@ -1,10 +1,9 @@
 import React from "react"
 import ReactDOM from "react-dom"
-import firebaseConfig from "./firebase-config"
 
 //Firebase & aunthentication
-import { initializeApp } from "firebase/app"
-import { getAnalytics } from "firebase/analytics"
+// Esta variable se amndara a todas las paginas para saber con que usuario se está trabajando
+import { auth } from "./firebase-config.js"
 
 //REact Router
 import { BrowserRouter, Routes, Route 
@@ -20,12 +19,12 @@ import App from "./App";
 import EditorContainer from "./EditorContainer"
 
 ReactDOM.render(
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<LogregPage />} />
+        <Route path="/" element={<LogregPage auth={auth} />} />
         <Route path="/main" element={<App />} />
         <Route path="/editor" element={<EditorContainer />} />
       </Routes>
-    </HashRouter>,
+    </BrowserRouter>,
     document.getElementById("root")
   );
