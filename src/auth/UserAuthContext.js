@@ -8,34 +8,45 @@ import {
 
 import { auth } from "../firebase-config"
 
-const UserAuthContext = createContext();
+// Se cre un contexto
+const UserAuthContext = createContext()
 
+// Metodo para manejar el contexto
 export const UserAuthContextProvider = ({ children }) => {
 
     // Estado para controlar el usuario
     const [user, setUser] = React.useState({})
+
+    React.useEffect(() => {
+        // Cada vez que se inica una sesion, se cambia al usuario por el que tiene auth
+        // si dejo al sesión iniciada
+        onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser)
+        })
+    }, [])
 
     const registerUser = (email, password) => {
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const logIn = (email, password) => {
+        console.log("email desde autorcontext: ", email)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
-    React.useEffect(() => {
-        onAuthStateChanged(auth, (currentUser) => {
-            setUser(currentUser)
-        })
-    }, [])
+    const logOut = async () => {
+        await signOut(auth)
+    }
 
     return(
-        <UserAuthContext.Provider value = {{user, logIn, registerUser /*Se pasan estas funciones a los componentes que als requieran*/}}>
+        <UserAuthContext.Provider value = {{user, logIn, registerUser, logOut /*Se pasan estas funciones a los componentes que als requieran*/}}>
             {children}
         </UserAuthContext.Provider>
     )
 }
 
+
+/// Variable para manipular el contexto
 export const useUserAuth = () => {
     return useContext(UserAuthContext)
 }

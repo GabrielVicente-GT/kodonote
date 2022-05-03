@@ -1,9 +1,8 @@
 import React from "react"
 import "../../styles/LoginPage.css"
-import {Link} from "react-router-dom"
 import { useUserAuth } from "../../auth/UserAuthContext"
 
-const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, setRegisterEmail, auth }) => {
+const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, setRegisterEmail, auth, setWelcome }) => {
   // Los estados se obtienen del padre, este form los cambia
 
   // Obtener metodos del proveedor de contexto
@@ -12,14 +11,26 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
   // Estado de errores
   const [registerError, setRegisterError] = React.useState("")
 
+  // Manejar errores segun los codigos de Firebase
+  const handleError = (error) => {
+    if(error === "auth/weak-password"){
+      setRegisterError("La contrasña debe tener al menos 6 caracteres")
+    } else if(error === "auth/invalid-email"){
+      setRegisterError("Has ingresado un email inexistente o invalido")
+    }
+  }
+
   //Funcion para controlar el registro
   const handleSubmit = async (e) => {
     e.preventDefault()
     try{
       await registerUser(registerEmail, registerPW)
+      // Al realizarse el registro, ejecutar el login
+      giveLogin()
+      setWelcome("¡Te has registrado!")
     } catch(error){
-      setRegisterError(error.message)
-      console.log(error.message)
+      handleError(error.code)
+      console.log(error.code)
     }
   }
 
@@ -30,14 +41,7 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
         Volver
       </button>
       <h1 className="lf-titulo"> Registrarse</h1>
-      {registerError && <p>{registerError}</p>}
-      <input
-        type="username"
-        id="username "
-        name="username"
-        placeholder="Username"
-        required=""
-      />
+      {registerError && <p className="error">{registerError}</p>}
       <input
         type="email"
         id="email"

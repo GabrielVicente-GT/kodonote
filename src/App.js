@@ -7,7 +7,9 @@ import EditorContainer from "./EditorContainer"
 import { BrowserRouter, Routes, Route 
 } from "react-router-dom"
 
-//autenticacion
+import ProtectedRoute from "./ProtectedRoute"
+
+//autenticacion, crea el contexto para proteger rutas
 import { UserAuthContextProvider } from "./auth/UserAuthContext"
 
 // App -> echa para porbar el iniciar sesion
@@ -17,7 +19,14 @@ const App = () => {
       <UserAuthContextProvider>
         <Routes>
           <Route path="/" element={<LogregPage />} />
-          <Route path="/main" element={<MainMenu />} />
+          <Route
+            path="/main"
+            element={
+              <ProtectedRoute>
+                <MainMenu />
+              </ProtectedRoute>
+            }
+          />
           <Route path="/editor" element={<EditorContainer />} />
         </Routes>
       </UserAuthContextProvider>

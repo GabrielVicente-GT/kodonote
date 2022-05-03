@@ -8,6 +8,9 @@ function LogregPage({ auth }) {
   // Estado para brindar el form de registrarse o logearse
   const [isReg, setisReg] = React.useState(false)
 
+  // Estado dedicado a mostrar texto depdndeindo de las acciones en la pagina
+  const [welcome, setWelcome] = React.useState("Binvenid@")
+
   // Estados para captar lo que escribe el usuario
   // Los sets se mandan a los inputs para que se cambien los datos
   const [registerEmail, setRegisterEmail] = React.useState([""])
@@ -37,9 +40,12 @@ function LogregPage({ auth }) {
           setRegisterEmail={setRegisterEmail}
           setRegisterPW={setRegisterPW}
           auth = {auth}
+          setWelcome={setWelcome}
         />
       ) : (
-        <LoginForm giveRegister={giveRegister}
+        <LoginForm
+        text = {welcome}
+        giveRegister={giveRegister}
         loginEmail={loginEmail}
         loginPW={loginPW}
         setLoginEmail={setLoginEmail}
