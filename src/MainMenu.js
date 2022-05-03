@@ -5,6 +5,7 @@ import GridContainer from "./components/ContainerNB.js"
 import Options from "./components/options.js"
 import PrefPopUp from "./components/PopupPref.js"
 
+
 const MainMenu = () => {
 
     return (
@@ -14,6 +15,7 @@ const MainMenu = () => {
                 <h2 class="title">KodoNote</h2>
             </header>
             <div class="content">
+                
                 <Options/>
                 <GridContainer/> 
                 <PrefPopUp/>

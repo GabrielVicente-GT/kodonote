@@ -1,44 +1,28 @@
 import React from "react"
 import "../../styles/LoginPage.css"
 import {Link} from "react-router-dom"
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { useUserAuth } from "../../auth/UserAuthContext"
 
 const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, setRegisterEmail, auth }) => {
   // Los estados se obtienen del padre, este form los cambia
 
-  // Funcion para realizar un registro
-  const register = async () => {
-    // Controlar los errores
-    try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        registerEmail,
-        registerPW
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
+  // Obtener metodos del proveedor de contexto
+  const { registerUser } = useUserAuth()
+
+  // Estado de errores
+  const [registerError, setRegisterError] = React.useState("")
+
+  //Funcion para controlar el registro
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try{
+      await registerUser(registerEmail, registerPW)
+    } catch(error){
+      setRegisterError(error.message)
+      console.log(error.message)
     }
-  };
+  }
 
-  // Funcion para verificar la validez de la contraseña
-  /*const verifypassword = () => {
-    // Obtengo los valores de los inputs
-    const pw = document.getElementById("input-password").value;
-
-    const confirmpw = document.getElementById("input-confirm-password").value;
-
-    if (pw === confirmpw) {
-      console.log("las contraseñas son iguales");
-      if (pw.length <= 6) {
-        console.log("la contraseña es muy corta");
-      } else {
-        console.log("se cumplio la contraseña");
-      }
-    } else {
-      console.log("no son iguales");
-    }
-  };*/
 
   return (
     <div className="logreg-form">
@@ -46,6 +30,7 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
         Volver
       </button>
       <h1 className="lf-titulo"> Registrarse</h1>
+      {registerError && <p>{registerError}</p>}
       <input
         type="username"
         id="username "
@@ -81,11 +66,9 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
         required=""
         id="input-confirm-password"
       />
-      <Link to="/main" className="link">
-        <button className="form-btn-reg" onClick={register}>
+        <button className="form-btn-reg" onClick={handleSubmit}>
           Registrarse
         </button>
-      </Link>
     </div>
   );
 }

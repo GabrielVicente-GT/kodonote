@@ -2,26 +2,31 @@ import React from "react"
 import "../../styles/LoginPage.css"
 import {Link} from "react-router-dom"
 import logo from '../../graphic-resources/logo-negative.png'
-import { signInWithEmailAndPassword } from 'firebase/auth'
-
+import { useUserAuth } from "../../auth/UserAuthContext"
 // Formulario de iniciar sesion
 const LoginForm = ({ giveRegister, setLoginEmail, setLoginPW, loginEmail, loginPW,auth }) => {
 
-  // Funciona igual que el registro
-    const login = async () => {
-      // Controlar los errores
-      try {
-        const user = await signInWithEmailAndPassword(auth, loginEmail, loginPW);
-        console.log("hola!");
-      } catch (error) {
-        console.log(error.message);
-      }
-    }
+  // importar funcion de el authcontext
+  const { logIn }  = useUserAuth()
 
+  // Estado de errores
+  const [loginError, setLoginError] = React.useState("")
+
+  //Funcion para controlar el login
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    try{
+      await logIn(loginEmail, loginPW)
+    } catch(error){
+      setLoginError(error.message)
+      console.log(error.message)
+    }
+  }
     return (
       <div className="logreg-form">
         <img src={logo}></img>
         <h1 className="lf-titulo">Bienvenid@</h1>
+        {loginError && <p>{loginError}</p>}
         <input
           type="Email"
           id="Email"
@@ -39,9 +44,7 @@ const LoginForm = ({ giveRegister, setLoginEmail, setLoginPW, loginEmail, loginP
           onChange={(event) => {setLoginPW(event.target.value)}}
         />
 
-        <Link to="/main" className="link-log">
-          <button className="form-btn-is" onClick={login}>Iniciar Sesion</button>
-        </Link>
+          <button className="form-btn-is" onClick={handleSubmit}>Iniciar Sesion</button>
 
         <button className="form-btn-reg" onClick={giveRegister}>
           Registrarse
