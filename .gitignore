@@ -6,7 +6,9 @@
 .pnp.js
 
 
-node_modules
+node_modules/
+
+node_modules/.cache/
 
 /dist
 
