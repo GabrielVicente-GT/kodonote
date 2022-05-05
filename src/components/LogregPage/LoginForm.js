@@ -21,6 +21,8 @@ const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, 
       setLoginError("Contraseña incorrecta")
     } else if(error === "auth/invalid-email"){
       setLoginError("Has ingresado un email inexistente o invalido")
+    } else if(error === "auth/user-not-found"){
+      setLoginError("Este correo no está registrado")
     }
   }
 

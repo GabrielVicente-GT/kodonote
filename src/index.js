@@ -6,7 +6,7 @@ import ReactDOM from "react-dom"
 import { BrowserRouter
   } from "react-router-dom"
 
-// React router -> electron
+// Hashrouter router -> electron
 import {
     HashRouter,
   } from "react-router-dom";

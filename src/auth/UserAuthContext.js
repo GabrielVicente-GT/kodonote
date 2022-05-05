@@ -11,7 +11,13 @@ import { auth } from "../firebase-config"
 // Se cre un contexto
 const UserAuthContext = createContext()
 
-// Metodo para manejar el contexto
+/// Variable para manipular el contexto
+export const useUserAuth = () => {
+    return useContext(UserAuthContext)
+}
+
+// Componente que develve el context provider, dentro de el van los componentes que quieran acceder
+// A la infomración de la cuenta
 export const UserAuthContextProvider = ({ children }) => {
 
     // Estado para controlar el usuario
@@ -43,10 +49,4 @@ export const UserAuthContextProvider = ({ children }) => {
             {children}
         </UserAuthContext.Provider>
     )
-}
-
-
-/// Variable para manipular el contexto
-export const useUserAuth = () => {
-    return useContext(UserAuthContext)
 }

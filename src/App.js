@@ -11,6 +11,7 @@ import ProtectedRoute from "./ProtectedRoute"
 
 //autenticacion, crea el contexto para proteger rutas
 import { UserAuthContextProvider } from "./auth/UserAuthContext"
+import { Editor } from "draft-js"
 
 // App -> echa para porbar el iniciar sesion
 const App = () => {
@@ -27,7 +28,14 @@ const App = () => {
               </ProtectedRoute>
             }
           />
-          <Route path="/editor" element={<EditorContainer />} />
+          <Route
+            path="/editor"
+            element={
+              <ProtectedRoute>
+                <Editor />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </UserAuthContextProvider>
     );
