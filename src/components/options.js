@@ -18,6 +18,8 @@ const Options = ({ logOut }) => {
     const [buttonPopupCuen, setButtonPopupCuen] = useState(false)
     const [buttonPopupConfi, setButtonPopupConfi] = useState(false)
 
+    
+
     return (
         <div className="options">
             <img src={logo} alt="logo"></img>
