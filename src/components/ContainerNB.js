@@ -17,6 +17,7 @@ const GridContainer = () => {
         ))
       }
     </div>
+    
   )
 }
 

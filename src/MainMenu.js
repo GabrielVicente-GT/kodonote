@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import "./styles/App.css"
 import GridContainer from "./components/ContainerNB.js"
 import Options from "./components/options.js"
-import PrefPopUp from "./components/PopupPref.js"
 import { useUserAuth } from "./auth/UserAuthContext"
 
 const MainMenu = () => {
@@ -13,16 +12,15 @@ const MainMenu = () => {
     const { user, logOut } = useUserAuth()
 
     return (
-      <body>
-        <header class="header">
-          <h2 class="title">{user ? "Hola de nuevo " + user?.email + "!" : "Kodonote"}</h2>
+      <div>
+        <header className="header">
+          <h2 className="title">{user ? "Hola de nuevo " + user?.email + "!" : "Kodonote"}</h2>
         </header>
-        <div class="content">
+        <div className="content">
           <Options logOut={logOut}/>
           <GridContainer />
-          <PrefPopUp />
         </div>
-      </body>
+      </div>
     );
 }
 

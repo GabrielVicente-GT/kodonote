@@ -38,7 +38,6 @@
   background-color: var(--secondary-color);
   border-radius: 10px;
   transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
-  will-change: transform;
 }
 
 .notebook:hover{
@@ -75,4 +74,5 @@ p {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-decoration: none;
 }

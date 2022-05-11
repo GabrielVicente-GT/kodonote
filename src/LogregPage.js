@@ -9,7 +9,7 @@ function LogregPage({ auth }) {
   const [isReg, setisReg] = React.useState(false)
 
   // Estado dedicado a mostrar texto depdndeindo de las acciones en la pagina
-  const [welcome, setWelcome] = React.useState("Binvenid@")
+  const [welcome, setWelcome] = React.useState("Bienvenid@")
 
   // Estados para captar lo que escribe el usuario
   // Los sets se mandan a los inputs para que se cambien los datos

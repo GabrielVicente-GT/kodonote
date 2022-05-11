@@ -1,7 +1,7 @@
 import React from 'react';
 import "../styles/Menu.css"
 
-const PrefPopUp = () => {
+const ConfigPopUp = () => {
     return (
         <div className="popup preferences-link-popup hide" id="preferences-link-popup">
             <div className="popup-body">
@@ -27,4 +27,4 @@ const PrefPopUp = () => {
     )
 }
 
-export default PrefPopUp
+export default ConfigPopUp
