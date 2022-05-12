@@ -15,6 +15,7 @@ function LogregPage({ auth }) {
   // Los sets se mandan a los inputs para que se cambien los datos
   const [registerEmail, setRegisterEmail] = React.useState([""])
   const [registerPW, setRegisterPW] = React.useState([""])
+  const [registerPW_conf, setRegisterPW_conf] = React.useState([""])
 
   // Esados para iniciar sesion
   const [loginEmail, setLoginEmail] = React.useState([""])
@@ -41,6 +42,8 @@ function LogregPage({ auth }) {
           setRegisterPW={setRegisterPW}
           auth = {auth}
           setWelcome={setWelcome}
+          registerPW_conf= {registerPW_conf}
+          setRegisterPW_conf={setRegisterPW_conf}
         />
       ) : (
         <LoginForm
