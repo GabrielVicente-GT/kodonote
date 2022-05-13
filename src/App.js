@@ -1,8 +1,8 @@
 import React from "react"
 import "./styles/App.css"
 import LogregPage from "./LogregPage"
-import MainMenu from './MainMenu.js'
-import EditorContainer from "./EditorContainer"
+import MainMenu from './MainMenu'
+import Annotations from "./components/Annotations"
 
 // React Router
 import { 
@@ -31,7 +31,7 @@ const App = () => (
         path="/editor"
         element={
           <ProtectedRoute>
-            <EditorContainer />
+            <Annotations/>
           </ProtectedRoute>
         }
       />

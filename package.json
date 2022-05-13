@@ -6,6 +6,7 @@
   "dependencies": {
     "@babel/runtime": "^7.17.9",
     "@emailjs/browser": "^3.6.2",
+    "@emotion/react": "^11.9.0",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -26,6 +27,7 @@
     "@babel/plugin-transform-runtime": "^7.17.0",
     "@babel/preset-env": "^7.16.11",
     "@babel/preset-react": "^7.16.7",
+    "@emotion/babel-plugin": "^11.9.2",
     "babel-loader": "^8.2.4",
     "css-loader": "^6.7.1",
     "electron": "^18.0.4",
