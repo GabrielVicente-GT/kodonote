@@ -20,7 +20,8 @@ const GridContainer = () => {
             Title={cuaderno.Title}
             LastTimeUse={cuaderno.LastTimeUse} 
             Classname = {cuaderno.Classname}
-            setNBmenu = {setButtonPopupCuen}/>
+            setNBmenu = {setButtonPopupCuen}
+            Color = {cuaderno.Color}/>
             </>
         ))
       }

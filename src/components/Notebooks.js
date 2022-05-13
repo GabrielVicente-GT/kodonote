@@ -1,10 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import "../styles/Notebooks.css"
 import {Link} from "react-router-dom"
 
-const Notebooks = ({id, Title, LastTimeUse, Classname, setNBmenu}) => {
-
-  
+const Notebooks = ({id, Title, LastTimeUse, Classname, setNBmenu, Color}) => {
 
   return (
     <div key={id} className={Classname}>
@@ -13,7 +11,7 @@ const Notebooks = ({id, Title, LastTimeUse, Classname, setNBmenu}) => {
           <h4>{Title}</h4>
         </Link>
       :
-        <Link to={Title === 'Agregar Cuaderno +' ? "/main" : "/editor"} className="link">
+        <Link to={Title === 'Agregar Cuaderno +' ? "/main" : "/editor"} className="link" style={{backgroundColor: Color}}>
           <h4>{Title}</h4>
           <p>{LastTimeUse}</p>
         </Link>

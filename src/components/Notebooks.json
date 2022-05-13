@@ -3,36 +3,43 @@
         "id": 1,
         "Classname" : "notebook add-notebook",
         "Title" : "Agregar Cuaderno +",
-        "LastTimeUse" : ""
+        "LastTimeUse" : "",
+        "Color": "#969696"
     },
     {
         "id": 2,
         "Classname" : "notebook data-structures-notebook",
         "Title" : "Estructura de datos",
-        "LastTimeUse" : "Editado: 24/05/2021 08:32"
+        "LastTimeUse" : "Editado: 24/05/2021 08:32",
+        "Color": "#113743"
+        
     },
     {
         "id": 3,
         "Classname" : "notebook assembly-notebook",
         "Title" : "Lenguaje Assembly",
-        "LastTimeUse" : "Editado: 28/05/2021 13:18"
+        "LastTimeUse" : "Editado: 28/05/2021 13:18",
+        "Color": "#113743"
     },
     {
         "id": 4,
         "Classname" : "notebook unity-notebook",
         "Title" : "Unity",
-        "LastTimeUse" : "Editado: 21/05/2021 11:26"
+        "LastTimeUse" : "Editado: 21/05/2021 11:26",
+        "Color": "#113743"
     },
     {
         "id": 5,
         "Classname" : "notebook web-notebook",
         "Title" : "Tecnologías Web",
-        "LastTimeUse" : "Editado: 08/03/2022 18:54"
+        "LastTimeUse" : "Editado: 08/03/2022 18:54",
+        "Color": "#113743"
     },
     {
         "id": 6,
         "Classname" : "notebook software-engineering-notebook",
         "Title" : "Ingeniería de Software 1",
-        "LastTimeUse" : "Editado: 09/03/2022 18:49"
+        "LastTimeUse" : "Editado: 09/03/2022 18:49",
+        "Color": "#113743"
     }
 ]
