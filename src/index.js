@@ -12,14 +12,14 @@ import {
   } from "react-router-dom";
 
 // Pages
-import App from "./App";
+import Annotations from "./components/Annotations";
 
 
 
 
 ReactDOM.render(
     <BrowserRouter>
-      <App />
+      <Annotations />
     </BrowserRouter>,
   document.getElementById("root")
 );
