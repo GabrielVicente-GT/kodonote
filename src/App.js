@@ -2,6 +2,7 @@ import React from "react"
 import "./styles/App.css"
 import LogregPage from "./LogregPage"
 import MainMenu from './MainMenu.js'
+import EditorContainer from "./EditorContainer"
 
 // React Router
 import { 
@@ -31,7 +32,7 @@ const App = () => (
         path="/editor"
         element={
           <ProtectedRoute>
-            <Editor />
+            <EditorContainer />
           </ProtectedRoute>
         }
       />
