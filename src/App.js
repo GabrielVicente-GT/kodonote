@@ -13,7 +13,6 @@ import ProtectedRoute from "./ProtectedRoute"
 
 // autenticacion, crea el contexto para proteger rutas
 import { UserAuthContextProvider } from "./auth/UserAuthContext"
-import { Editor } from "draft-js"
 
 // App -> echa para porbar el iniciar sesion
 const App = () => (
