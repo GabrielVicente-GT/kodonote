@@ -18,8 +18,6 @@ const Options = ({ logOut }) => {
     const [buttonPopupCuen, setButtonPopupCuen] = useState(false)
     const [buttonPopupConfi, setButtonPopupConfi] = useState(false)
 
-    
-
     return (
         <div className="options">
             <img src={logo} alt="logo"></img>
@@ -35,8 +33,7 @@ const Options = ({ logOut }) => {
             <PopUp trigger={buttonPopupConfi} setTrigger={setButtonPopupConfi}>
                 <ConfigPopUp/>
             </PopUp>
-        </div>
-        
+        </div>    
     )
 }
 
