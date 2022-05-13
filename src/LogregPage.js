@@ -1,9 +1,9 @@
-import React from 'react'
-import RegisterForm from './components/LogregPage/RegisterForm'
-import LoginForm from './components/LogregPage/LoginForm'
+import React from "react"
+import RegisterForm from "./components/LogregPage/RegisterForm"
+import LoginForm from "./components/LogregPage/LoginForm"
 import "./styles/LoginPage.css"
 
-function LogregPage({ auth }) {
+const LogregPage = ({ auth }) => {
 
   // Estado para brindar el form de registrarse o logearse
   const [isReg, setisReg] = React.useState(false)
