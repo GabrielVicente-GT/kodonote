@@ -56,7 +56,7 @@ function LogregPage({ auth }) {
         auth={auth} />
       )}
     </div>
-  );
+  )
 }
 
 export default LogregPage
