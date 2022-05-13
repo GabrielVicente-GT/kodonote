@@ -2,7 +2,7 @@ import React from "react"
 import "../../styles/LoginPage.css"
 import { useUserAuth } from "../../auth/UserAuthContext"
 
-const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, setRegisterEmail, auth, setWelcome }) => {
+const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, setRegisterEmail, auth, setWelcome, registerPW_conf, setRegisterPW_conf }) => {
   // Los estados se obtienen del padre, este form los cambia
 
   // Obtener metodos del proveedor de contexto
@@ -14,18 +14,26 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
   // Manejar errores segun los codigos de Firebase
   const handleError = (error) => {
     if(error === "auth/weak-password"){
-      setRegisterError("La contrasña debe tener al menos 6 caracteres")
+      setRegisterError("La contraseña debe tener al menos 6 caracteres")
     } else if(error === "auth/invalid-email"){
-      setRegisterError("Has ingresado un email inexistente o invalido")
+      setRegisterError("Has ingresado un email inexistente o inválido")
     }
   }
 
   //Funcion para controlar el registro
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log(registerPW, registerPW_conf)
     try{
-      await registerUser(registerEmail, registerPW)
+      if(registerPW === registerPW_conf) {
+        await registerUser(registerEmail, registerPW)
       // Al realizarse el registro, ejecutar el login
+      }
+      else {
+        //Las contraseñas no coinciden
+        //window.location.reload(false)
+        alert("Las contraseñas ingresadas no coinciden")
+      }
       giveLogin()
       setWelcome("¡Te has registrado!")
     } catch(error){
@@ -69,6 +77,9 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
         placeholder="Confirmar contrase&ntilde;a"
         required=""
         id="input-confirm-password"
+        onChange={(event) => {
+          setRegisterPW_conf(event.target.value);
+        }}
       />
         <button className="form-btn-reg" onClick={handleSubmit}>
           Registrarse
