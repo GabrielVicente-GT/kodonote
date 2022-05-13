@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/Annotations.css'
-import imagen from '../graphic-resources/Captura.PNG'
+import TextEditor from './TextEditor.js'
 
 
 const Annotations = () => {
@@ -27,6 +27,7 @@ const Annotations = () => {
 
   return (
       <div className='laboratorioStyle'>
+        <TextEditor/>
         <div  className='editor'>
           <button className='boton' type="button" onClick={AddCodeSection}    >Agregar Codigo</button>
           <button className='boton' type="button" onClick={AddNormalSection}  >Agregar Anota</button>
