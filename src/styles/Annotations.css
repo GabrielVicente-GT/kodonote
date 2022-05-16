@@ -1,78 +1,81 @@
-.pruebaEmotion{
-    width:            500px;
-    height:           300px;
-    background-color: black;
-    color:            white;
-    font-family:      Courier New;
-    outline:          none;
-    border:           1px solid white;
-    border-radius:    0px;
-    resize:           none;
+.pruebaEmotion {
+  width: 500px;
+  height: 300px;
+  background-color: black;
+  color: white;
+  font-family: Courier New;
+  outline: none;
+  border: 1px solid white;
+  border-radius: 0px;
+  resize: none;
 }
 
-.espacio{
-    background-color: white;
-}
-.espacio > img{
-    width: 600px;
-    height: 70px;
+.espacio {
+  background-color: white;
 }
 
-.pruebaEmotion2{
-    width:            500px;
-    height:           300px;
-    background-color: white;
-    color:            black;
-    font-family:      Arial;
+.espacio > img {
+  width: 600px;
+  height: 70px;
 }
 
-.laboratorioStyle {display: flex;
-    flex-direction:column;
-    align-items:center;
-    background-color:#153645;
-    overflow: auto;
+.pruebaEmotion2 {
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  color: black;
+  font-family: Arial;
 }
 
-.estiloCompleto{
-    display: grid;
-    background: white;
-    color: white;
-    text-align:center;
-    grid-template-columns: 1fr;
+.laboratorioStyle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #153645;
+  overflow: auto;
 }
 
-.editor{
+.estiloCompleto {
+  display: grid;
+  background: white;
+  color: white;
+  text-align:center;
+  grid-template-columns: 1fr;
+}
+
+.editor {
   margin-top: 20px;
   display: flex;
-    flex-direction:row;
-  }
+  flex-direction:row;
+}
 
-.paper{
-    background:     white;
-    width:          900px;
-    min-height: 900px;
-    height:         auto;
-    margin-left:    3%;
-    margin-top:     3%;
-    border:         2px solid black;
-    display:        flex;
-    flex-direction: column;
-    align-items:    center;
-  }
+.paper {
+  background: white;
+  width: 900px;
+  min-height: 900px;
+  height: auto;
+  margin-left: 3%;
+  margin-top: 3%;
+  border: 2px solid black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
-.boton{
-    background-color: #B60114;
-    border:           1px #B60114 solid;
-    height:           20px;
-    position:         relative;
-    font-family:      'Fira Code', monospace;
-    font-size:        12px;
-    color:            #FFFFFF;
-    text-align:       center;
-    width:            200px;
-  }
-.boton:hover{
-    cursor:           pointer;
-    background-color: #FFFFFF;
-    color:            black;
+.boton {
+  background-color: #B60114;
+  border: 1px #B60114 solid;
+  height: 20px;
+  position: relative;
+  font-family: 'Fira Code', monospace;
+  font-size: 12px;
+  color: #FFFFFF;
+  text-align: center;
+  width: 200px;
+}
+
+.boton:hover {
+  cursor: pointer;
+  background-color: #FFFFFF;
+  color: black;
 }
