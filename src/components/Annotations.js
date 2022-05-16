@@ -29,9 +29,9 @@ const Annotations = () => {
       <div className='laboratorioStyle'>
         <TextEditor/>
         <div  className='editor'>
-          <button className='boton' type="button" onClick={AddCodeSection}    >Agregar Codigo</button>
-          <button className='boton' type="button" onClick={AddNormalSection}  >Agregar Anota</button>
-          <button className='boton' type="button" onClick={RemoveSection}     >Borrar Section</button>
+          <button className='boton' type="button" onClick={AddCodeSection} >Agregar código</button>
+          <button className='boton' type="button" onClick={AddNormalSection} >Agregar nota</button>
+          <button className='boton' type="button" onClick={RemoveSection} >Borrar sección</button>
         </div>
         <div className='paper'>
           <div className="estiloCompleto">
