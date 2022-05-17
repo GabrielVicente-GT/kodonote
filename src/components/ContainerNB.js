@@ -12,23 +12,22 @@ const GridContainer = () => {
       {
         data.map(cuaderno => (
           <>
-          <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
-            <AddPopUp/>
-          </PopUp>
+            <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
+              <AddPopUp/>
+            </PopUp>
             <Notebooks
-            key={cuaderno.id}
-            Title={cuaderno.Title}
-            LastTimeUse={cuaderno.LastTimeUse} 
-            Classname = {cuaderno.Classname}
-            setNBmenu = {setButtonPopupCuen}
-            Color = {cuaderno.Color}/>
-            </>
+              key={cuaderno.id}
+              Title={cuaderno.Title}
+              LastTimeUse={cuaderno.LastTimeUse} 
+              Classname = {cuaderno.Classname}
+              setNBmenu = {setButtonPopupCuen}
+              Color = {cuaderno.Color}
+            />
+          </>
         ))
       }
-      
     </div>
-    
   )
 }
 
-export default GridContainer;
+export default GridContainer

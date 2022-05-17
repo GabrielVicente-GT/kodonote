@@ -13,9 +13,9 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
 
   // Manejar errores segun los codigos de Firebase
   const handleError = (error) => {
-    if(error === "auth/weak-password"){
+    if (error === "auth/weak-password") {
       setRegisterError("La contraseña debe tener al menos 6 caracteres")
-    } else if(error === "auth/invalid-email"){
+    } else if (error === "auth/invalid-email") {
       setRegisterError("Has ingresado un email inexistente o inválido")
     }
   }
@@ -24,24 +24,22 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log(registerPW, registerPW_conf)
-    try{
-      if(registerPW === registerPW_conf) {
+    try {
+      if (registerPW === registerPW_conf) {
         await registerUser(registerEmail, registerPW)
-      // Al realizarse el registro, ejecutar el login
-      }
-      else {
+        // Al realizarse el registro, ejecutar el login
+      } else {
         //Las contraseñas no coinciden
         //window.location.reload(false)
         alert("Las contraseñas ingresadas no coinciden")
       }
       giveLogin()
       setWelcome("¡Te has registrado!")
-    } catch(error){
+    } catch(error) {
       handleError(error.code)
       console.log(error.code)
     }
   }
-
 
   return (
     <div className="logreg-form">
@@ -81,11 +79,11 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
           setRegisterPW_conf(event.target.value);
         }}
       />
-        <button className="form-btn-reg" onClick={handleSubmit}>
-          Registrarse
-        </button>
+      <button className="form-btn-reg" onClick={handleSubmit}>
+        Registrarse
+      </button>
     </div>
-  );
+  )
 }
 
-export default RegisterForm;
+export default RegisterForm
