@@ -5,10 +5,20 @@ import "../styles/Notebooks.css"
 import AddPopUp from "./PopupAddN"
 import PopUp from '../components/PopUp'
 
-const GridContainer = () => {
+const GridContainer = (props) => {
   const [buttonPopupCuen, setButtonPopupCuen] = useState(false)
-  return (
-    <div className="tablero">
+
+  const localizarNotebook = (Titlenotebook) => {
+    return data.filter(
+      (notebook) => notebook.Title === Titlenotebook,
+    )[0] || " "
+  }
+
+  const notes = localizarNotebook(props.notes)
+
+  if (props.notes === " " || notes === " "){
+    return (
+      <div className="tablero">
       {
         data.map((cuaderno, index) => (
           <div id={index}>
@@ -25,8 +35,29 @@ const GridContainer = () => {
             </div>
         ))
       }
-    </div>
-  )
+      </div>
+    )
+  } else {
+    return (
+      <div className="tablero">
+      {
+        <div>
+          <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
+            <AddPopUp/>
+          </PopUp>
+          <Notebooks
+            key={notes.id}
+            Title={notes.Title}
+            LastTimeUse={notes.LastTimeUse} 
+            Classname = {notes.Classname}
+            setNBmenu = {setButtonPopupCuen}
+            Color = {notes.Color}
+          />
+        </div>
+      }
+      </div>
+    )
+  }
 }
 
 export default GridContainer
