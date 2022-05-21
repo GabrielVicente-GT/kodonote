@@ -10,8 +10,8 @@ const GridContainer = () => {
   return (
     <div className="tablero">
       {
-        data.map(cuaderno => (
-          <>
+        data.map((cuaderno, index) => (
+          <div id={index}>
           <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
             <AddPopUp/>
           </PopUp>
@@ -22,7 +22,7 @@ const GridContainer = () => {
             Classname = {cuaderno.Classname}
             setNBmenu = {setButtonPopupCuen}
             Color = {cuaderno.Color}/>
-            </>
+            </div>
         ))
       }
       
