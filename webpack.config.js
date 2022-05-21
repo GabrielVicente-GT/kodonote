@@ -2,13 +2,11 @@ const path = require('path')
 const htmlwebpackplugin = require("html-webpack-plugin")
 
 module.exports = {
-  //exporta un objeto,
-  entry: "./src/index.js", //Archio de entrada
+  entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname /*Ruta raiz*/, "dist"), //Aqui pone el archivo condensado
+    path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
   },
-
   module: {
     rules: [
       {
@@ -21,35 +19,26 @@ module.exports = {
             plugins: ["@babel/transform-runtime"]
           },
         },
-      },
-
-      {
+      }, {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset',
-      },
-
-      {
+      }, {
         test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
     ],
   },
-
   plugins: [
     new htmlwebpackplugin({
       template: path.join(__dirname, "./public/index.html"),
     }),
   ],
-
   devServer: {
     static: {
         directory: path.join(__dirname, "public")
       },
-  
       compress: true,
-      port: 3010, // default 8000
-      
+      port: 3010,
       historyApiFallback: true,
   },
-  
-};
+}

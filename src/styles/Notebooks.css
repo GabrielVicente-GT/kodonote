@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@300;400;500;600;700&family=Merriweather+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 :root {
   --main-color: #B50013;
   --secondary-color: #113743;
@@ -8,13 +9,12 @@
   --subtitles: 'Merriweather Sans', sans-serif;
   --text: 'Hind Madurai', sans-serif;
 }
+
 /*
  * Notebook.css
  */
 
-
-.tablero{
-  /*Grid*/
+.tablero {
   background: var(--accent-color-white);
   display: grid;
   grid-template-rows: repeat(4, 150px);
@@ -23,7 +23,6 @@
   grid-auto-flow: row;
   padding: 20px;
   width: 100%;
-  /*style*/
   overflow: auto;
   height: auto;
   color: #000;
@@ -40,7 +39,7 @@
   height: 150px;
 }
 
-.notebook:hover{
+.notebook:hover {
   opacity: 0.5;
   box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
   transform: translateY(-2px);
@@ -67,7 +66,7 @@ p {
   background-color: rgba(150, 150, 150, 0.8);
 }
 
-.link{
+.link {
   width: 100%;
   height: 100%;
   display: flex;

@@ -1,19 +1,19 @@
 :root {
-    --main-color: #B50013;
-    --secondary-color: #113743;
-    --accent-color-black: #181A1B;
-    --accent-color-white: #E4E3DB;
+  --main-color: #B50013;
+  --secondary-color: #113743;
+  --accent-color-black: #181A1B;
+  --accent-color-white: #E4E3DB;
 }
 
-.app{
-    font-family: Inter, sans-serif;
-    overflow: hidden;
-    height: 100%;
+.app {
+  font-family: Inter, sans-serif;
+  overflow: hidden;
+  height: 100%;
 }
 
 html, body {
-    margin: 0;
-    padding: 0;
-    background-color: var(--main-color);
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  background-color: var(--main-color);
+  padding: 0;
 }

@@ -25,10 +25,8 @@ const GridContainer = () => {
             </div>
         ))
       }
-      
     </div>
-    
   )
 }
 
-export default GridContainer;
+export default GridContainer
