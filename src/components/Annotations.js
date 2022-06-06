@@ -4,6 +4,15 @@ import FirebaseContext from '../hooks/FirebaseProvider'
 import { query, collection, onSnapshot, addDoc } from 'firebase/firestore'
 
 const Annotations = () => {
+
+   /*<Editor css={modificacion}
+      toolbarHidden={!probando}
+      toolbarOnFocus={probando}
+      wrapperClassName="wrapper-class"
+      editorClassName="editor-class"
+      toolbarClassName="toolbar-class"
+      className="Extra"
+    />   */
   
   const [notebook, setNotebook] = React.useState({ notebook: [] })
   const { db } = React.useContext(FirebaseContext)
