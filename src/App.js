@@ -13,29 +13,32 @@ import ProtectedRoute from "./ProtectedRoute"
 
 // autenticacion, crea el contexto para proteger rutas
 import { UserAuthContextProvider } from "./auth/UserAuthContext"
+import { FirebaseProvider } from "./hooks/FirebaseProvider"
 
 // App -> echa para porbar el iniciar sesion
 const App = () => (
   <UserAuthContextProvider>
-    <Routes>
-      <Route path="/" element={<LogregPage />} />
-      <Route
-        path="/main"
-        element={
-          <ProtectedRoute>
-            <MainMenu />
-          </ProtectedRoute>
-        }
-      />
-      <Route
-        path="/editor"
-        element={
-          <ProtectedRoute>
-            <Annotations/>
-          </ProtectedRoute>
-        }
-      />
-    </Routes>
+    <FirebaseProvider>
+      <Routes>
+        <Route path="/" element={<LogregPage />} />
+        <Route
+          path="/main"
+          element={
+            <ProtectedRoute>
+              <MainMenu />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/editor"
+          element={
+            <ProtectedRoute>
+              <Annotations/>
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </FirebaseProvider>
   </UserAuthContextProvider>
 )
 

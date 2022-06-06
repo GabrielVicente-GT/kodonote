@@ -10,10 +10,6 @@
   --text: 'Hind Madurai', sans-serif;
 }
 
-html {
-  overflow: hidden;
-}
-
 .logreg-page {
   display: flex;
   flex-direction: column;
