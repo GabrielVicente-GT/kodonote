@@ -5,7 +5,7 @@ import logo from '../../graphic-resources/logo-negative.png'
 import { useUserAuth } from "../../auth/UserAuthContext"
 
 // Formulario de iniciar sesion
-const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, loginPW, auth }) => {
+const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, loginPW, auth, bgImage }) => {
 
   // importar funcion de el authcontext
   const { logIn }  = useUserAuth()
@@ -43,31 +43,38 @@ const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, 
 
   return (
     <div className="logreg-form">
-      <img src={logo} alt="logotipo"></img>
-      <h1 className="lf-titulo">{text}</h1>
-      {loginError && <p className="error">{loginError}</p>}
-      <input
-        type="Email"
-        id="Email"
-        name="Email"
-        placeholder="Email"
-        required
-        onChange={(event) => {setLoginEmail(event.target.value)}}
-      />
-      <input
-        type="password"
-        id="password"
-        name="password"
-        placeholder="Contraseña"
-        required
-        onChange={(event) => {setLoginPW(event.target.value)}}
-      />
-      <button className="form-btn-is" onClick={handleSubmit}>
-        Iniciar Sesion
-      </button>
-      <button className="form-btn-reg" onClick={giveRegister}>
-        Registrarse
-      </button>
+      <div className="logreg-form-info">
+        <img src={logo} alt="logotipo"></img>
+        <h1 className="lf-titulo">{text}</h1>
+        {loginError && <p className="error">{loginError}</p>}
+        <input
+          type="Email"
+          id="Email"
+          name="Email"
+          placeholder="Email"
+          required
+          onChange={(event) => {setLoginEmail(event.target.value)}}
+        />
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="Contraseña"
+          required
+          onChange={(event) => {setLoginPW(event.target.value)}}
+        />
+        <button className="form-btn-is" onClick={handleSubmit}>
+          Iniciar Sesión
+        </button>
+        <button className="form-btn-reg" onClick={giveRegister}>
+          Registrarse
+        </button>
+      </div>
+      <div className="logreg-form-image" style={{ backgroundImage: `url(${bgImage})` }}>
+        <div className="logreg-form-image-shadow">
+          <h1>Los apuntes de tus sueños a tu alcance</h1>
+        </div>
+      </div>
     </div>
   )
 }

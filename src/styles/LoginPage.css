@@ -5,6 +5,7 @@
   --secondary-color: #113743;
   --accent-color-black: #181A1B;
   --accent-color-white: #E4E3DB;
+  --accent-color-whiter: #FAFAFA;
   --titles-important: 'Poppins', sans-serif;
   --subtitles: 'Merriweather Sans', sans-serif;
   --text: 'Hind Madurai', sans-serif;
@@ -21,21 +22,52 @@
 }
 
 .logreg-form {
+  width: 1200px;
+  height: 600px;
   background-color: var(--secondary-color);
-  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0px 50px rgb(0, 0, 0, 0.75);
+  border-radius: 50px;
+}
+
+.logreg-form-info {
+  background-color: var(--secondary-color);
+  width: 50%;
   height: auto;
   padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 10px;
-  box-shadow: 0 0px 50px rgb(0, 0, 0, 0.5);
+  border-radius: 50px;
 }
 
-.logreg-form > img {
-  height: 140px;
+.logreg-form-info > img {
+  height: 125px;
   margin-bottom: 20px;
+}
+
+.logreg-form-image {
+  width: 50%;
+  height: 100%;
+  border-radius: 0px 50px 50px 0px;
+  background-size: cover;
+}
+
+.logreg-form-image-shadow {
+  height: 66.75%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 0px 50px 50px 0px;
+  color: var(--accent-color-whiter);
+  font-family: var(--titles-important);
+  font-size: 1.25rem;
 }
 
 .lf-titulo {
@@ -85,10 +117,7 @@ button {
 }
 
 button:hover {
-  background-color: var(--accent-color-black);;
-  color: var(--accent-color-white);
-  border-style: solid;
-  border-width: 0.125rem;
+  background-color: var(--accent-color-whiter);
 }
 
 .pw-block {

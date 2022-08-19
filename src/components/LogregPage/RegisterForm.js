@@ -69,7 +69,7 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
         }}
       />
       <input
-        input
+        input="true"
         type="password"
         name="password"
         placeholder="Confirmar contrase&ntilde;a"

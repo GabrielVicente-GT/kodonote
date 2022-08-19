@@ -1,6 +1,7 @@
 import React from "react"
 import RegisterForm from "./components/LogregPage/RegisterForm"
 import LoginForm from "./components/LogregPage/LoginForm"
+import LoginBackgroundImage from "./images/code.jpg"
 import "./styles/LoginPage.css"
 
 const LogregPage = ({ auth }) => {
@@ -54,6 +55,7 @@ const LogregPage = ({ auth }) => {
           setLoginEmail={setLoginEmail}
           setLoginPW={setLoginPW}
           auth={auth}
+          bgImage={LoginBackgroundImage}
         />
       )}
     </div>

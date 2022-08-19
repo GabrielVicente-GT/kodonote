@@ -8,6 +8,12 @@ node_modules/
 node_modules/.cache/
 /dist
 
+# VSCode files
+.vscode
+/.vscode
+./.vscode
+*.vscode
+
 # testing
 /coverage
 
