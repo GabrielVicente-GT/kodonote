@@ -66,9 +66,7 @@ const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, 
         <button className="form-btn-is" onClick={handleSubmit}>
           Iniciar Sesión
         </button>
-        <button className="form-btn-reg" onClick={giveRegister}>
-          Registrarse
-        </button>
+        <span>¿No tienes una cuenta? Regístrate <p onClick={giveRegister}>aquí</p></span>
       </div>
       <div className="logreg-form-image" style={{ backgroundImage: `url(${bgImage})` }}>
         <div className="logreg-form-image-shadow">
