@@ -3,7 +3,7 @@ import "../styles/Menu.css"
 import AccoPopUp from '../components/PopupAccount'
 import ConfigPopUp from '../components/PopupConfig'
 import PopUp from '../components/PopUp'
-import logo from "../graphic-resources/logo-negative.png"
+import logo from "../images/logo-negative.png"
 
 const Options = ({ logOut, setNotes }) => {
 

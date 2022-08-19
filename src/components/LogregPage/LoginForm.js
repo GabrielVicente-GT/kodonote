@@ -1,7 +1,7 @@
 import React from "react"
 import "../../styles/LoginPage.css"
 import { useNavigate } from "react-router-dom"
-import logo from '../../graphic-resources/logo-negative.png'
+import logo from '../../images/logo-negative.png'
 import { useUserAuth } from "../../auth/UserAuthContext"
 
 // Formulario de iniciar sesion
