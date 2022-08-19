@@ -10,6 +10,7 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
 
   // Estado de errores
   const [registerError, setRegisterError] = React.useState("")
+  const [termsAgreed, setTermsAgreed] = React.useState(false)
 
   // Manejar errores segun los codigos de Firebase
   const handleError = (error) => {
@@ -24,20 +25,22 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
   const handleSubmit = async (e) => {
     e.preventDefault()
     console.log(registerPW, registerPW_conf)
-    try {
-      if (registerPW === registerPW_conf) {
-        await registerUser(registerEmail, registerPW)
-        // Al realizarse el registro, ejecutar el login
-      } else {
-        //Las contraseñas no coinciden
-        //window.location.reload(false)
-        alert("Las contraseñas ingresadas no coinciden")
+    if (termsAgreed) {
+      try {
+        if (registerPW === registerPW_conf) {
+          await registerUser(registerEmail, registerPW)
+          // Al realizarse el registro, ejecutar el login
+        } else {
+          //Las contraseñas no coinciden
+          //window.location.reload(false)
+          alert("Las contraseñas ingresadas no coinciden")
+        }
+        giveLogin()
+        setWelcome("¡Te has registrado!")
+      } catch(error) {
+        handleError(error.code)
+        console.log(error.code)
       }
-      giveLogin()
-      setWelcome("¡Te has registrado!")
-    } catch(error) {
-      handleError(error.code)
-      console.log(error.code)
     }
   }
 
@@ -79,6 +82,10 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
           setRegisterPW_conf(event.target.value);
         }}
       />
+      <label htmlFor="terms-input">
+        Acepto los términos y condiciones
+        <input type="checkbox" id="terms-input" onChange={(event) => setTermsAgreed(event.target.value)} />
+      </label>
       <button className="form-btn-reg" onClick={handleSubmit}>
         Registrarse
       </button>

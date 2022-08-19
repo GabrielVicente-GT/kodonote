@@ -47,13 +47,14 @@ const LogregPage = ({ auth }) => {
         />
       ) : (
         <LoginForm
-        text = {welcome}
-        giveRegister={giveRegister}
-        loginEmail={loginEmail}
-        loginPW={loginPW}
-        setLoginEmail={setLoginEmail}
-        setLoginPW={setLoginPW}
-        auth={auth} />
+          text = {welcome}
+          giveRegister={giveRegister}
+          loginEmail={loginEmail}
+          loginPW={loginPW}
+          setLoginEmail={setLoginEmail}
+          setLoginPW={setLoginPW}
+          auth={auth}
+        />
       )}
     </div>
   )
