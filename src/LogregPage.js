@@ -33,7 +33,7 @@ const LogregPage = ({ auth }) => {
 
   return (
     <div className="logreg-page">
-      {isReg ? (
+      {(isReg) ? (
         <RegisterForm
           giveLogin={giveLogin}
           registerPW={registerPW}

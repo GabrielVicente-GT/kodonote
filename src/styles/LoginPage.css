@@ -30,7 +30,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  box-shadow: 0 2px 25px rgb(0,0,0,0.25);
+  box-shadow: 0 0px 50px rgb(0, 0, 0, 0.5);
 }
 
 .logreg-form > img {
@@ -64,6 +64,10 @@ input {
   border-bottom: 0.125rem solid var(--accent-color-white);
   outline: none;
   background: transparent;
+}
+
+input::placeholder {
+  color: var(--accent-color-white);
 }
 
 button {
@@ -112,4 +116,21 @@ button:hover {
   font-family: var(--subtitles);
   font-weight: medium;
   font-size: 16px;
+}
+
+.terms {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  font-family: var(--subtitles);
+  color: var(--accent-color-white);
+  margin: 15px 0px;
+}
+
+.terms > input {
+  width: 20px;
+  height: 20px;
+  margin: 0px 10px;
 }

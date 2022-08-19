@@ -46,10 +46,7 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
 
   return (
     <div className="logreg-form">
-      <button className="form-btn-reg" onClick={giveLogin}>
-        Volver
-      </button>
-      <h1 className="lf-titulo"> Registrarse</h1>
+      <h1 className="lf-titulo">Registrarse</h1>
       {registerError && <p className="error">{registerError}</p>}
       <input
         type="email"
@@ -82,12 +79,17 @@ const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, set
           setRegisterPW_conf(event.target.value);
         }}
       />
-      <label htmlFor="terms-input">
-        Acepto los términos y condiciones
+      <div className="terms">
+        <label htmlFor="terms-input">
+          Acepto los términos y condiciones
+        </label>
         <input type="checkbox" id="terms-input" onChange={(event) => setTermsAgreed(event.target.value)} />
-      </label>
+      </div>
       <button className="form-btn-reg" onClick={handleSubmit}>
         Registrarse
+      </button>
+      <button className="form-btn-reg" onClick={giveLogin}>
+        Volver
       </button>
     </div>
   )
