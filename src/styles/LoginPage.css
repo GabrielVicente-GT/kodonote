@@ -57,6 +57,13 @@
   background-size: cover;
 }
 
+.logreg-form-image-alt {
+  width: 50%;
+  height: 100%;
+  border-radius: 50px 0px 0px 50px;
+  background-size: cover;
+}
+
 .logreg-form-image-shadow {
   height: 66.75%;
   display: flex;
@@ -64,8 +71,22 @@
   justify-content: center;
   align-items: center;
   padding: 100px;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.85);
   border-radius: 0px 50px 50px 0px;
+  color: var(--accent-color-whiter);
+  font-family: var(--titles-important);
+  font-size: 1.125rem;
+}
+
+.logreg-form-image-shadow-alt {
+  height: 66.75%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding: 100px;
+  background-color: rgba(0, 0, 0, 0.85);
+  border-radius: 50px 0px 0px 50px;
   color: var(--accent-color-whiter);
   font-family: var(--titles-important);
   font-size: 1.125rem;

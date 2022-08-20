@@ -4,19 +4,14 @@ import { useNavigate } from "react-router-dom"
 import logo from '../../images/logo-negative.png'
 import { useUserAuth } from "../../auth/UserAuthContext"
 
-// Formulario de iniciar sesion
 const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, loginPW, auth, bgImage }) => {
 
-  // importar funcion de el authcontext
   const { logIn }  = useUserAuth()
 
-  // Estado de errores
   const [loginError, setLoginError] = React.useState("")
 
-  // Necesaria para permitir el ingreso a la login page, navegar por las paginas
   const navigate = useNavigate()
 
-  // Manejar errores segun los codigos de Firebase
   const handleError = (error) => {
     if (error === "auth/wrong-password") {
       setLoginError("Contraseña incorrecta")
@@ -27,13 +22,10 @@ const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, 
     }
   }
 
-  //Funcion para controlar el login
-  const handleSubmit = async (e) => {
-    e.preventDefault()
+  const handleSubmit = async (event) => {
+    event.preventDefault()
     try {
-      // Esperar a que se haga el login
       await logIn(loginEmail, loginPW)
-      // Al ahcerlo el usuario sera enviado a la pagina principal
       navigate("/main")
     } catch(error) {
       handleError(error.code)
