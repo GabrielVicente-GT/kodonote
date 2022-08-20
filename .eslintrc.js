@@ -3,10 +3,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: [
-    'plugin:react/recommended',
-    'airbnb',
-  ],
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier'],
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
@@ -14,11 +11,12 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: [
-    'react',
-  ],
+  plugins: ['react'],
   rules: {
     semi: ['error', 'never'],
+    'no-alert': 'off',
+    'no-console': 'off',
+    'react/no-array-index-key': 'off',
     'react/function-component-definition': [
       2,
       {
@@ -27,5 +25,6 @@ module.exports = {
       },
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
+    'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
   },
 }

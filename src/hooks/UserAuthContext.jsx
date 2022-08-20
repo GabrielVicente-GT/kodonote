@@ -1,4 +1,5 @@
 import React, { createContext, useContext, useMemo } from 'react'
+import propTypes from 'prop-types'
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -9,9 +10,7 @@ import { auth } from '../firebase/firebaseConfig'
 
 const UserAuthContext = createContext()
 
-export const useUserAuth = () => useContext(UserAuthContext)
-
-export const UserAuthContextProvider = ({ children }) => {
+const UserAuthContextProvider = ({ children }) => {
   const [user, setUser] = React.useState({})
 
   React.useEffect(() => {
@@ -20,7 +19,8 @@ export const UserAuthContextProvider = ({ children }) => {
     })
   }, [])
 
-  const registerUser = (email, password) => createUserWithEmailAndPassword(auth, email, password)
+  const registerUser = (email, password) =>
+    createUserWithEmailAndPassword(auth, email, password)
 
   const logIn = (email, password) => {
     console.log('email desde autorcontext: ', email)
@@ -31,9 +31,15 @@ export const UserAuthContextProvider = ({ children }) => {
     await signOut(auth)
   }
 
-  const state = useMemo(() => ({
-    user, logIn, registerUser, logOut,
-  }), [user])
+  const state = useMemo(
+    () => ({
+      user,
+      logIn,
+      registerUser,
+      logOut,
+    }),
+    [user]
+  )
 
   return (
     <UserAuthContext.Provider value={state}>
@@ -41,3 +47,11 @@ export const UserAuthContextProvider = ({ children }) => {
     </UserAuthContext.Provider>
   )
 }
+
+UserAuthContextProvider.propTypes = {
+  children: propTypes.node.isRequired,
+}
+
+export const useUserAuth = () => useContext(UserAuthContext)
+
+export default UserAuthContextProvider

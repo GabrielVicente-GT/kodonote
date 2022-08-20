@@ -1,17 +1,17 @@
 import React from 'react'
+import propTypes from 'prop-types'
 import '../../styles/LoginPage.css'
 import { useUserAuth } from '../../hooks/UserAuthContext'
 
 const RegisterForm = ({
+  setWelcome,
   giveLogin,
   registerEmail,
-  registerPW,
-  setRegisterPW,
   setRegisterEmail,
-  auth,
-  setWelcome,
-  registerPW_conf,
-  setRegisterPW_conf,
+  registerPassword,
+  setRegisterPassword,
+  registerPasswordConfirm,
+  setRegisterPasswordConfirm,
   bgImage,
 }) => {
   const { registerUser } = useUserAuth()
@@ -29,11 +29,10 @@ const RegisterForm = ({
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    console.log(registerPW, registerPW_conf)
     if (termsAgreed) {
       try {
-        if (registerPW === registerPW_conf) {
-          await registerUser(registerEmail, registerPW)
+        if (registerPassword === registerPasswordConfirm) {
+          await registerUser(registerEmail, registerPassword)
         } else {
           alert('Las contraseñas ingresadas no coinciden')
         }
@@ -76,7 +75,7 @@ const RegisterForm = ({
           required=""
           id="input-password"
           onChange={(event) => {
-            setRegisterPW(event.target.value)
+            setRegisterPassword(event.target.value)
           }}
         />
         <input
@@ -87,7 +86,7 @@ const RegisterForm = ({
           required=""
           id="input-confirm-password"
           onChange={(event) => {
-            setRegisterPW_conf(event.target.value)
+            setRegisterPasswordConfirm(event.target.value)
           }}
         />
         <div className="terms">
@@ -98,17 +97,30 @@ const RegisterForm = ({
             onChange={(event) => setTermsAgreed(event.target.value)}
           />
         </div>
-        <button className="form-btn-reg" onClick={handleSubmit}>
+        <button type="button" className="form-btn-reg" onClick={handleSubmit}>
           Registrarse
         </button>
         <span>
           ¿Ya tienes una cuenta? Inicia sesión
-          {' '}
-          <p onClick={giveLogin}>aquí</p>
+          <button type="button" className="link-button" onClick={giveLogin}>
+            aquí
+          </button>
         </span>
       </div>
     </div>
   )
+}
+
+RegisterForm.propTypes = {
+  setWelcome: propTypes.func.isRequired,
+  giveLogin: propTypes.func.isRequired,
+  registerEmail: propTypes.string.isRequired,
+  setRegisterEmail: propTypes.func.isRequired,
+  registerPassword: propTypes.string.isRequired,
+  setRegisterPassword: propTypes.func.isRequired,
+  registerPasswordConfirm: propTypes.string.isRequired,
+  setRegisterPasswordConfirm: propTypes.func.isRequired,
+  bgImage: propTypes.string.isRequired,
 }
 
 export default RegisterForm

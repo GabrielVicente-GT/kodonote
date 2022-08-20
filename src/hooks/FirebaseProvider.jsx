@@ -1,6 +1,5 @@
-import React, {
-  createContext, useState, useEffect, useMemo,
-} from 'react'
+import React, { createContext, useState, useEffect, useMemo } from 'react'
+import propTypes from 'prop-types'
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 import { firebaseConfigInfo } from '../firebase/firebaseConfig'
@@ -26,6 +25,10 @@ const FirebaseProvider = ({ children }) => {
       {children}
     </FirebaseContext.Provider>
   )
+}
+
+FirebaseProvider.propTypes = {
+  children: propTypes.node.isRequired,
 }
 
 export { FirebaseProvider }

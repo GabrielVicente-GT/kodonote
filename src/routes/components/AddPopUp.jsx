@@ -36,19 +36,22 @@ const AddPopUp = () => {
           </div>
           <div className="option-pair">
             <label className="popup-text" htmlFor="identation-input">
-              Nombre del cuaderno:
-              {' '}
+              Nombre del cuaderno:{' '}
             </label>
             <input type="text" id="name-input" onInput={GetName} />
           </div>
           <div className="option-pair">
             <label className="popup-text" htmlFor="identation-input">
-              Color del cuaderno:
-              {' '}
+              Color del cuaderno:{' '}
             </label>
             <input type="color" id="color-input" onChange={GetColor} />
           </div>
-          <button className="CreateNotebook" id="InputColor" onClick={click}>
+          <button
+            type="button"
+            className="CreateNotebook"
+            id="InputColor"
+            onClick={click}
+          >
             Crear cuaderno
           </button>
         </div>

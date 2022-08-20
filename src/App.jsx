@@ -4,7 +4,7 @@ import LogregPage from './routes/LogregPage'
 import MainMenu from './routes/MainMenu'
 import Annotations from './routes/Annotations'
 import ProtectedRoute from './utils/ProtectedRoute'
-import { UserAuthContextProvider } from './hooks/UserAuthContext'
+import UserAuthContextProvider from './hooks/UserAuthContext'
 import { FirebaseProvider } from './hooks/FirebaseProvider'
 import './styles/App.css'
 
@@ -15,19 +15,19 @@ const App = () => (
         <Route path="/" element={<LogregPage />} />
         <Route
           path="/main"
-          element={(
+          element={
             <ProtectedRoute>
               <MainMenu />
             </ProtectedRoute>
-          )}
+          }
         />
         <Route
           path="/editor"
-          element={(
+          element={
             <ProtectedRoute>
               <Annotations />
             </ProtectedRoute>
-          )}
+          }
         />
       </Routes>
     </FirebaseProvider>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import propTypes from 'prop-types'
 import AccoPopUp from './PopupAccount'
 import ConfigPopUp from './PopupConfig'
 import PopUp from './PopUp'
@@ -32,18 +33,20 @@ const Options = ({ logOut, setNotes }) => {
       />
       <div className="option-list">
         <button
+          type="button"
           className="account-link"
           onClick={() => setButtonPopupCuen(true)}
         >
           Cuenta
         </button>
         <button
+          type="button"
           className="config-link"
           onClick={() => setButtonPopupConfi(true)}
         >
           Configuración
         </button>
-        <button className="log-out" onClick={handleLogOut}>
+        <button type="button" className="log-out" onClick={handleLogOut}>
           Cerrar sesión
         </button>
       </div>
@@ -55,6 +58,11 @@ const Options = ({ logOut, setNotes }) => {
       </PopUp>
     </div>
   )
+}
+
+Options.propTypes = {
+  logOut: propTypes.func.isRequired,
+  setNotes: propTypes.func.isRequired,
 }
 
 export default Options

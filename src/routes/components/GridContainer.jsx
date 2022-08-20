@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
-import Notebooks from './Notebooks.jsx'
+import propTypes from 'prop-types'
+import Notebooks from './Notebooks'
 import data from '../../static/notebooks.json'
-import AddPopUp from './PopupAddN'
+import AddPopUp from './AddPopUp'
 import PopUp from './PopUp'
 import '../../styles/Notebooks.css'
 
-const GridContainer = (props) => {
+const GridContainer = ({ notes }) => {
   const [buttonPopupCuen, setButtonPopupCuen] = useState(false)
 
-  const localizarNotebook = (Titlenotebook) => data.filter((notebook) => notebook.Title === Titlenotebook)[0] || ' '
+  const localizarNotebook = (Titlenotebook) =>
+    data.filter((notebook) => notebook.Title === Titlenotebook)[0] || ' '
 
-  const notes = localizarNotebook(props.notes)
+  const locatedNotes = localizarNotebook(notes)
 
-  if (props.notes === ' ' || notes === ' ') {
+  if (notes === ' ' || locatedNotes === ' ') {
     return (
       <div className="tablero">
         {data.map((cuaderno, index) => (
@@ -50,6 +52,10 @@ const GridContainer = (props) => {
       </div>
     </div>
   )
+}
+
+GridContainer.propTypes = {
+  notes: propTypes.string.isRequired,
 }
 
 export default GridContainer

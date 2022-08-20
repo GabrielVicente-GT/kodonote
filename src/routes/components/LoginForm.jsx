@@ -1,17 +1,17 @@
 import React from 'react'
-import '../../styles/LoginPage.css'
+import propTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../images/logo-negative.png'
 import { useUserAuth } from '../../hooks/UserAuthContext'
+import '../../styles/LoginPage.css'
 
 const LoginForm = ({
-  text,
+  welcomeText,
   giveRegister,
-  setLoginEmail,
-  setLoginPW,
   loginEmail,
-  loginPW,
-  auth,
+  setLoginEmail,
+  loginPassword,
+  setLoginPassword,
   bgImage,
 }) => {
   const { logIn } = useUserAuth()
@@ -33,11 +33,10 @@ const LoginForm = ({
   const handleSubmit = async (event) => {
     event.preventDefault()
     try {
-      await logIn(loginEmail, loginPW)
+      await logIn(loginEmail, loginPassword)
       navigate('/main')
     } catch (error) {
       handleError(error.code)
-      console.log(error.code)
     }
   }
 
@@ -45,7 +44,7 @@ const LoginForm = ({
     <div className="logreg-form">
       <div className="logreg-form-info">
         <img src={logo} alt="logotipo" />
-        <h1 className="lf-titulo">{text}</h1>
+        <h1 className="lf-titulo">{welcomeText}</h1>
         {loginError && <p className="error">{loginError}</p>}
         <input
           type="Email"
@@ -64,16 +63,17 @@ const LoginForm = ({
           placeholder="Contraseña"
           required
           onChange={(event) => {
-            setLoginPW(event.target.value)
+            setLoginPassword(event.target.value)
           }}
         />
-        <button className="form-btn-is" onClick={handleSubmit}>
+        <button type="button" className="form-btn-is" onClick={handleSubmit}>
           Iniciar Sesión
         </button>
         <span>
-          ¿No tienes una cuenta? Regístrate
-          {' '}
-          <p onClick={giveRegister}>aquí</p>
+          ¿No tienes una cuenta? Regístrate{' '}
+          <button type="button" className="link-button" onClick={giveRegister}>
+            aquí
+          </button>
         </span>
       </div>
       <div
@@ -86,6 +86,16 @@ const LoginForm = ({
       </div>
     </div>
   )
+}
+
+LoginForm.propTypes = {
+  welcomeText: propTypes.string.isRequired,
+  giveRegister: propTypes.func.isRequired,
+  loginEmail: propTypes.string.isRequired,
+  setLoginEmail: propTypes.func.isRequired,
+  loginPassword: propTypes.string.isRequired,
+  setLoginPassword: propTypes.func.isRequired,
+  bgImage: propTypes.string.isRequired,
 }
 
 export default LoginForm

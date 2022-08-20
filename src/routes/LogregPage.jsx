@@ -1,50 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import RegisterForm from './components/RegisterForm'
 import LoginForm from './components/LoginForm'
 import LoginBackgroundImage from '../images/code.jpg'
 import '../styles/LoginPage.css'
 
-const LogregPage = ({ auth }) => {
-  const [isReg, setisReg] = React.useState(false)
-  const [welcome, setWelcome] = React.useState('Bienvenid@')
-  const [registerEmail, setRegisterEmail] = React.useState([''])
-  const [registerPW, setRegisterPW] = React.useState([''])
-  const [registerPW_conf, setRegisterPW_conf] = React.useState([''])
-  const [loginEmail, setLoginEmail] = React.useState([''])
-  const [loginPW, setLoginPW] = React.useState([''])
+const LogregPage = () => {
+  const [welcomeText, setWelcomeText] = useState('Bienvenid@')
+  const [isReg, setIsReg] = useState(false)
+  const [registerEmail, setRegisterEmail] = useState()
+  const [registerPassword, setRegisterPassword] = useState()
+  const [registerPasswordConfirm, setRegisterPasswordConfirm] = useState()
+  const [loginEmail, setLoginEmail] = useState()
+  const [loginPassword, setLoginPassword] = useState()
 
   const giveRegister = () => {
-    setisReg(true)
+    setIsReg(true)
   }
 
   const giveLogin = () => {
-    setisReg(false)
+    setIsReg(false)
   }
 
   return (
     <div className="logreg-page">
       {isReg ? (
         <RegisterForm
+          setWelcome={setWelcomeText}
           giveLogin={giveLogin}
-          registerPW={registerPW}
           registerEmail={registerEmail}
           setRegisterEmail={setRegisterEmail}
-          setRegisterPW={setRegisterPW}
-          auth={auth}
-          setWelcome={setWelcome}
-          registerPW_conf={registerPW_conf}
-          setRegisterPW_conf={setRegisterPW_conf}
+          registerPassword={registerPassword}
+          setRegisterPassword={setRegisterPassword}
+          registerPasswordConfirm={registerPasswordConfirm}
+          setRegisterPasswordConfirm={setRegisterPasswordConfirm}
           bgImage={LoginBackgroundImage}
         />
       ) : (
         <LoginForm
-          text={welcome}
+          welcomeText={welcomeText}
           giveRegister={giveRegister}
           loginEmail={loginEmail}
-          loginPW={loginPW}
           setLoginEmail={setLoginEmail}
-          setLoginPW={setLoginPW}
-          auth={auth}
+          loginPassword={loginPassword}
+          setLoginPassword={setLoginPassword}
           bgImage={LoginBackgroundImage}
         />
       )}

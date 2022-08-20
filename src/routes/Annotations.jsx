@@ -1,8 +1,6 @@
 import React from 'react'
 import '../styles/Annotations.css'
-import {
-  query, collection, onSnapshot, addDoc,
-} from 'firebase/firestore'
+import { query, collection, onSnapshot, addDoc } from 'firebase/firestore'
 import FirebaseContext from '../hooks/FirebaseProvider'
 
 const Annotations = () => {
@@ -28,8 +26,8 @@ const Annotations = () => {
   }
 
   const removeSection = () => {
-    setNotebook((notebook) => {
-      const temp = [...notebook.notebook]
+    setNotebook((previousNotebook) => {
+      const temp = [...previousNotebook.notebook]
       temp.pop()
       return { notebook: temp }
     })
