@@ -25,7 +25,7 @@ const App = () => (
           path="/editor"
           element={
             <ProtectedRoute>
-              <Annotations/>
+              <Annotations />
             </ProtectedRoute>
           }
         />
