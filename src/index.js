@@ -1,20 +1,13 @@
 import React from "react"
-import ReactDOM from "react-dom"
-import { FirebaseProvider } from "./hooks/FirebaseProvider"
-
-import { BrowserRouter } from "react-router-dom"
-
-// HashRouter Router -> electron
+import { createRoot } from "react-dom/client"
 import { HashRouter } from "react-router-dom"
-
-// Pages
 import App from "./App"
 
-ReactDOM.render(
-    <HashRouter>
-      <FirebaseProvider>
-        <App/>
-      </FirebaseProvider>
-    </HashRouter>,
-  document.getElementById("root")
+const root = document.getElementById("root")
+const reactRoot = createRoot(root)
+
+reactRoot.render(
+  <HashRouter>
+    <App />
+  </HashRouter>
 )
