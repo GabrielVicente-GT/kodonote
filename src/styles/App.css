@@ -1,8 +1,8 @@
 :root {
-  --main-color: #B50013;
+  --main-color: #b50013;
   --secondary-color: #113743;
-  --accent-color-black: #181A1B;
-  --accent-color-white: #E4E3DB;
+  --accent-color-black: #181a1b;
+  --accent-color-white: #e4e3db;
 }
 
 .app {
@@ -10,7 +10,8 @@
   height: 100%;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   background-color: var(--main-color);

@@ -3,9 +3,9 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
-  onAuthStateChanged
-} from "firebase/auth"
-import { auth } from "../firebase/firebaseConfig"
+  onAuthStateChanged,
+} from 'firebase/auth'
+import { auth } from '../firebase/firebaseConfig'
 
 const UserAuthContext = createContext()
 
@@ -14,7 +14,6 @@ export const useUserAuth = () => {
 }
 
 export const UserAuthContextProvider = ({ children }) => {
-
   const [user, setUser] = React.useState({})
 
   React.useEffect(() => {
@@ -28,7 +27,7 @@ export const UserAuthContextProvider = ({ children }) => {
   }
 
   const logIn = (email, password) => {
-    console.log("email desde autorcontext: ", email)
+    console.log('email desde autorcontext: ', email)
     return signInWithEmailAndPassword(auth, email, password)
   }
 

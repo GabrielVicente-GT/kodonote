@@ -1,12 +1,11 @@
-import React, { createContext, useState, useEffect, useMemo } from "react"
-import { initializeApp } from "firebase/app"
-import { getFirestore } from "firebase/firestore"
-import { firebaseConfigInfo } from "../firebase/firebaseConfig"
+import React, { createContext, useState, useEffect, useMemo } from 'react'
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
+import { firebaseConfigInfo } from '../firebase/firebaseConfig'
 
 const FirebaseContext = createContext()
 
 const FirebaseProvider = ({ children }) => {
-
   const [app, setApp] = useState(null)
   const [db, setDb] = useState(null)
 

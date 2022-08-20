@@ -1,24 +1,32 @@
-import React from "react"
-import "../../styles/LoginPage.css"
-import { useNavigate } from "react-router-dom"
+import React from 'react'
+import '../../styles/LoginPage.css'
+import { useNavigate } from 'react-router-dom'
 import logo from '../../images/logo-negative.png'
-import { useUserAuth } from "../../hooks/UserAuthContext"
+import { useUserAuth } from '../../hooks/UserAuthContext'
 
-const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, loginPW, auth, bgImage }) => {
+const LoginForm = ({
+  text,
+  giveRegister,
+  setLoginEmail,
+  setLoginPW,
+  loginEmail,
+  loginPW,
+  auth,
+  bgImage,
+}) => {
+  const { logIn } = useUserAuth()
 
-  const { logIn }  = useUserAuth()
-
-  const [loginError, setLoginError] = React.useState("")
+  const [loginError, setLoginError] = React.useState('')
 
   const navigate = useNavigate()
 
   const handleError = (error) => {
-    if (error === "auth/wrong-password") {
-      setLoginError("Contraseña incorrecta")
-    } else if (error === "auth/invalid-email") {
-      setLoginError("Has ingresado un email inexistente o invalido")
-    } else if (error === "auth/user-not-found") {
-      setLoginError("Este correo no está registrado")
+    if (error === 'auth/wrong-password') {
+      setLoginError('Contraseña incorrecta')
+    } else if (error === 'auth/invalid-email') {
+      setLoginError('Has ingresado un email inexistente o invalido')
+    } else if (error === 'auth/user-not-found') {
+      setLoginError('Este correo no está registrado')
     }
   }
 
@@ -26,8 +34,8 @@ const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, 
     event.preventDefault()
     try {
       await logIn(loginEmail, loginPW)
-      navigate("/main")
-    } catch(error) {
+      navigate('/main')
+    } catch (error) {
       handleError(error.code)
       console.log(error.code)
     }
@@ -45,7 +53,9 @@ const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, 
           name="Email"
           placeholder="Email"
           required
-          onChange={(event) => {setLoginEmail(event.target.value)}}
+          onChange={(event) => {
+            setLoginEmail(event.target.value)
+          }}
         />
         <input
           type="password"
@@ -53,14 +63,21 @@ const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, 
           name="password"
           placeholder="Contraseña"
           required
-          onChange={(event) => {setLoginPW(event.target.value)}}
+          onChange={(event) => {
+            setLoginPW(event.target.value)
+          }}
         />
         <button className="form-btn-is" onClick={handleSubmit}>
           Iniciar Sesión
         </button>
-        <span>¿No tienes una cuenta? Regístrate <p onClick={giveRegister}>aquí</p></span>
+        <span>
+          ¿No tienes una cuenta? Regístrate <p onClick={giveRegister}>aquí</p>
+        </span>
       </div>
-      <div className="logreg-form-image" style={{ backgroundImage: `url(${bgImage})` }}>
+      <div
+        className="logreg-form-image"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      >
         <div className="logreg-form-image-shadow">
           <h1>Los apuntes de tus sueños a tu alcance</h1>
         </div>

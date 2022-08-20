@@ -1,15 +1,14 @@
 {
-  "presets": ["@babel/preset-env", 
+  "presets": [
+    "@babel/preset-env",
     [
-      "@babel/preset-react", {
+      "@babel/preset-react",
+      {
         "throwIfNamespace": false,
         "runtime": "automatic",
         "importSource": "react"
       }
     ]
   ],
-  "plugins": [
-    "@babel/plugin-transform-react-jsx",
-    "@emotion/babel-plugin"
-  ]
+  "plugins": ["@babel/plugin-transform-react-jsx", "@emotion/babel-plugin"]
 }

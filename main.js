@@ -5,8 +5,8 @@ const createWindow = () => {
     width: 1280,
     height: 1024,
     webPreferences: {
-      nodeIntegration: true
-    }
+      nodeIntegration: true,
+    },
   })
   mainWindow.loadFile('./dist/index.html')
 }

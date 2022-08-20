@@ -1,11 +1,11 @@
 const path = require('path')
-const htmlwebpackplugin = require("html-webpack-plugin")
+const htmlwebpackplugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: './src/index.js',
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -13,32 +13,34 @@ module.exports = {
         test: /\.m?js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: "babel-loader",
+          loader: 'babel-loader',
           options: {
-            presets: ["@babel/preset-env", "@babel/preset-react"],
-            plugins: ["@babel/transform-runtime"]
+            presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['@babel/transform-runtime'],
           },
         },
-      }, {
+      },
+      {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,
         type: 'asset',
-      }, {
+      },
+      {
         test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
   plugins: [
     new htmlwebpackplugin({
-      template: path.join(__dirname, "./public/index.html"),
+      template: path.join(__dirname, './public/index.html'),
     }),
   ],
   devServer: {
     static: {
-        directory: path.join(__dirname, "public")
-      },
-      compress: true,
-      port: 3010,
-      historyApiFallback: true,
+      directory: path.join(__dirname, 'public'),
+    },
+    compress: true,
+    port: 3010,
+    historyApiFallback: true,
   },
 }

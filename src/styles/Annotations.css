@@ -38,14 +38,14 @@
   display: grid;
   background: white;
   color: white;
-  text-align:center;
+  text-align: center;
   grid-template-columns: 1fr;
 }
 
 .editor {
   margin-top: 20px;
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
 }
 
 .paper {
@@ -62,14 +62,14 @@
 }
 
 .boton {
-  background-color: #B60114;
-  border: 1px #B60114 solid;
+  background-color: #b60114;
+  border: 1px #b60114 solid;
   padding: 20px;
   height: 20px;
   position: relative;
   font-family: 'Fira Code', monospace;
   font-size: 12px;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   width: 250px;
   display: flex;
@@ -79,6 +79,6 @@
 
 .boton:hover {
   cursor: pointer;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: black;
 }
