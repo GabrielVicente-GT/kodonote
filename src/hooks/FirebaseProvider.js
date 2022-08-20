@@ -1,36 +1,24 @@
-import React from "react"
+import React, { createContext, useState, useEffect, useMemo } from "react"
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
+import { firebaseConfigInfo } from "../firebase/firebaseConfig"
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDDJcbo1oRvSTTT_FcLJ8cPTRoVq0gVFlc",
-  authDomain: "kodonote.firebaseapp.com",
-  projectId: "kodonote",
-  storageBucket: "kodonote.appspot.com",
-  messagingSenderId: "223135808540",
-  appId: "1:223135808540:web:9b595e4b74c4a14b89f3d9",
-  measurementId: "G-EVB7GZ1F7T",
-}
-
-const FirebaseContext = React.createContext()
+const FirebaseContext = createContext()
 
 const FirebaseProvider = ({ children }) => {
 
-  const [app, setApp] = React.useState(null)
-  const [db, setDb] = React.useState(null)
+  const [app, setApp] = useState(null)
+  const [db, setDb] = useState(null)
 
-  React.useEffect(() => {
-    setApp(initializeApp(firebaseConfig))
+  useEffect(() => {
+    setApp(initializeApp(firebaseConfigInfo))
   }, [])
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (app) setDb(getFirestore(app))
   }, [app])
 
-  const state = {
-    app,
-    db,
-  }
+  const state = useMemo(() => ({ app, db }), [app, db])
 
   return (
     <FirebaseContext.Provider value={state}>

@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app"
 import { getAuth } from "firebase/auth" 
 
-const firebaseConfig = {
+const firebaseConfigInfo = {
   apiKey: "AIzaSyDDJcbo1oRvSTTT_FcLJ8cPTRoVq0gVFlc",
   authDomain: "kodonote.firebaseapp.com",
   projectId: "kodonote",
@@ -11,5 +11,7 @@ const firebaseConfig = {
   measurementId: "G-EVB7GZ1F7T",
 }
 
-const app = initializeApp(firebaseConfig)
+export { firebaseConfigInfo }
+
+const app = initializeApp(firebaseConfigInfo)
 export const auth = getAuth(app)
