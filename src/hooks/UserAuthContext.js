@@ -5,27 +5,19 @@ import {
   signOut,
   onAuthStateChanged
 } from "firebase/auth"
-
 import { auth } from "../firebase/firebase-config"
 
-// Se crea un contexto
 const UserAuthContext = createContext()
 
-/// Variable para manipular el contexto
 export const useUserAuth = () => {
   return useContext(UserAuthContext)
 }
 
-// Componente que develve el context provider, dentro de el van los componentes que quieran acceder
-// A la infomración de la cuenta
 export const UserAuthContextProvider = ({ children }) => {
 
-  // Estado para controlar el usuario
   const [user, setUser] = React.useState({})
 
   React.useEffect(() => {
-    // Cada vez que se inica una sesion, se cambia al usuario por el que tiene auth
-    // si dejo al sesión iniciada
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser)
     })

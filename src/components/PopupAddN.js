@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import "../styles/Menu.css"
-import data from "./Notebooks.json"
+import data from "../static/notebooks.json"
 
 const AddPopUp = () => {
 

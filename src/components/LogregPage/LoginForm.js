@@ -2,7 +2,7 @@ import React from "react"
 import "../../styles/LoginPage.css"
 import { useNavigate } from "react-router-dom"
 import logo from '../../images/logo-negative.png'
-import { useUserAuth } from "../../auth/UserAuthContext"
+import { useUserAuth } from "../../hooks/UserAuthContext"
 
 const LoginForm = ({ text, giveRegister, setLoginEmail, setLoginPW, loginEmail, loginPW, auth, bgImage }) => {
 

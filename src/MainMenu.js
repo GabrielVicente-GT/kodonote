@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import "./styles/App.css"
 import GridContainer from "./components/ContainerNB.js"
 import Options from "./components/options.js"
-import { useUserAuth } from "./auth/UserAuthContext"
+import { useUserAuth } from "./hooks/UserAuthContext"
 
 const MainMenu = () => {
 

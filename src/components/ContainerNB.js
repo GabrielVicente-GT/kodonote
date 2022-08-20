@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import Notebooks from "./Notebooks.js"
-import data from "./Notebooks.json"
+import data from "../static/notebooks.json"
 import "../styles/Notebooks.css"
 import AddPopUp from "./PopupAddN"
 import PopUp from '../components/PopUp'

@@ -10,8 +10,14 @@ node_modules/.cache/
 
 # VSCode files
 .vscode
+.vscode/
+.vscode/*
 /.vscode
+/.vscode/
+/.vscode/*
 ./.vscode
+./.vscode/
+./.vscode/*
 *.vscode
 
 # testing

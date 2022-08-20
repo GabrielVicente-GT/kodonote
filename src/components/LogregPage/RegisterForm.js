@@ -1,6 +1,6 @@
 import React from "react"
 import "../../styles/LoginPage.css"
-import { useUserAuth } from "../../auth/UserAuthContext"
+import { useUserAuth } from "../../hooks/UserAuthContext"
 
 const RegisterForm = ({ giveLogin, registerEmail, registerPW, setRegisterPW, setRegisterEmail, auth, setWelcome, registerPW_conf, setRegisterPW_conf, bgImage }) => {
 
