@@ -9,5 +9,5 @@ const reactRoot = createRoot(root)
 reactRoot.render(
   <HashRouter>
     <App />
-  </HashRouter>
+  </HashRouter>,
 )

@@ -102,7 +102,9 @@ const RegisterForm = ({
           Registrarse
         </button>
         <span>
-          ¿Ya tienes una cuenta? Inicia sesión <p onClick={giveLogin}>aquí</p>
+          ¿Ya tienes una cuenta? Inicia sesión
+          {' '}
+          <p onClick={giveLogin}>aquí</p>
         </span>
       </div>
     </div>

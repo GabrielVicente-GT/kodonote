@@ -1,7 +1,9 @@
 import React from 'react'
 import '../styles/Annotations.css'
+import {
+  query, collection, onSnapshot, addDoc,
+} from 'firebase/firestore'
 import FirebaseContext from '../hooks/FirebaseProvider'
-import { query, collection, onSnapshot, addDoc } from 'firebase/firestore'
 
 const Annotations = () => {
   const [notebook, setNotebook] = React.useState({ notebook: [] })

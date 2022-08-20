@@ -12,7 +12,7 @@ const MainMenu = () => {
     <div>
       <header className="header">
         <h2 className="title">
-          {user ? 'Hola de nuevo ' + user?.email + '!' : 'Kodonote'}
+          {user ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
         </h2>
       </header>
       <div className="content">

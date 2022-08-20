@@ -17,7 +17,7 @@ const AddPopUp = () => {
   const click = () => {
     data.push({
       id: data.length + 1,
-      Classname: 'notebook ' + nameN + '-notebook',
+      Classname: `notebook ${nameN}-notebook`,
       Title: nameN,
       LastTimeUse: 'Editado: --',
       Color: color,
@@ -36,13 +36,15 @@ const AddPopUp = () => {
           </div>
           <div className="option-pair">
             <label className="popup-text" htmlFor="identation-input">
-              Nombre del cuaderno:{' '}
+              Nombre del cuaderno:
+              {' '}
             </label>
             <input type="text" id="name-input" onInput={GetName} />
           </div>
           <div className="option-pair">
             <label className="popup-text" htmlFor="identation-input">
-              Color del cuaderno:{' '}
+              Color del cuaderno:
+              {' '}
             </label>
             <input type="color" id="color-input" onChange={GetColor} />
           </div>

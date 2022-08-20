@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import AccoPopUp from './PopupAccount'
-import ConfigPopUp from '../components/PopupConfig'
-import PopUp from '../components/PopUp'
+import ConfigPopUp from './PopupConfig'
+import PopUp from './PopUp'
 import logo from '../../images/logo-negative.png'
 import '../../styles/Menu.css'
 

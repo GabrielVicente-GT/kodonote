@@ -1,4 +1,6 @@
-import React, { createContext, useState, useEffect, useMemo } from 'react'
+import React, {
+  createContext, useState, useEffect, useMemo,
+} from 'react'
 import { initializeApp } from 'firebase/app'
 import { getFirestore } from 'firebase/firestore'
 import { firebaseConfigInfo } from '../firebase/firebaseConfig'

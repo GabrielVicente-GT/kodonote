@@ -44,7 +44,7 @@ const LoginForm = ({
   return (
     <div className="logreg-form">
       <div className="logreg-form-info">
-        <img src={logo} alt="logotipo"></img>
+        <img src={logo} alt="logotipo" />
         <h1 className="lf-titulo">{text}</h1>
         {loginError && <p className="error">{loginError}</p>}
         <input
@@ -71,7 +71,9 @@ const LoginForm = ({
           Iniciar Sesión
         </button>
         <span>
-          ¿No tienes una cuenta? Regístrate <p onClick={giveRegister}>aquí</p>
+          ¿No tienes una cuenta? Regístrate
+          {' '}
+          <p onClick={giveRegister}>aquí</p>
         </span>
       </div>
       <div
