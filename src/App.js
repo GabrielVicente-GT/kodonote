@@ -3,19 +3,11 @@ import "./styles/App.css"
 import LogregPage from "./LogregPage"
 import MainMenu from './MainMenu'
 import Annotations from "./components/Annotations"
-
-// React Router
-import { 
-  Routes, Route 
-} from "react-router-dom"
-
-import ProtectedRoute from "./ProtectedRoute"
-
-// autenticacion, crea el contexto para proteger rutas
+import { Routes, Route } from "react-router-dom"
+import ProtectedRoute from "./utils/ProtectedRoute"
 import { UserAuthContextProvider } from "./auth/UserAuthContext"
 import { FirebaseProvider } from "./hooks/FirebaseProvider"
 
-// App -> echa para porbar el iniciar sesion
 const App = () => (
   <UserAuthContextProvider>
     <FirebaseProvider>
