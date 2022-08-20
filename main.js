@@ -4,7 +4,7 @@ const createWindow = () => {
   const mainWindow = new BrowserWindow({
     width: 1280,
     height: 1024,
-    webPreferences:{
+    webPreferences: {
       nodeIntegration: true
     }
   })
