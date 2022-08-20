@@ -1,5 +1,5 @@
 import React from 'react'
-import "../styles/Menu.css"
+import "../../styles/Menu.css"
 
 const ConfigPopUp = () => (
   <div className="popup preferences-link-popup hide" id="preferences-link-popup">

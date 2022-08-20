@@ -1,8 +1,8 @@
 import React from "react"
 import "./styles/App.css"
-import LogregPage from "./LogregPage"
-import MainMenu from './MainMenu'
-import Annotations from "./components/Annotations"
+import LogregPage from "./routes/LogregPage"
+import MainMenu from './routes/MainMenu'
+import Annotations from "./routes/Annotations"
 import { Routes, Route } from "react-router-dom"
 import ProtectedRoute from "./utils/ProtectedRoute"
 import { UserAuthContextProvider } from "./hooks/UserAuthContext"

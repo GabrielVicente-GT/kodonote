@@ -1,9 +1,9 @@
 import React, { useState } from "react"
 import Notebooks from "./Notebooks.js"
-import data from "../static/notebooks.json"
-import "../styles/Notebooks.css"
+import data from "../../static/notebooks.json"
 import AddPopUp from "./PopupAddN"
 import PopUp from '../components/PopUp'
+import "../../styles/Notebooks.css"
 
 const GridContainer = (props) => {
   const [buttonPopupCuen, setButtonPopupCuen] = useState(false)

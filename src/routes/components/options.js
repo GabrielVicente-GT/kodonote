@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
-import "../styles/Menu.css"
 import AccoPopUp from '../components/PopupAccount'
 import ConfigPopUp from '../components/PopupConfig'
 import PopUp from '../components/PopUp'
-import logo from "../images/logo-negative.png"
+import logo from "../../images/logo-negative.png"
+import "../../styles/Menu.css"
 
 const Options = ({ logOut, setNotes }) => {
 
   const handleLogOut = async () => {
-    try{
+    try {
       await logOut()
-    } catch(error){
-      console.log(error.message)
+    } catch(error) {
+      console.error(error.message)
     }
   }
 

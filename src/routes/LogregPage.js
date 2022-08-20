@@ -1,8 +1,8 @@
 import React from "react"
-import RegisterForm from "./components/LogregPage/RegisterForm"
-import LoginForm from "./components/LogregPage/LoginForm"
-import LoginBackgroundImage from "./images/code.jpg"
-import "./styles/LoginPage.css"
+import RegisterForm from "./components/RegisterForm"
+import LoginForm from "./components/LoginForm"
+import LoginBackgroundImage from "../images/code.jpg"
+import "../styles/LoginPage.css"
 
 const LogregPage = ({ auth }) => {
 
