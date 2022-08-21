@@ -1,13 +1,31 @@
-.pruebaEmotion {
-  width: 500px;
+.code-area {
+  margin: 7.5px 0px;
+  min-width: 500px;
+  max-width: 500px;
+  font-size: 18px;
   height: 300px;
   background-color: black;
   color: white;
   font-family: Courier New;
+  padding: 20px;
   outline: none;
   border: 1px solid white;
-  border-radius: 0px;
-  resize: none;
+  border-radius: 15px;
+}
+
+.notes-area {
+  margin: 7.5px 0px;
+  min-width: 500px;
+  max-width: 500px;
+  padding: 20px;
+  height: 300px;
+  border: 1px solid rgb(85, 85, 85);
+  outline: none;
+  background-color: white;
+  color: black;
+  font-family: Arial;
+  font-size: 18px;
+  border-radius: 15px;
 }
 
 .espacio {
@@ -17,14 +35,6 @@
 .espacio > img {
   width: 600px;
   height: 70px;
-}
-
-.pruebaEmotion2 {
-  width: 500px;
-  height: 300px;
-  background-color: white;
-  color: black;
-  font-family: Arial;
 }
 
 .laboratorioStyle {

@@ -72,8 +72,8 @@ const Annotations = () => {
               key={index.toString()}
               className={
                 contentBlock.sectionType === 'code'
-                  ? 'pruebaEmotion'
-                  : 'pruebaEmotion2'
+                  ? 'code-area'
+                  : 'notes-area'
               }
               onChange={(event) => {
                 setNotebook((previousState) => {
