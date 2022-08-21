@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import GridContainer from './components/GridContainer'
-import Options from './components/options'
+import Options from './components/Options'
 import { useUserAuth } from '../hooks/UserAuthContext'
 import '../styles/App.css'
 
