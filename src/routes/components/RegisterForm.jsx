@@ -97,11 +97,11 @@ const RegisterForm = ({
             onChange={(event) => setTermsAgreed(event.target.value)}
           />
         </div>
-        <button type="button" className="form-btn-reg" onClick={handleSubmit}>
+        <button type="button" className="form-btn-is" onClick={handleSubmit}>
           Registrarse
         </button>
         <span>
-          ¿Ya tienes una cuenta? Inicia sesión
+          ¿Ya tienes una cuenta? Inicia sesión{' '}
           <button type="button" className="link-button" onClick={giveLogin}>
             aquí
           </button>

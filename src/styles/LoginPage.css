@@ -124,7 +124,7 @@ input::placeholder {
   color: var(--accent-color-white);
 }
 
-button {
+.form-btn-is {
   background-color: var(--accent-color-white);
   color: var(--accent-color-black);
   height: 40px;
@@ -138,7 +138,7 @@ button {
   font-size: 16px;
 }
 
-button:hover {
+.form-btn-is:hover {
   background-color: var(--accent-color-whiter);
 }
 
@@ -153,11 +153,9 @@ button:hover {
 .error {
   background-color: var(--main-color);
   color: var(--accent-color-white);
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   height: 50px;
   border-radius: 4px;
   justify-content: center;
@@ -194,8 +192,16 @@ span {
 }
 
 .link-button {
+  font-family: var(--subtitles);
+  font-size: 16px;
   background: none;
+  outline: none;
+  border: none;
   color: var(--accent-color-whiter);
   text-decoration: underline;
   cursor: pointer;
+}
+
+.link-button:hover {
+  color: var(--accent-color-whiter);
 }
