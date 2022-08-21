@@ -23,12 +23,12 @@ const GridContainer = ({ notes }) => {
               <AddPopUp />
             </PopUp>
             <Notebooks
-              key={cuaderno.id}
-              Title={cuaderno.Title}
-              LastTimeUse={cuaderno.LastTimeUse}
-              Classname={cuaderno.Classname}
-              setNBmenu={setButtonPopupCuen}
-              Color={cuaderno.Color}
+              id={cuaderno.id}
+              title={cuaderno.Title}
+              lastTimeEdited={cuaderno.LastTimeUse}
+              className={cuaderno.Classname}
+              setNotebookMenu={setButtonPopupCuen}
+              color={cuaderno.Color}
             />
           </div>
         ))}
