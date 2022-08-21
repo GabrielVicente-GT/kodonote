@@ -12,7 +12,10 @@ const LandingPage = () => (
     </header>
     <main className="landing-page-main">
       <h1>Landing Page</h1>
-      <Link to="/login">Inicia sesión</Link>
+      <span>
+        Inicia sesión dando click {' '}
+        <Link to="/login">aquí</Link>
+      </span>
     </main>
   </div>
 )
