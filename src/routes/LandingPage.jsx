@@ -16,10 +16,15 @@ const LandingPage = () => (
     </header>
     <main className="landing-page-main">
       <div className="landing-page-card">
-        <h1>Landing Page</h1>
-        <span>
-          Inicia sesión dando click {' '}
-          <Link to="/login">aquí</Link>
+        <h1 className="card-title">¡Bienvenido a Kodonote!</h1>
+        <p className="card-paragraph">
+          Kodonote es una aplicación web que te permite crear notas de manera
+          ágil y sencilla. Crea notas, edita y elimina notas, todo desde una
+          interfaz amigable y fácil de usar. ¡Comienza ahora!
+        </p>
+        <span className="card-link">
+          Inicia sesión dando click&nbsp;
+          <Link className="card-link-clickable" to="/login">aquí</Link>
         </span>
       </div>
     </main>
