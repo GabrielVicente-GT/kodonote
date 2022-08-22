@@ -65,7 +65,7 @@
 }
 
 .logreg-form-image-shadow {
-  height: 66.75%;
+  height: 100%;
   display: flex;
   text-align: center;
   justify-content: center;
@@ -79,7 +79,7 @@
 }
 
 .logreg-form-image-shadow-alt {
-  height: 66.75%;
+  height: 100%;
   display: flex;
   text-align: center;
   justify-content: center;
