@@ -9,7 +9,7 @@ const MainMenu = () => {
   const [notes, setNotes] = useState('')
 
   return (
-    <div>
+    <div className='mainmenu'>
       <header className="header">
         <h2 className="title">
           {user ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}

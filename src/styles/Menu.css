@@ -21,6 +21,10 @@
   padding: 0;
 }
 
+.mainmenu{
+  overflow: hidden;
+}
+
 .header {
   background-color: var(--secondary-color);
   display: flex;
