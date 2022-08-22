@@ -9,36 +9,22 @@
   {
     "id": 2,
     "Classname": "notebook data-structures-notebook",
-    "Title": "Estructura de datos",
-    "LastTimeUse": "Editado: 24/05/2021 08:32",
-    "Color": "#3291BA"
+    "Title": "React",
+    "LastTimeUse": "05/08/2022 08:32",
+    "Color": "#22577A"
   },
   {
     "id": 3,
     "Classname": "notebook assembly-notebook",
-    "Title": "Lenguaje Assembly",
-    "LastTimeUse": "Editado: 28/05/2021 13:18",
-    "Color": "#492D8A"
+    "Title": "Python",
+    "LastTimeUse": "24/07/2022 13:18",
+    "Color": "#F1D302"
   },
   {
     "id": 4,
-    "Classname": "notebook unity-notebook",
-    "Title": "Unity",
-    "LastTimeUse": "Editado: 21/05/2021 11:26",
-    "Color": "#1C2833"
-  },
-  {
-    "id": 5,
-    "Classname": "notebook web-notebook",
-    "Title": "Tecnologías Web",
-    "LastTimeUse": "Editado: 08/03/2022 18:54",
-    "Color": "#22A640"
-  },
-  {
-    "id": 6,
-    "Classname": "notebook software-engineering-notebook",
-    "Title": "Ingeniería de Software 1",
-    "LastTimeUse": "Editado: 09/03/2022 18:49",
-    "Color": "#A65022"
+    "Classname": "notebook assembly-notebook",
+    "Title": "PHP",
+    "LastTimeUse": "10/08/2022 01:25",
+    "Color": "#985F99"
   }
 ]
