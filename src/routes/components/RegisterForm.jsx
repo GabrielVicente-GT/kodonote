@@ -3,6 +3,8 @@ import propTypes from 'prop-types'
 import '../../styles/LoginPage.css'
 import { useUserAuth } from '../../hooks/UserAuthContext'
 
+//register form terms and conditions
+
 const RegisterForm = ({
   setWelcome,
   giveLogin,
