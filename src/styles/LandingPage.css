@@ -27,10 +27,14 @@
   min-height: 75px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   background-color: #113743;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.landing-page-header > div {
+  margin: 0 30px;
 }
 
 .landing-page-header-logo {
