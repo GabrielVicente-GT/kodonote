@@ -184,6 +184,13 @@ input::placeholder {
   margin: 0px 10px;
 }
 
+.terms > img {
+  width: 20px;
+  height: 20px;
+  margin: 0px 10px;
+  cursor: pointer;
+}
+
 span {
   width: 100%;
   text-align: center;

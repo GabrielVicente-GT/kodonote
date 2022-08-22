@@ -2,8 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import '../../styles/LoginPage.css'
 import { useUserAuth } from '../../hooks/UserAuthContext'
-
-//register form terms and conditions
+import Information from '../../images/info.png'
 
 const RegisterForm = ({
   setWelcome,
@@ -98,6 +97,7 @@ const RegisterForm = ({
             id="terms-input"
             onChange={(event) => setTermsAgreed(event.target.value)}
           />
+          <img src={Information} alt="Information" />
         </div>
         <button type="button" className="form-btn-is" onClick={handleSubmit}>
           Registrarse
