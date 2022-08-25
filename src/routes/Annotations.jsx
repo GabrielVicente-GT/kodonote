@@ -1,13 +1,15 @@
-import React from 'react'
-import '../styles/Annotations.css'
+import React, { useState, useEffect, useContext } from 'react'
 import { query, collection, onSnapshot, addDoc } from 'firebase/firestore'
 import FirebaseContext from '../hooks/FirebaseProvider'
+import UserAuthContextProvider from '../hooks/UserAuthContext'
+import '../styles/Annotations.css'
 
 const Annotations = () => {
-  const [notebook, setNotebook] = React.useState({ notebook: [] })
-  const { db } = React.useContext(FirebaseContext)
+  const { user } = useContext(UserAuthContextProvider)
+  const { db } = useContext(FirebaseContext)
+  const [notebook, setNotebook] = useState({ notebook: [] })
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (db) {
       onSnapshot(query(collection(db, 'Notebooks')), (snapshot) => {
         setNotebook(snapshot.docs[0].data())
@@ -39,6 +41,7 @@ const Annotations = () => {
   }
 
   console.log('notebook', notebook.notebook)
+  console.log('user', user)
 
   return (
     <div className="laboratorioStyle">
