@@ -1,11 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import GridContainer from './components/GridContainer'
 import Options from './components/options'
-import { useUserAuth } from '../hooks/UserAuthContext'
+import { UserAuthContext } from '../hooks/UserAuthProvider'
 import '../styles/App.css'
 
 const MainMenu = () => {
-  const { user, logOut } = useUserAuth()
+  const { user, logOut } = useContext(UserAuthContext)
   const [notes, setNotes] = useState('')
 
   return (

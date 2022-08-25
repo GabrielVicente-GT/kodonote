@@ -5,12 +5,12 @@ import LogregPage from './routes/LogregPage'
 import MainMenu from './routes/MainMenu'
 import Annotations from './routes/Annotations'
 import ProtectedRoute from './utils/ProtectedRoute'
-import UserAuthContextProvider from './hooks/UserAuthContext'
+import UserAuthProvider from './hooks/UserAuthProvider'
 import { FirebaseProvider } from './hooks/FirebaseProvider'
 import './styles/App.css'
 
 const App = () => (
-  <UserAuthContextProvider>
+  <UserAuthProvider>
     <FirebaseProvider>
       <Routes>
         <Route exact path="/" element={<LandingPage />} />
@@ -35,7 +35,7 @@ const App = () => (
         />
       </Routes>
     </FirebaseProvider>
-  </UserAuthContextProvider>
+  </UserAuthProvider>
 )
 
 export default App

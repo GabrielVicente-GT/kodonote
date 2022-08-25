@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import propTypes from 'prop-types'
 import { useNavigate } from 'react-router-dom'
 import logo from '../../images/logo-negative.png'
-import { useUserAuth } from '../../hooks/UserAuthContext'
+import { UserAuthContext } from '../../hooks/UserAuthProvider'
 import '../../styles/LoginPage.css'
 
 const LoginForm = ({
@@ -14,9 +14,8 @@ const LoginForm = ({
   setLoginPassword,
   bgImage,
 }) => {
-  const { logIn } = useUserAuth()
-
-  const [loginError, setLoginError] = React.useState('')
+  const { logIn } = useContext(UserAuthContext)
+  const [loginError, setLoginError] = useState('')
 
   const navigate = useNavigate()
 

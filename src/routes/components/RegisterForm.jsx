@@ -1,8 +1,8 @@
-import React from 'react'
+import React, { useContext, useState } from 'react'
 import propTypes from 'prop-types'
-import '../../styles/LoginPage.css'
-import { useUserAuth } from '../../hooks/UserAuthContext'
+import { UserAuthContext } from '../../hooks/UserAuthProvider'
 import Information from '../../images/info.png'
+import '../../styles/LoginPage.css'
 
 const RegisterForm = ({
   setWelcome,
@@ -15,10 +15,10 @@ const RegisterForm = ({
   setRegisterPasswordConfirm,
   bgImage,
 }) => {
-  const { registerUser } = useUserAuth()
+  const { registerUser } = useContext(UserAuthContext)
 
-  const [registerError, setRegisterError] = React.useState('')
-  const [termsAgreed, setTermsAgreed] = React.useState(false)
+  const [registerError, setRegisterError] = useState('')
+  const [termsAgreed, setTermsAgreed] = useState(false)
 
   const handleError = (error) => {
     if (error === 'auth/weak-password') {

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo } from 'react'
+import React, { createContext, useState, useEffect, useMemo } from 'react'
 import propTypes from 'prop-types'
 import {
   createUserWithEmailAndPassword,
@@ -10,10 +10,10 @@ import { auth } from '../firebase/firebaseConfig'
 
 const UserAuthContext = createContext()
 
-const UserAuthContextProvider = ({ children }) => {
-  const [user, setUser] = React.useState({})
+const UserAuthProvider = ({ children }) => {
+  const [user, setUser] = useState({})
 
-  React.useEffect(() => {
+  useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser)
     })
@@ -48,10 +48,9 @@ const UserAuthContextProvider = ({ children }) => {
   )
 }
 
-UserAuthContextProvider.propTypes = {
+UserAuthProvider.propTypes = {
   children: propTypes.node.isRequired,
 }
 
-export const useUserAuth = () => useContext(UserAuthContext)
-
-export default UserAuthContextProvider
+export { UserAuthContext }
+export default UserAuthProvider

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { query, collection, onSnapshot, addDoc } from 'firebase/firestore'
 import FirebaseContext from '../hooks/FirebaseProvider'
-import UserAuthContextProvider from '../hooks/UserAuthContext'
+import { UserAuthContext } from '../hooks/UserAuthProvider'
 import '../styles/Annotations.css'
 
 const Annotations = () => {
-  const { user } = useContext(UserAuthContextProvider)
+  const { user } = useContext(UserAuthContext)
   const { db } = useContext(FirebaseContext)
   const [notebook, setNotebook] = useState({ notebook: [] })
 
