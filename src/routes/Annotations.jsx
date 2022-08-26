@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { query, collection, onSnapshot, addDoc } from 'firebase/firestore'
-import FirebaseContext from '../hooks/FirebaseProvider'
-import { UserAuthContext } from '../hooks/UserAuthProvider'
+import { FirebaseContext } from '../hooks/FirebaseProvider'
 import '../styles/Annotations.css'
 
 const Annotations = () => {
-  const { user } = useContext(UserAuthContext)
-  const { db } = useContext(FirebaseContext)
   const [notebook, setNotebook] = useState({ notebook: [] })
+  const { db } = useContext(FirebaseContext)
 
   useEffect(() => {
     if (db) {
@@ -41,7 +39,6 @@ const Annotations = () => {
   }
 
   console.log('notebook', notebook.notebook)
-  console.log('user', user)
 
   return (
     <div className="laboratorioStyle">

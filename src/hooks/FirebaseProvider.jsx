@@ -31,5 +31,5 @@ FirebaseProvider.propTypes = {
   children: propTypes.node.isRequired,
 }
 
-export { FirebaseProvider }
-export default FirebaseContext
+export { FirebaseContext }
+export default FirebaseProvider

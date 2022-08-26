@@ -6,7 +6,7 @@ import MainMenu from './routes/MainMenu'
 import Annotations from './routes/Annotations'
 import ProtectedRoute from './utils/ProtectedRoute'
 import UserAuthProvider from './hooks/UserAuthProvider'
-import { FirebaseProvider } from './hooks/FirebaseProvider'
+import FirebaseProvider from './hooks/FirebaseProvider'
 import './styles/App.css'
 
 const App = () => (
