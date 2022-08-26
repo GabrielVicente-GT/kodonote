@@ -39,6 +39,19 @@ const LoginForm = ({
     }
   }
 
+  const handleEnterSubmit = async () => {
+    try {
+      await logIn(loginEmail, loginPassword)
+      navigate('/main')
+    } catch (error) {
+      setLoginError('')
+    }
+  }
+
+  document.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') handleEnterSubmit()
+  })
+
   return (
     <div className="logreg-form">
       <div className="logreg-form-info">
