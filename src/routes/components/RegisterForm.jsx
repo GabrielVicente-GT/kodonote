@@ -46,6 +46,26 @@ const RegisterForm = ({
     }
   }
 
+  const handleEnterSubmit = async () => {
+    if (termsAgreed) {
+      try {
+        if (registerPassword === registerPasswordConfirm) {
+          await registerUser(registerEmail, registerPassword)
+        } else {
+          alert('Las contraseñas ingresadas no coinciden')
+        }
+        giveLogin()
+        setWelcome('¡Te has registrado!')
+      } catch (error) {
+        setRegisterError('')
+      }
+    }
+  }
+
+  document.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') handleEnterSubmit()
+  })
+
   return (
     <div className="logreg-form">
       <div
