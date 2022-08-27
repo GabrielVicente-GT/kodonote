@@ -31,6 +31,7 @@ module.exports = {
     ],
   },
   plugins: [
+    // eslint-disable-next-line new-cap
     new htmlwebpackplugin({
       template: path.join(__dirname, './public/index.html'),
     }),
