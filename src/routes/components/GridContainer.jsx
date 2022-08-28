@@ -1,53 +1,69 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import propTypes from 'prop-types'
+import { query, collection, onSnapshot } from 'firebase/firestore'
+import { FirebaseContext } from '../../hooks/FirebaseProvider'
+import { UserAuthContext } from '../../hooks/UserAuthProvider'
 import Notebooks from './Notebooks'
-import data from '../../static/notebooks.json'
 import AddPopUp from './AddPopUp'
 import PopUp from './PopUp'
 import '../../styles/Notebooks.css'
 
 const GridContainer = ({ notes }) => {
+  const { db } = useContext(FirebaseContext)
+  const { user } = useContext(UserAuthContext)
+
+  const [notebooks, setNotebooks] = useState([])
   const [buttonPopupCuen, setButtonPopupCuen] = useState(false)
 
-  const localizarNotebook = (Titlenotebook) =>
-    data.filter((notebook) => notebook.Title === Titlenotebook)[0] || ' '
+  useEffect(() => {
+    if (db) {
+      onSnapshot(query(collection(db, 'Notebooks')), (snapshot) => {
+        const userNotebooks = []
+        snapshot.docs.forEach((document) => {
+          console.log('Document', document.data())
+          if (document.data().userId === user.uid) {
+            console.log('User document date', document.data().lastEdited.toDate())
+            userNotebooks.push(document.data())
+          }
+        })
+        setNotebooks(userNotebooks)
+      })
+    }
+  }, [db])
 
-  const locatedNotes = localizarNotebook(notes)
+  console.log('User Notebooks', notebooks)
 
-  if (notes === ' ' || locatedNotes === ' ') {
-    return (
-      <div className="tablero">
-        {data.map((cuaderno, index) => (
-          <div id={index}>
-            <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
-              <AddPopUp />
-            </PopUp>
-            <Notebooks
-              id={cuaderno.id}
-              title={cuaderno.Title}
-              lastTimeEdited={cuaderno.LastTimeUse}
-              className={cuaderno.Classname}
-              setNotebookMenu={setButtonPopupCuen}
-              color={cuaderno.Color}
-            />
-          </div>
-        ))}
-      </div>
-    )
-  }
-  return (
+  return (notes === '') ? (
+    <div className="tablero">
+      {notebooks.map((notebook, index) => (
+        <div id={index}>
+          <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
+            <AddPopUp />
+          </PopUp>
+          <Notebooks
+            id={0}
+            title={notebook.title}
+            lastTimeEdited={notebook.lastEdited.toDate()}
+            className="notebook"
+            setNotebookMenu={setButtonPopupCuen}
+            color={notebook.color}
+          />
+        </div>
+      ))}
+    </div>
+  ) : (
     <div className="tablero">
       <div>
         <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
           <AddPopUp />
         </PopUp>
         <Notebooks
-          key={notes.id}
-          Title={notes.Title}
-          LastTimeUse={notes.LastTimeUse}
-          Classname={notes.Classname}
-          setNBmenu={setButtonPopupCuen}
-          Color={notes.Color}
+          id={0}
+          title="Agregar Cuaderno"
+          lastTimeEdited=""
+          className="notebook"
+          setNotebookMenu={setButtonPopupCuen}
+          color="#777"
         />
       </div>
     </div>

@@ -6,7 +6,7 @@ import '../../styles/Notebooks.css'
 const Notebooks = ({
   id,
   title,
-  lastTimeEdited,
+  lastEdited,
   className,
   setNotebookMenu,
   color,
@@ -23,7 +23,7 @@ const Notebooks = ({
         style={{ backgroundColor: color }}
       >
         <h4>{title}</h4>
-        <p>{lastTimeEdited}</p>
+        <p>{lastEdited.toString()}</p>
       </Link>
     )}
   </div>
@@ -32,7 +32,7 @@ const Notebooks = ({
 Notebooks.propTypes = {
   id: propTypes.number.isRequired,
   title: propTypes.string.isRequired,
-  lastTimeEdited: propTypes.string.isRequired,
+  lastEdited: propTypes.instanceOf(Date).isRequired,
   className: propTypes.string.isRequired,
   setNotebookMenu: propTypes.func.isRequired,
   color: propTypes.string.isRequired,
