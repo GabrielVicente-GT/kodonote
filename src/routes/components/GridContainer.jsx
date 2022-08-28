@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useContext } from 'react'
-import propTypes from 'prop-types'
 import { query, collection, onSnapshot } from 'firebase/firestore'
 import { FirebaseContext } from '../../hooks/FirebaseProvider'
 import { UserAuthContext } from '../../hooks/UserAuthProvider'
@@ -8,12 +7,12 @@ import AddPopUp from './AddPopUp'
 import PopUp from './PopUp'
 import '../../styles/Notebooks.css'
 
-const GridContainer = ({ notes }) => {
+const GridContainer = () => {
   const { db } = useContext(FirebaseContext)
   const { user } = useContext(UserAuthContext)
 
   const [notebooks, setNotebooks] = useState([])
-  const [buttonPopupCuen, setButtonPopupCuen] = useState(false)
+  const [accountPopupButton, setAccountPopupButton] = useState(false)
 
   useEffect(() => {
     if (db) {
@@ -22,7 +21,7 @@ const GridContainer = ({ notes }) => {
         snapshot.docs.forEach((document) => {
           console.log('Document', document.data())
           if (document.data().userId === user.uid) {
-            console.log('User document date', document.data().lastEdited.toDate())
+            console.log('User document date', document.data().lastEdited)
             userNotebooks.push(document.data())
           }
         })
@@ -33,45 +32,33 @@ const GridContainer = ({ notes }) => {
 
   console.log('User Notebooks', notebooks)
 
-  return (notes === '') ? (
+  return (
     <div className="tablero">
-      {notebooks.map((notebook, index) => (
+      <Notebooks 
+        id={-1}
+        title="Agregar Cuaderno +"
+        lastTimeEdited=""
+        className="notebook add-notebook"
+        setNotebookMenu={setAccountPopupButton}
+        color="#333"
+      />
+      {(notebooks.length) && notebooks.map((notebook, index) => (
         <div id={index}>
-          <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
+          <PopUp trigger={accountPopupButton} setTrigger={setAccountPopupButton}>
             <AddPopUp />
           </PopUp>
           <Notebooks
-            id={0}
+            id={index}
             title={notebook.title}
-            lastTimeEdited={notebook.lastEdited.toDate()}
+            lastTimeEdited={notebook.lastEdited}
             className="notebook"
-            setNotebookMenu={setButtonPopupCuen}
+            setNotebookMenu={setAccountPopupButton}
             color={notebook.color}
           />
         </div>
       ))}
     </div>
-  ) : (
-    <div className="tablero">
-      <div>
-        <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
-          <AddPopUp />
-        </PopUp>
-        <Notebooks
-          id={0}
-          title="Agregar Cuaderno"
-          lastTimeEdited=""
-          className="notebook"
-          setNotebookMenu={setButtonPopupCuen}
-          color="#777"
-        />
-      </div>
-    </div>
   )
-}
-
-GridContainer.propTypes = {
-  notes: propTypes.string.isRequired,
 }
 
 export default GridContainer

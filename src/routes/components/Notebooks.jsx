@@ -23,7 +23,7 @@ const Notebooks = ({
         style={{ backgroundColor: color }}
       >
         <h4>{title}</h4>
-        <p>{lastEdited.toString()}</p>
+        <p>{lastEdited}</p>
       </Link>
     )}
   </div>
@@ -32,7 +32,7 @@ const Notebooks = ({
 Notebooks.propTypes = {
   id: propTypes.number.isRequired,
   title: propTypes.string.isRequired,
-  lastEdited: propTypes.instanceOf(Date).isRequired,
+  lastEdited: propTypes.string.isRequired,
   className: propTypes.string.isRequired,
   setNotebookMenu: propTypes.func.isRequired,
   color: propTypes.string.isRequired,

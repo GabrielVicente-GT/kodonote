@@ -17,7 +17,7 @@ const MainMenu = () => {
       </header>
       <div className="content">
         <Options logOut={logOut} setNotes={setNotes} />
-        <GridContainer notes={notes} user={user} />
+        <GridContainer notes={notes} />
       </div>
     </div>
   )
