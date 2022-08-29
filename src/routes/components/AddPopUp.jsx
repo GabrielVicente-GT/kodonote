@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react'
 import { collection, addDoc } from 'firebase/firestore'
-import moment from 'moment'
+import getCurrentDate from '../../utils/getCurrentDate'
 import { FirebaseContext } from '../../hooks/FirebaseProvider'
 import { UserAuthContext } from '../../hooks/UserAuthProvider'
 import '../../styles/Menu.css'
@@ -21,7 +21,7 @@ const AddPopUp = () => {
   const handleNotebookCreation = async () => {
     await addDoc(collection(db, 'Notebooks'), {
       color: newNotebookColor,
-      lastEdited: moment().format('DD/MM/YYYY'),
+      lastEdited: getCurrentDate(),
       title: newNotebookName,
       userId: user.uid,
       notebook: []

@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import '../../styles/Notebooks.css'
 
-const Notebooks = ({
+const Notebook = ({
   id,
   title,
   lastEdited,
@@ -29,7 +29,7 @@ const Notebooks = ({
   </div>
 )
 
-Notebooks.propTypes = {
+Notebook.propTypes = {
   id: propTypes.number.isRequired,
   title: propTypes.string.isRequired,
   lastEdited: propTypes.string.isRequired,
@@ -38,4 +38,4 @@ Notebooks.propTypes = {
   color: propTypes.string.isRequired,
 }
 
-export default Notebooks
+export default Notebook

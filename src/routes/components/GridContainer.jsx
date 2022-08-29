@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from 'react'
 import { query, collection, onSnapshot } from 'firebase/firestore'
 import { FirebaseContext } from '../../hooks/FirebaseProvider'
 import { UserAuthContext } from '../../hooks/UserAuthProvider'
-import Notebooks from './Notebooks'
+import Notebook from './Notebook'
 import AddPopUp from './AddPopUp'
 import PopUp from './PopUp'
 import '../../styles/Notebooks.css'
@@ -30,7 +30,7 @@ const GridContainer = () => {
 
   return (
     <div className="tablero">
-      <Notebooks 
+      <Notebook 
         id={-1}
         title="Agregar Cuaderno +"
         lastTimeEdited=""
@@ -43,7 +43,7 @@ const GridContainer = () => {
           <PopUp trigger={accountPopupButton} setTrigger={setAccountPopupButton}>
             <AddPopUp />
           </PopUp>
-          <Notebooks
+          <Notebook
             id={index}
             title={notebook.title}
             lastEdited={notebook.lastEdited}
