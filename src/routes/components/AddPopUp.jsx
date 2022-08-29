@@ -1,26 +1,30 @@
-import React, { useState } from 'react'
-import data from '../../static/notebooks.json'
+import React, { useState, useContext } from 'react'
+import { collection, addDoc } from 'firebase/firestore'
+import moment from 'moment'
+import { FirebaseContext } from '../../hooks/FirebaseProvider'
+import { UserAuthContext } from '../../hooks/UserAuthProvider'
 import '../../styles/Menu.css'
 
 const AddPopUp = () => {
-  const [color, setColor] = useState('#000000')
-  const [nameN, setnameN] = useState('Cuaderno nuevo')
+  const { db } = useContext(FirebaseContext)
+  const { user } = useContext(UserAuthContext)
 
-  const GetColor = (val) => {
-    setColor(val.target.value)
-  }
+  const [newNotebookColor, setNewNotebookColor] = useState()
+  const [newNotebookName, setNewNotebookName] = useState()
 
-  const GetName = (val) => {
-    setnameN(val.target.value)
-  }
+  const getNewColor = (event) =>
+    setNewNotebookColor(event.target.value)
 
-  const click = () => {
-    data.push({
-      id: data.length + 1,
-      Classname: `notebook ${nameN}-notebook`,
-      Title: nameN,
-      LastTimeUse: 'Editado: --',
-      Color: color,
+  const getNewName = (event) =>
+    setNewNotebookName(event.target.value)
+
+  const handleNotebookCreation = async () => {
+    await addDoc(collection(db, 'Notebooks'), {
+      color: newNotebookColor,
+      lastEdited: moment().format('DD/MM/YYYY'),
+      title: newNotebookName,
+      userId: user.uid,
+      notebook: []
     })
   }
 
@@ -38,19 +42,19 @@ const AddPopUp = () => {
             <label className="popup-text" htmlFor="identation-input">
               Nombre del cuaderno:{' '}
             </label>
-            <input type="text" id="name-input" onInput={GetName} />
+            <input type="text" id="name-input" onInput={getNewName} />
           </div>
           <div className="option-pair">
             <label className="popup-text" htmlFor="identation-input">
               Color del cuaderno:{' '}
             </label>
-            <input type="color" id="color-input" onChange={GetColor} />
+            <input type="color" id="color-input" onChange={getNewColor} />
           </div>
           <button
             type="button"
             className="CreateNotebook"
             id="InputColor"
-            onClick={click}
+            onClick={handleNotebookCreation}
           >
             Crear cuaderno
           </button>

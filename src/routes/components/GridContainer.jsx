@@ -19,9 +19,7 @@ const GridContainer = () => {
       onSnapshot(query(collection(db, 'Notebooks')), (snapshot) => {
         const userNotebooks = []
         snapshot.docs.forEach((document) => {
-          console.log('Document', document.data())
           if (document.data().userId === user.uid) {
-            console.log('User document date', document.data().lastEdited)
             userNotebooks.push(document.data())
           }
         })
@@ -29,8 +27,6 @@ const GridContainer = () => {
       })
     }
   }, [db])
-
-  console.log('User Notebooks', notebooks)
 
   return (
     <div className="tablero">
@@ -50,7 +46,7 @@ const GridContainer = () => {
           <Notebooks
             id={index}
             title={notebook.title}
-            lastTimeEdited={notebook.lastEdited}
+            lastEdited={notebook.lastEdited}
             className="notebook"
             setNotebookMenu={setAccountPopupButton}
             color={notebook.color}
