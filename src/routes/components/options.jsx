@@ -1,12 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
 import propTypes from 'prop-types'
-import AccoPopUp from './PopupAccount'
-import ConfigPopUp from './PopupConfig'
-import PopUp from './PopUp'
 import logo from '../../images/logo-negative.png'
 import '../../styles/Menu.css'
 
-const Options = ({ logOut, setNotes }) => {
+const Options = ({ logOut, setNotes, activePopup }) => {
   const handleLogOut = async () => {
     try {
       await logOut()
@@ -15,8 +12,9 @@ const Options = ({ logOut, setNotes }) => {
     }
   }
 
-  const [buttonPopupCuen, setButtonPopupCuen] = useState(false)
-  const [buttonPopupConfi, setButtonPopupConfi] = useState(false)
+  const handleAccount = async () => {
+    activePopup("on")
+  }
 
   return (
     <div className="options">
@@ -35,14 +33,14 @@ const Options = ({ logOut, setNotes }) => {
         <button
           type="button"
           className="account-link"
-          onClick={() => setButtonPopupCuen(true)}
+          onClick={handleAccount}
         >
           Cuenta
         </button>
         <button
           type="button"
           className="config-link"
-          onClick={() => setButtonPopupConfi(true)}
+          onClick={console.log("Config button press")}
         >
           Configuración
         </button>
@@ -50,12 +48,7 @@ const Options = ({ logOut, setNotes }) => {
           Cerrar sesión
         </button>
       </div>
-      <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
-        <AccoPopUp />
-      </PopUp>
-      <PopUp trigger={buttonPopupConfi} setTrigger={setButtonPopupConfi}>
-        <ConfigPopUp />
-      </PopUp>
+      
     </div>
   )
 }
@@ -63,6 +56,7 @@ const Options = ({ logOut, setNotes }) => {
 Options.propTypes = {
   logOut: propTypes.func.isRequired,
   setNotes: propTypes.func.isRequired,
+  activePopup: propTypes.func.isRequired
 }
 
 export default Options
