@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import propTypes from 'prop-types'
 import AccoPopUp from './PopupAccount'
 import ConfigPopUp from './PopupConfig'
@@ -14,9 +14,6 @@ const Options = ({ logOut, setNotes }) => {
       console.error(error.message)
     }
   }
-
-  const [buttonPopupCuen, setButtonPopupCuen] = useState(false)
-  const [buttonPopupConfi, setButtonPopupConfi] = useState(false)
 
   return (
     <div className="options">
@@ -35,14 +32,14 @@ const Options = ({ logOut, setNotes }) => {
         <button
           type="button"
           className="account-link"
-          onClick={() => setButtonPopupCuen(true)}
+          onClick={console.log("Account button press")}
         >
           Cuenta
         </button>
         <button
           type="button"
           className="config-link"
-          onClick={() => setButtonPopupConfi(true)}
+          onClick={console.log("Config button press")}
         >
           Configuración
         </button>
@@ -50,10 +47,10 @@ const Options = ({ logOut, setNotes }) => {
           Cerrar sesión
         </button>
       </div>
-      <PopUp trigger={buttonPopupCuen} setTrigger={setButtonPopupCuen}>
+      <PopUp>
         <AccoPopUp />
       </PopUp>
-      <PopUp trigger={buttonPopupConfi} setTrigger={setButtonPopupConfi}>
+      <PopUp>
         <ConfigPopUp />
       </PopUp>
     </div>
