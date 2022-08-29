@@ -5,12 +5,15 @@ const FocusedNotebookContext = createContext()
 
 const FocusedNotebookProvider = ({ children }) => {
   const [focusedNotebook, setFocusedNotebook] = useState({
-    userId: "",
-    color: "",
-    title: "",
+    userId: '',
+    color: '',
+    title: '',
   })
 
-  const state = useMemo(() => ({ focusedNotebook, setFocusedNotebook }), [focusedNotebook])
+  const state = useMemo(
+    () => ({ focusedNotebook, setFocusedNotebook }),
+    [focusedNotebook]
+  )
 
   return (
     <FocusedNotebookContext.Provider value={state}>

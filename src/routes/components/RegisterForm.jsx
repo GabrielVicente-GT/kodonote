@@ -41,7 +41,6 @@ const RegisterForm = ({
         setWelcome('¡Te has registrado!')
       } catch (error) {
         handleError(error.code)
-        console.log(error.code)
       }
     }
   }

@@ -11,7 +11,9 @@
   --text: 'Hind Madurai', sans-serif;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 

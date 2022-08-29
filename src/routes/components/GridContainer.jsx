@@ -30,7 +30,7 @@ const GridContainer = () => {
 
   return (
     <div className="tablero">
-      <Notebook 
+      <Notebook
         id={-1}
         title="Agregar Cuaderno +"
         lastTimeEdited=""
@@ -38,21 +38,25 @@ const GridContainer = () => {
         setNotebookMenu={setAccountPopupButton}
         color="#333"
       />
-      {(notebooks.length) && notebooks.map((notebook, index) => (
-        <div id={index}>
-          <PopUp trigger={accountPopupButton} setTrigger={setAccountPopupButton}>
-            <AddPopUp />
-          </PopUp>
-          <Notebook
-            id={index}
-            title={notebook.title}
-            lastEdited={notebook.lastEdited}
-            className="notebook"
-            setNotebookMenu={setAccountPopupButton}
-            color={notebook.color}
-          />
-        </div>
-      ))}
+      {notebooks.length &&
+        notebooks.map((notebook, index) => (
+          <div id={index}>
+            <PopUp
+              trigger={accountPopupButton}
+              setTrigger={setAccountPopupButton}
+            >
+              <AddPopUp />
+            </PopUp>
+            <Notebook
+              id={index}
+              title={notebook.title}
+              lastEdited={notebook.lastEdited}
+              className="notebook"
+              setNotebookMenu={setAccountPopupButton}
+              color={notebook.color}
+            />
+          </div>
+        ))}
     </div>
   )
 }

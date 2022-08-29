@@ -11,7 +11,9 @@ const LandingPage = () => (
         <h1>Kodonote</h1>
       </div>
       <div className="landing-page-header-link">
-        <Link className="landing-page-link" to="/login">Ingresa a Kodonote</Link>
+        <Link className="landing-page-link" to="/login">
+          Ingresa a Kodonote
+        </Link>
       </div>
     </header>
     <main className="landing-page-main">
@@ -24,7 +26,9 @@ const LandingPage = () => (
         </p>
         <span className="card-link">
           Inicia sesión dando click&nbsp;
-          <Link className="card-link-clickable" to="/login">aquí</Link>
+          <Link className="card-link-clickable" to="/login">
+            aquí
+          </Link>
         </span>
       </div>
     </main>

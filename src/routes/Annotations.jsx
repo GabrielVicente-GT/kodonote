@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { query, collection, onSnapshot, updateDoc, doc } from 'firebase/firestore'
+import {
+  query,
+  collection,
+  onSnapshot,
+  updateDoc,
+  doc,
+} from 'firebase/firestore'
 import { FirebaseContext } from '../hooks/FirebaseProvider'
 import { FocusedNotebookContext } from '../hooks/FocusedNotebookProvider'
 import '../styles/Annotations.css'
@@ -13,7 +19,7 @@ const Annotations = () => {
     userId: focusedNotebook.userId,
     color: focusedNotebook.color,
     title: focusedNotebook.title,
-    lastEdited: "",
+    lastEdited: '',
     notebook: [],
   })
 
@@ -22,7 +28,10 @@ const Annotations = () => {
       onSnapshot(query(collection(db, 'Notebooks')), (snapshot) => {
         snapshot.docs.forEach((document) => {
           const data = document.data()
-          if ((data.userId === focusedNotebook.userId) && (data.title === focusedNotebook.title)) {
+          if (
+            data.userId === focusedNotebook.userId &&
+            data.title === focusedNotebook.title
+          ) {
             setNotebook(data)
             setNotebookId(document.id)
           }
@@ -35,7 +44,10 @@ const Annotations = () => {
     if (notebook.notebook.length === 0) {
       setNotebook({ ...notebook, notebook: [{ sectionType, value: '' }] })
     } else {
-      setNotebook({ ...notebook, notebook: [...notebook.notebook, { sectionType, value: '' }] })
+      setNotebook({
+        ...notebook,
+        notebook: [...notebook.notebook, { sectionType, value: '' }],
+      })
     }
   }
 
@@ -52,7 +64,6 @@ const Annotations = () => {
     const userNotebook = doc(db, 'Notebooks', notebookId)
     const newFields = { ...notebook, notebook: notebook.notebook }
     await updateDoc(userNotebook, newFields)
-    // await addDoc(collection(db, 'Notebooks'), { ...notebook, notebook: notebook.notebook })
     alert('¡Cuaderno guardado!')
   }
 
@@ -76,7 +87,11 @@ const Annotations = () => {
         <button className="boton" type="button" onClick={removeSection}>
           Borrar sección
         </button>
-        <button className="boton" type="button" onClick={() => saveNotebook(notebook.title)}>
+        <button
+          className="boton"
+          type="button"
+          onClick={() => saveNotebook(notebook.title)}
+        >
           Guardar cuaderno
         </button>
       </div>
@@ -87,9 +102,7 @@ const Annotations = () => {
               value={contentBlock.value}
               key={index.toString()}
               className={
-                contentBlock.sectionType === 'code'
-                  ? 'code-area'
-                  : 'notes-area'
+                contentBlock.sectionType === 'code' ? 'code-area' : 'notes-area'
               }
               onChange={(event) => {
                 setNotebook((previousState) => {

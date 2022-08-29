@@ -12,11 +12,9 @@ const AddPopUp = () => {
   const [newNotebookColor, setNewNotebookColor] = useState()
   const [newNotebookName, setNewNotebookName] = useState()
 
-  const getNewColor = (event) =>
-    setNewNotebookColor(event.target.value)
+  const getNewColor = (event) => setNewNotebookColor(event.target.value)
 
-  const getNewName = (event) =>
-    setNewNotebookName(event.target.value)
+  const getNewName = (event) => setNewNotebookName(event.target.value)
 
   const handleNotebookCreation = async () => {
     await addDoc(collection(db, 'Notebooks'), {
@@ -24,7 +22,7 @@ const AddPopUp = () => {
       lastEdited: getCurrentDate(),
       title: newNotebookName,
       userId: user.uid,
-      notebook: []
+      notebook: [],
     })
   }
 
