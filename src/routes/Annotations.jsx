@@ -1,30 +1,41 @@
 import React, { useState, useEffect, useContext } from 'react'
-import { query, collection, onSnapshot, addDoc } from 'firebase/firestore'
+import { query, collection, onSnapshot, updateDoc, doc } from 'firebase/firestore'
 import { FirebaseContext } from '../hooks/FirebaseProvider'
-import { UserAuthContext } from '../hooks/UserAuthProvider'
+import { FocusedNotebookContext } from '../hooks/FocusedNotebookProvider'
 import '../styles/Annotations.css'
 
 const Annotations = () => {
   const { db } = useContext(FirebaseContext)
-  const { user } = useContext(UserAuthContext)
+  const { focusedNotebook } = useContext(FocusedNotebookContext)
 
-  const [notebook, setNotebook] = useState({ notebook: [] })
+  const [notebookId, setNotebookId] = useState()
+  const [notebook, setNotebook] = useState({
+    userId: focusedNotebook.userId,
+    color: focusedNotebook.color,
+    title: focusedNotebook.title,
+    lastEdited: "",
+    notebook: [],
+  })
 
   useEffect(() => {
     if (db) {
       onSnapshot(query(collection(db, 'Notebooks')), (snapshot) => {
-        setNotebook(snapshot.docs[0].data())
+        snapshot.docs.forEach((document) => {
+          const data = document.data()
+          if ((data.userId === focusedNotebook.userId) && (data.title === focusedNotebook.title)) {
+            setNotebook(data)
+            setNotebookId(document.id)
+          }
+        })
       })
     }
   }, [db])
 
   const addSection = (sectionType) => {
     if (notebook.notebook.length === 0) {
-      setNotebook({ notebook: [{ sectionType, value: '' }] })
+      setNotebook({ ...notebook, notebook: [{ sectionType, value: '' }] })
     } else {
-      setNotebook({
-        notebook: [...notebook.notebook, { sectionType, value: '' }],
-      })
+      setNotebook({ ...notebook, notebook: [...notebook.notebook, { sectionType, value: '' }] })
     }
   }
 
@@ -32,17 +43,18 @@ const Annotations = () => {
     setNotebook((previousNotebook) => {
       const temp = [...previousNotebook.notebook]
       temp.pop()
-      return { notebook: temp }
+      return { ...notebook, notebook: temp }
     })
   }
 
-  const saveNotebook = async () => {
-    await addDoc(collection(db, 'Notebooks'), { notebook: notebook.notebook })
+  const saveNotebook = async (title) => {
+    console.log('Notebook title', title)
+    const userNotebook = doc(db, 'Notebooks', notebookId)
+    const newFields = { ...notebook, notebook: notebook.notebook }
+    await updateDoc(userNotebook, newFields)
+    // await addDoc(collection(db, 'Notebooks'), { ...notebook, notebook: notebook.notebook })
     alert('¡Cuaderno guardado!')
   }
-
-  console.log('notebook', notebook.notebook)
-  console.log('user', user.uid)
 
   return (
     <div className="laboratorioStyle">
@@ -64,7 +76,7 @@ const Annotations = () => {
         <button className="boton" type="button" onClick={removeSection}>
           Borrar sección
         </button>
-        <button className="boton" type="button" onClick={saveNotebook}>
+        <button className="boton" type="button" onClick={() => saveNotebook(notebook.title)}>
           Guardar cuaderno
         </button>
       </div>
@@ -84,7 +96,7 @@ const Annotations = () => {
                   console.log('previousState', previousState)
                   const temp = [...previousState.notebook]
                   temp[index].value = event.target.value
-                  return { notebook: temp }
+                  return { ...notebook, notebook: temp }
                 })
               }}
             />
