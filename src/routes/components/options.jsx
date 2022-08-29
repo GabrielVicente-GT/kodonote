@@ -1,18 +1,19 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import AccoPopUp from './PopupAccount'
-import ConfigPopUp from './PopupConfig'
-import PopUp from './PopUp'
 import logo from '../../images/logo-negative.png'
 import '../../styles/Menu.css'
 
-const Options = ({ logOut, setNotes }) => {
+const Options = ({ logOut, setNotes, activePopup }) => {
   const handleLogOut = async () => {
     try {
       await logOut()
     } catch (error) {
       console.error(error.message)
     }
+  }
+
+  const handleAccount = async () => {
+    activePopup("on")
   }
 
   return (
@@ -32,7 +33,7 @@ const Options = ({ logOut, setNotes }) => {
         <button
           type="button"
           className="account-link"
-          onClick={console.log("Account button press")}
+          onClick={handleAccount}
         >
           Cuenta
         </button>
@@ -47,12 +48,6 @@ const Options = ({ logOut, setNotes }) => {
           Cerrar sesión
         </button>
       </div>
-      <PopUp>
-        <AccoPopUp />
-      </PopUp>
-      <PopUp>
-        <ConfigPopUp />
-      </PopUp>
     </div>
   )
 }
@@ -60,6 +55,7 @@ const Options = ({ logOut, setNotes }) => {
 Options.propTypes = {
   logOut: propTypes.func.isRequired,
   setNotes: propTypes.func.isRequired,
+  activePopup: propTypes.func.isRequired
 }
 
 export default Options
