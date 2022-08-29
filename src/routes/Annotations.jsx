@@ -22,6 +22,7 @@ const Annotations = () => {
     lastEdited: '',
     notebook: [],
   })
+  
 
   useEffect(() => {
     if (db) {
