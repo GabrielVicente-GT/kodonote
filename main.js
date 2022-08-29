@@ -8,7 +8,7 @@ const createWindow = () => {
       nodeIntegration: true,
     },
   })
-  mainWindow.loadFile('./dist/index.html')
+  mainWindow.loadFile('./public/index.html')
 }
 
 app.whenReady().then(() => {
