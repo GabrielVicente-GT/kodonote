@@ -50,7 +50,7 @@ const MainMenu = () => {
 
   return (
     <div className="mainmenu">
-      <AccoPopUp style={popupActive}/> 
+      <AccoPopUp style={popupActive} activePopup={activePopup}/> 
       <header className="header">
         <h2 className="title">
           {user ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
