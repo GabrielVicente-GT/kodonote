@@ -12,8 +12,6 @@ const MainMenu = () => {
   const popupOff = {
     display: "none",
     position: "fixed",
-    marginTop: "-100px;", /* Negative half of height. */
-    marginLeft: "-250px;",
     width: "100px",
     height: "100px",
     backgroundColor: "white",
@@ -25,9 +23,11 @@ const MainMenu = () => {
 
   const popupOn = {
     display: "block",
-    position: "fixed",
+    position: "absolute",
     width: "100px",
     height: "100px",
+    left: "50%",
+    top: "50%",
     backgroundColor: "white",
     flexDirection: "column",
     alignItems: "center",
