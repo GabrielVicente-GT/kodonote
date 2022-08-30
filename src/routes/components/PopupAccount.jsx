@@ -1,12 +1,13 @@
 import React from 'react'
 import '../../styles/Menu.css'
+import propTypes from 'prop-types'
 
-const AccoPopUp = () => (
+const AccoPopUp = ({style}) => (
   <div
-    className="popup preferences-link-popup hide"
-    id="preferences-link-popup"
+    className="popup-account"
+    style={style}
   >
-    <div className="popup-body">
+    
       <div className="option-pair">
         <h2 className="titulo-popup">Cuenta</h2>
       </div>
@@ -22,8 +23,12 @@ const AccoPopUp = () => (
         </label>
         <input type="number" min="2" max="8" id="identation-input" />
       </div>
-    </div>
+      
   </div>
 )
+
+AccoPopUp.propTypes = {
+  style: propTypes.node.isRequired
+}
 
 export default AccoPopUp

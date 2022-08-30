@@ -136,6 +136,12 @@
   margin-left: 125px;
 }
 
+.popup-account{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .popup-body {
   font-family: 'Fira Code', monospace;
   background-color: white;

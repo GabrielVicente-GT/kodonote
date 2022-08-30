@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import GridContainer from './components/GridContainer'
 import Options from './components/options'
-import PopUp from './components/PopUp'
+import AccoPopUp from './components/PopupAccount'
 import { UserAuthContext } from '../hooks/UserAuthProvider'
 import '../styles/App.css'
 
@@ -12,8 +12,6 @@ const MainMenu = () => {
   const popupOff = {
     display: "none",
     position: "fixed",
-    width: "100px",
-    height: "100px",
     backgroundColor: "white",
     flexDirection: "column",
     alignItems: "center",
@@ -22,10 +20,8 @@ const MainMenu = () => {
   }
 
   const popupOn = {
-    display: "block",
+    display: "flex",
     position: "absolute",
-    width: "100px",
-    height: "100px",
     left: "50%",
     top: "50%",
     backgroundColor: "white",
@@ -49,7 +45,7 @@ const MainMenu = () => {
 
   return (
     <div className="mainmenu">
-      <PopUp title="holadsadsd" style={popupActive}/> 
+      <AccoPopUp style={popupActive}/> 
       <header className="header">
         <h2 className="title">
           {user ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
