@@ -10,6 +10,7 @@ const MainMenu = () => {
 
   // Estilo inicial
   const popupOff = {
+    fontFamily: 'Hind Madurai, sans-serif',
     display: "none",
     position: "fixed",
     backgroundColor: "white",
@@ -20,10 +21,14 @@ const MainMenu = () => {
   }
 
   const popupOn = {
+    fontFamily: 'Hind Madurai, sans-serif',
+    fontWeight: "300",
     display: "flex",
     position: "absolute",
     left: "50%",
     top: "50%",
+    marginTop: "-10%",
+    marginLeft: "-10%",
     backgroundColor: "white",
     flexDirection: "column",
     alignItems: "center",

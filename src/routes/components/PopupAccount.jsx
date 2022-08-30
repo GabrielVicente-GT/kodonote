@@ -3,11 +3,8 @@ import '../../styles/Menu.css'
 import propTypes from 'prop-types'
 
 const AccoPopUp = ({style}) => (
-  <div
-    className="popup-account"
-    style={style}
-  >
-    
+  <div className="popup-account" style={style}>
+      <button type='button' className='btn-close'> x </button>
       <div className="option-pair">
         <h2 className="titulo-popup">Cuenta</h2>
       </div>
@@ -23,7 +20,6 @@ const AccoPopUp = ({style}) => (
         </label>
         <input type="number" min="2" max="8" id="identation-input" />
       </div>
-      
   </div>
 )
 
