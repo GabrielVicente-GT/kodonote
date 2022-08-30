@@ -3,7 +3,7 @@ import propTypes from 'prop-types'
 import logo from '../../images/logo-negative.png'
 import '../../styles/Menu.css'
 
-const Options = ({ logOut, setNotes, activePopup }) => {
+const Options = ({ logOut, setNotes, activePopupAccount, activePopupSettings }) => {
   const handleLogOut = async () => {
     try {
       await logOut()
@@ -13,7 +13,11 @@ const Options = ({ logOut, setNotes, activePopup }) => {
   }
 
   const handleAccount = async () => {
-    activePopup("on")
+    activePopupAccount("on")
+  }
+
+  const handleSettings = async () => {
+    activePopupSettings("on")
   }
 
   return (
@@ -40,7 +44,7 @@ const Options = ({ logOut, setNotes, activePopup }) => {
         <button
           type="button"
           className="config-link"
-          onClick={console.log("Config button press")}
+          onClick={handleSettings}
         >
           Configuración
         </button>
@@ -55,7 +59,8 @@ const Options = ({ logOut, setNotes, activePopup }) => {
 Options.propTypes = {
   logOut: propTypes.func.isRequired,
   setNotes: propTypes.func.isRequired,
-  activePopup: propTypes.func.isRequired
+  activePopupAccount: propTypes.func.isRequired,
+  activePopupSettings: propTypes.func.isRequired
 }
 
 export default Options

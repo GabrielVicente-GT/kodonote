@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import GridContainer from './components/GridContainer'
 import Options from './components/options'
 import AccoPopUp from './components/PopupAccount'
+import ConfigPopUp from './components/PopupConfig'
 import { UserAuthContext } from '../hooks/UserAuthProvider'
 import '../styles/App.css'
 
@@ -36,28 +37,39 @@ const MainMenu = () => {
     textAlign: "center",
   }
 
-  const[popupActive, setpopupActive] = React.useState(popupOff)
+  const[popupActiveAccount, setpopupActiveAccount] = React.useState(popupOff)
+  const[popupActiveSetting, setpopupActiveSetting] = React.useState(popupOff)
 
-  const activePopup = (option) => {
-
+  const activePopupAccount = (option) => {
     if (option === "on"){
-      setpopupActive(popupOn)
+      console.log("Account")
+      setpopupActiveAccount(popupOn)
     } else if(option === "off"){
-      setpopupActive(popupOff)
+      setpopupActiveAccount(popupOff)
+    }
+  }
+
+  const activePopupSettings = (option) => {
+    if (option === "on"){
+      console.log("Configuracion")
+      setpopupActiveSetting(popupOn)
+    } else if(option === "off"){
+      setpopupActiveSetting(popupOff)
     }
   }
 
 
   return (
     <div className="mainmenu">
-      <AccoPopUp style={popupActive} activePopup={activePopup}/> 
+      <AccoPopUp style={popupActiveAccount} activePopup={activePopupAccount}/> 
+      <ConfigPopUp style={popupActiveSetting} activePopup={activePopupSettings}/>
       <header className="header">
         <h2 className="title">
           {user ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
         </h2>
       </header>
       <div className="content">
-        <Options logOut={logOut} activePopup={activePopup}/>
+        <Options logOut={logOut} activePopupAccount={activePopupAccount} activePopupSettings={activePopupSettings}/>
         <GridContainer />
       </div>
     </div>

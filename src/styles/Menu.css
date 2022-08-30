@@ -133,6 +133,14 @@
   border-radius: 10px;
 }
 
+.popup-config{
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
 .popup-account::before{
   content: "";
   display: flex;
