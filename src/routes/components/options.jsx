@@ -3,7 +3,12 @@ import propTypes from 'prop-types'
 import logo from '../../images/logo-negative.png'
 import '../../styles/Menu.css'
 
-const Options = ({ logOut, setNotes, activePopupAccount, activePopupSettings }) => {
+const Options = ({
+  logOut,
+  setNotes,
+  activePopupAccount,
+  activePopupSettings,
+}) => {
   const handleLogOut = async () => {
     try {
       await logOut()
@@ -13,11 +18,11 @@ const Options = ({ logOut, setNotes, activePopupAccount, activePopupSettings }) 
   }
 
   const handleAccount = async () => {
-    activePopupAccount("on")
+    activePopupAccount('on')
   }
 
   const handleSettings = async () => {
-    activePopupSettings("on")
+    activePopupSettings('on')
   }
 
   return (
@@ -34,18 +39,10 @@ const Options = ({ logOut, setNotes, activePopupAccount, activePopupSettings }) 
         }}
       />
       <div className="option-list">
-        <button
-          type="button"
-          className="account-link"
-          onClick={handleAccount}
-        >
+        <button type="button" className="account-link" onClick={handleAccount}>
           Cuenta
         </button>
-        <button
-          type="button"
-          className="config-link"
-          onClick={handleSettings}
-        >
+        <button type="button" className="config-link" onClick={handleSettings}>
           Configuración
         </button>
         <button type="button" className="log-out" onClick={handleLogOut}>
@@ -60,7 +57,7 @@ Options.propTypes = {
   logOut: propTypes.func.isRequired,
   setNotes: propTypes.func.isRequired,
   activePopupAccount: propTypes.func.isRequired,
-  activePopupSettings: propTypes.func.isRequired
+  activePopupSettings: propTypes.func.isRequired,
 }
 
 export default Options

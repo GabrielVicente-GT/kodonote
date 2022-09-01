@@ -2,15 +2,17 @@ import React from 'react'
 import '../../styles/Menu.css'
 import propTypes from 'prop-types'
 
-const AccoPopUp = ({style, activePopup}) => {
-
+const AccoPopUp = ({ style, activePopup }) => {
   const handleClose = () => {
-    activePopup("off")
+    activePopup('off')
   }
 
   return (
-  <div className="popup-account" style={style}>
-      <button type='button' className='btn-close' onClick={handleClose}> x </button>
+    <div className="popup-account" style={style}>
+      <button type="button" className="btn-close" onClick={handleClose}>
+        {' '}
+        x{' '}
+      </button>
       <div className="option-pair">
         <h2 className="titulo-popup">Cuenta</h2>
       </div>
@@ -26,13 +28,13 @@ const AccoPopUp = ({style, activePopup}) => {
         </label>
         <input type="number" min="2" max="8" id="identation-input" />
       </div>
-  </div>
+    </div>
   )
 }
 
 AccoPopUp.propTypes = {
   style: propTypes.node.isRequired,
-  activePopup: propTypes.node.isRequired
+  activePopup: propTypes.node.isRequired,
 }
 
 export default AccoPopUp

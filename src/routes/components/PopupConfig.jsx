@@ -2,14 +2,16 @@ import React from 'react'
 import '../../styles/Menu.css'
 import propTypes from 'prop-types'
 
-const ConfigPopUp = ({style, activePopup}) => {
-  
+const ConfigPopUp = ({ style, activePopup }) => {
   const handleClose = () => {
-    activePopup("off")
+    activePopup('off')
   }
   return (
     <div className="popup-config" style={style}>
-      <button type='button' className='btn-close' onClick={handleClose}> x </button>
+      <button type="button" className="btn-close" onClick={handleClose}>
+        {' '}
+        x{' '}
+      </button>
       <div className="option-pair">
         <h2 className="titulo-popup">Preferencias</h2>
       </div>
@@ -46,7 +48,7 @@ const ConfigPopUp = ({style, activePopup}) => {
 
 ConfigPopUp.propTypes = {
   style: propTypes.node.isRequired,
-  activePopup: propTypes.node.isRequired
+  activePopup: propTypes.node.isRequired,
 }
 
 export default ConfigPopUp
