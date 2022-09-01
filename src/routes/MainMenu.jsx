@@ -108,8 +108,7 @@ const MainMenu = () => {
         <h2 className="title">
           {user ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
         </h2>
-      </header>
-      
+      </header> 
       <AccoPopUp style={popupActiveAccount} activePopup={activePopupAccount}/> 
       <ConfigPopUp style={popupActiveSetting} activePopup={activePopupSettings}/>
       <div className="content">
