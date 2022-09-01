@@ -61,17 +61,17 @@ const MainMenu = () => {
 
   return (
     <div className="mainmenu">
-      <AccoPopUp style={popupActiveAccount} activePopup={activePopupAccount}/> 
-      <ConfigPopUp style={popupActiveSetting} activePopup={activePopupSettings}/>
       <header className="header">
         <h2 className="title">
           {user ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
         </h2>
-      </header>
+      </header> 
       <div className="content">
         <Options logOut={logOut} activePopupAccount={activePopupAccount} activePopupSettings={activePopupSettings}/>
         <GridContainer />
       </div>
+      <AccoPopUp style={popupActiveAccount} activePopup={activePopupAccount}/> 
+      <ConfigPopUp style={popupActiveSetting} activePopup={activePopupSettings}/>
     </div>
   )
 }
