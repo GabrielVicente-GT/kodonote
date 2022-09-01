@@ -114,6 +114,7 @@ const MainMenu = () => {
       <div className="content">
         <Options logOut={logOut} activePopupAccount={activePopupAccount} activePopupSettings={activePopupSettings}/>
         <GridContainer />
+        
       </div>
     </div>
   )
