@@ -84,6 +84,22 @@ const MainMenu = () => {
     }
   }
 
+  const div = document.querySelector('.mainmenu')
+  if (div !== null){
+    div.addEventListener('click', () => {
+      setblurActive(noBlur)
+      setpopupActiveAccount(popupOff)
+      setpopupActiveSetting(popupOff)
+    })
+  
+    window.addEventListener('keydown', (event) => {
+      if (event.key === "Escape"){
+        setblurActive(noBlur)
+        setpopupActiveAccount(popupOff)
+        setpopupActiveSetting(popupOff)
+      }
+    })
+  }
 
   return (
     <div className="mainmenu">
