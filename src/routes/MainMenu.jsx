@@ -35,17 +35,41 @@ const MainMenu = () => {
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
+    zIndex: "2",
+    boxShadow: "rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px"
+  }
+
+  const blur = {
+    width: "100%",
+    height: "100%",
+    backgroundColor: "black",
+    opacity: "0.7",
+    position: "fixed",
+    zIndex: "1"
+  }
+
+  const noBlur = {
+    display: "none",
+    width: "100%",
+    height: "100%",
+    backgroundColor: "#113743",
+    opacity: "0.6",
+    position: "fixed",
+    zIndex: "1"
   }
 
   const[popupActiveAccount, setpopupActiveAccount] = React.useState(popupOff)
+  const[blurActive, setblurActive] = React.useState(noBlur)
   const[popupActiveSetting, setpopupActiveSetting] = React.useState(popupOff)
 
   const activePopupAccount = (option) => {
     if (option === "on"){
       console.log("Account")
+      setblurActive(blur)
       setpopupActiveAccount(popupOn)
     } else if(option === "off"){
       setpopupActiveAccount(popupOff)
+      setblurActive(noBlur)
     }
   }
 
@@ -53,25 +77,29 @@ const MainMenu = () => {
     if (option === "on"){
       console.log("Configuracion")
       setpopupActiveSetting(popupOn)
+      setblurActive(blur)
     } else if(option === "off"){
       setpopupActiveSetting(popupOff)
+      setblurActive(noBlur)
     }
   }
 
 
   return (
     <div className="mainmenu">
+      <div className='blur' style={blurActive}/>
       <header className="header">
         <h2 className="title">
           {user ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
         </h2>
-      </header> 
+      </header>
+      
+      <AccoPopUp style={popupActiveAccount} activePopup={activePopupAccount}/> 
+      <ConfigPopUp style={popupActiveSetting} activePopup={activePopupSettings}/>
       <div className="content">
         <Options logOut={logOut} activePopupAccount={activePopupAccount} activePopupSettings={activePopupSettings}/>
         <GridContainer />
       </div>
-      <AccoPopUp style={popupActiveAccount} activePopup={activePopupAccount}/> 
-      <ConfigPopUp style={popupActiveSetting} activePopup={activePopupSettings}/>
     </div>
   )
 }
