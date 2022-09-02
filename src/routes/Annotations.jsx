@@ -14,6 +14,8 @@ const Annotations = () => {
   const { db } = useContext(FirebaseContext)
   const { focusedNotebook } = useContext(FocusedNotebookContext)
 
+  const [display, setDisplay] = useState()
+
   const [notebookId, setNotebookId] = useState()
   const [notebook, setNotebook] = useState({
     userId: focusedNotebook.userId,
@@ -67,6 +69,30 @@ const Annotations = () => {
     alert('¡Cuaderno guardado!')
   }
 
+  // cambiar el display entre columna o grid
+
+  const gridDisplay = {
+    display: "grid",
+    gridTemplateColumns: "repeat(3, 1fr)",
+    gridTemplateRows: "repeat(3, 300px)",
+    justifyContent: "center"
+  }
+
+  const flexDisplay = {
+    display: "flex",
+    flexDirection: "column"
+  }
+  // edeitandi el grid
+  const switchDisplay = (option) => {
+    if (option === "grid"){
+      setDisplay(gridDisplay)
+    } else if(option === "flex"){
+      setDisplay(flexDisplay)
+    }
+      
+  }
+
+
   return (
     <div className="laboratorioStyle">
       <div className="editor">
@@ -96,7 +122,9 @@ const Annotations = () => {
         </button>
       </div>
       <div className="paper">
-        <div className="estiloCompleto">
+        <button type="button" className="boton" onClick={() => switchDisplay("flex")}>columna</button>
+        <button type="button" className="boton" onClick={() => switchDisplay("grid")}>grid</button>
+        <div className="estiloCompleto" style={display}>
           {notebook.notebook.map((contentBlock, index) => (
             <textarea
               value={contentBlock.value}
