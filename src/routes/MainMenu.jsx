@@ -40,6 +40,24 @@ const MainMenu = () => {
       'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
   }
 
+  const popupOnOpinion = {
+    fontFamily: 'Hind Madurai, sans-serif',
+    fontWeight: '300',
+    display: 'flex',
+    position: 'absolute',
+    left: '30%',
+    top: '5%',
+    height: '90%',
+    width: '60%',
+    backgroundColor: 'white',
+    justifyContent: 'center',
+    textAlign: 'center',
+    zIndex: '2',
+    borderRadius: '10px',
+    boxShadow:
+      'rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px',
+  }
+
   const blur = {
     width: '100%',
     height: '100%',
@@ -86,7 +104,7 @@ const MainMenu = () => {
 
   const activePopupOpinion = (option) => {
     if (option === 'on') {
-      setpopupActiveOpinion(popupOn)
+      setpopupActiveOpinion(popupOnOpinion)
       setblurActive(blur)
     } else if (option === 'off') {
       setpopupActiveOpinion(popupOff)
