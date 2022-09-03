@@ -8,6 +8,7 @@ const Options = ({
   setNotes,
   activePopupAccount,
   activePopupSettings,
+  activePopupOpinion,
 }) => {
   const handleLogOut = async () => {
     try {
@@ -23,6 +24,10 @@ const Options = ({
 
   const handleSettings = async () => {
     activePopupSettings('on')
+  }
+
+  const handleOpinion = async () => {
+    activePopupOpinion('on')
   }
 
   return (
@@ -45,6 +50,9 @@ const Options = ({
         <button type="button" className="config-link" onClick={handleSettings}>
           Configuración
         </button>
+        <button type="button" className="config-link" onClick={handleOpinion}>
+          Cuéntanos tu opinión
+        </button>
         <button type="button" className="log-out" onClick={handleLogOut}>
           Cerrar sesión
         </button>
@@ -58,6 +66,7 @@ Options.propTypes = {
   setNotes: propTypes.func.isRequired,
   activePopupAccount: propTypes.func.isRequired,
   activePopupSettings: propTypes.func.isRequired,
+  activePopupOpinion: propTypes.func.isRequired,
 }
 
 export default Options

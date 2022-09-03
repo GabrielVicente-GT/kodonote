@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import GridContainer from './components/GridContainer'
 import Options from './components/options'
 import AccoPopUp from './components/PopupAccount'
+import OpinPopUp from './components/PopupOpi'
 import ConfigPopUp from './components/PopupConfig'
 import { UserAuthContext } from '../hooks/UserAuthProvider'
 import '../styles/App.css'
@@ -61,6 +62,7 @@ const MainMenu = () => {
   const [popupActiveAccount, setpopupActiveAccount] = useState(popupOff)
   const [blurActive, setblurActive] = useState(noBlur)
   const [popupActiveSetting, setpopupActiveSetting] = useState(popupOff)
+  const [popupActiveOpinion, setpopupActiveOpinion] = useState(popupOff)
 
   const activePopupAccount = (option) => {
     if (option === 'on') {
@@ -82,12 +84,23 @@ const MainMenu = () => {
     }
   }
 
+  const activePopupOpinion = (option) => {
+    if (option === 'on') {
+      setpopupActiveOpinion(popupOn)
+      setblurActive(blur)
+    } else if (option === 'off') {
+      setpopupActiveOpinion(popupOff)
+      setblurActive(noBlur)
+    }
+  }
+
   const div = document.querySelector('.mainmenu')
   if (div !== null) {
     div.addEventListener('click', () => {
       setblurActive(noBlur)
       setpopupActiveAccount(popupOff)
       setpopupActiveSetting(popupOff)
+      setpopupActiveOpinion(popupOff)
     })
 
     window.addEventListener('keydown', (event) => {
@@ -95,6 +108,7 @@ const MainMenu = () => {
         setblurActive(noBlur)
         setpopupActiveAccount(popupOff)
         setpopupActiveSetting(popupOff)
+        setpopupActiveOpinion(popupOff)
       }
     })
   }
@@ -107,16 +121,24 @@ const MainMenu = () => {
           {user ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
         </h2>
       </header>
-      <AccoPopUp style={popupActiveAccount} activePopup={activePopupAccount} />
+      <AccoPopUp
+        style={popupActiveAccount} 
+        activePopup={activePopupAccount} 
+      />
       <ConfigPopUp
         style={popupActiveSetting}
         activePopup={activePopupSettings}
+      />
+      <OpinPopUp 
+        style={popupActiveOpinion}
+        activePopup={activePopupOpinion}
       />
       <div className="content">
         <Options
           logOut={logOut}
           activePopupAccount={activePopupAccount}
           activePopupSettings={activePopupSettings}
+          activePopupOpinion={activePopupOpinion}
         />
         <GridContainer />
       </div>
