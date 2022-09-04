@@ -69,29 +69,25 @@ const Annotations = () => {
     alert('¡Cuaderno guardado!')
   }
 
-  // cambiar el display entre columna o grid
-
   const gridDisplay = {
-    display: "grid",
-    gridTemplateColumns: "repeat(3, 1fr)",
-    gridTemplateRows: "repeat(3, 300px)",
-    justifyContent: "center"
+    display: 'grid',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridTemplateRows: 'repeat(3, 300px)',
+    justifyContent: 'center',
   }
 
   const flexDisplay = {
-    display: "flex",
-    flexDirection: "column"
-  }
-  // edeitandi el grid
-  const switchDisplay = (option) => {
-    if (option === "grid"){
-      setDisplay(gridDisplay)
-    } else if(option === "flex"){
-      setDisplay(flexDisplay)
-    }
-      
+    display: 'flex',
+    flexDirection: 'column',
   }
 
+  const switchDisplay = (option) => {
+    if (option === 'grid') {
+      setDisplay(gridDisplay)
+    } else if (option === 'flex') {
+      setDisplay(flexDisplay)
+    }
+  }
 
   return (
     <div className="laboratorioStyle">
@@ -120,10 +116,22 @@ const Annotations = () => {
         >
           Guardar cuaderno
         </button>
+        <button
+          type="button"
+          className="boton"
+          onClick={() => switchDisplay('flex')}
+        >
+          columna
+        </button>
+        <button
+          type="button"
+          className="boton"
+          onClick={() => switchDisplay('grid')}
+        >
+          grid
+        </button>
       </div>
       <div className="paper">
-        <button type="button" className="boton" onClick={() => switchDisplay("flex")}>columna</button>
-        <button type="button" className="boton" onClick={() => switchDisplay("grid")}>grid</button>
         <div className="estiloCompleto" style={display}>
           {notebook.notebook.map((contentBlock, index) => (
             <textarea
