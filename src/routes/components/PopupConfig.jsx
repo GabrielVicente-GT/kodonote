@@ -6,6 +6,20 @@ const ConfigPopUp = ({ style, activePopup }) => {
   const handleClose = () => {
     activePopup('off')
   }
+
+  if(document.getElementById('row-radio-button') != null){
+    if(document.getElementById('row-radio-button').checked) {
+      console.log(document.getElementById('row-radio-button').id)
+    }
+  } 
+  
+  if (document.getElementById('column-radio-button') != null) {
+    if(document.getElementById('column-radio-button').checked) {
+      console.log(document.getElementById('column-radio-button').id)
+    }
+  }
+    
+
   return (
     <div className="popup-config" style={style}>
       <button type="button" className="btn-close" onClick={handleClose}>
