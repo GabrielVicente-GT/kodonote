@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { query, collection, onSnapshot } from 'firebase/firestore'
+import propTypes from 'prop-types'
 import { FirebaseContext } from '../../hooks/FirebaseProvider'
 import { UserAuthContext } from '../../hooks/UserAuthProvider'
 import Notebook from './Notebook'
@@ -7,7 +8,8 @@ import AddPopUp from './AddPopUp'
 import PopUp from './PopUp'
 import '../../styles/Notebooks.css'
 
-const GridContainer = () => {
+// Agregue style y proptypes
+const GridContainer = ({ style }) => {
   const { db } = useContext(FirebaseContext)
   const { user } = useContext(UserAuthContext)
 
@@ -29,7 +31,7 @@ const GridContainer = () => {
   }, [db])
 
   return (
-    <div className="tablero">
+    <div className="tablero" style={style}>
       <Notebook
         id={-1}
         title="Agregar Cuaderno +"
@@ -59,6 +61,10 @@ const GridContainer = () => {
         ))}
     </div>
   )
+}
+
+GridContainer.propTypes = {
+  style: propTypes.node.isRequired,
 }
 
 export default GridContainer

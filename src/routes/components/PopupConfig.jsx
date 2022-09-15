@@ -2,24 +2,34 @@ import React from 'react'
 import '../../styles/Menu.css'
 import propTypes from 'prop-types'
 
-const ConfigPopUp = ({ style, activePopup }) => {
+// Agregue typeTablero
+const ConfigPopUp = ({ style, activePopup, typeTablero }) => {
   const handleClose = () => {
     activePopup('off')
   }
 
+  // Agregue estos metodos
+  const changeToGrid = async () => {
+    typeTablero('on')
+  }
+
+  const changeToNoGrid = async () => {
+    typeTablero('off')
+  }
+  
   if(document.getElementById('row-radio-button') != null){
     if(document.getElementById('row-radio-button').checked) {
-      console.log(document.getElementById('row-radio-button').id)
+      changeToNoGrid()
     }
   } 
   
   if (document.getElementById('column-radio-button') != null) {
     if(document.getElementById('column-radio-button').checked) {
-      console.log(document.getElementById('column-radio-button').id)
+      changeToGrid()
     }
   }
+  // Hasta aqui
     
-
   return (
     <div className="popup-config" style={style}>
       <button type="button" className="btn-close" onClick={handleClose}>
@@ -63,6 +73,8 @@ const ConfigPopUp = ({ style, activePopup }) => {
 ConfigPopUp.propTypes = {
   style: propTypes.node.isRequired,
   activePopup: propTypes.node.isRequired,
+  // Agregue este proptype
+  typeTablero: propTypes.node.isRequired,
 }
 
 export default ConfigPopUp
