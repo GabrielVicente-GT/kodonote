@@ -184,11 +184,19 @@ input::placeholder {
   margin: 0px 10px;
 }
 
-.terms > img {
+.terms > button {
   width: 20px;
   height: 20px;
   margin: 0px 10px;
   cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+button > img {
+  width: 100%;
+  height: 100%;
+  outline: none;
 }
 
 span {
@@ -211,4 +219,91 @@ span {
 
 .link-button:hover {
   color: var(--accent-color-whiter);
+}
+
+.terms-popup {
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terms-popup-menu {
+  width: 40%;
+  height: 85%;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  border-radius: 30px;
+  box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.75);
+}
+
+.terms-title {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terms-title > h1 {
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.terms-content {
+  width: 100%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 30px;
+  color: var(--secondary-color);
+  overflow-y: scroll;
+  text-align: justify;
+}
+
+.terms-close-button {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.terms-close-button > button {
+  width: 30%;
+  height: 40%;
+  color: white;
+  background-color: var(--secondary-color);
+  border-radius: 10px;
+  border: none;
+  font-family: var(--subtitles);
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.terms-close-button > button:hover {
+  color: rgb(200, 200, 200);
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
 }

@@ -19,6 +19,7 @@ const RegisterForm = ({
 
   const [registerError, setRegisterError] = useState('')
   const [termsAgreed, setTermsAgreed] = useState(false)
+  const [showTerms, setShowTerms] = useState(false)
 
   const handleError = (error) => {
     if (error === 'auth/weak-password') {
@@ -116,7 +117,43 @@ const RegisterForm = ({
             id="terms-input"
             onChange={(event) => setTermsAgreed(event.target.value)}
           />
-          <img src={Information} alt="Information" />
+          <button type="button" className="terms-button" onClick={() => setShowTerms(true)}>
+            <img src={Information} alt="Information" />
+          </button>
+          {(showTerms) ? (
+              <div className="terms-popup">
+                <div className="terms-popup-menu">
+                  <div className="terms-title">
+                    <h1>Términos y condiciones</h1>
+                  </div>
+                  <div className="terms-content">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum saepe aperiam impedit, quos, unde vel dolores, commodi qui porro expedita optio modi sit odio itaque! Dolorem, consectetur. Dolor, nam cumque?
+                    Molestiae quo eum repellendus itaque ullam sapiente est, et perspiciatis fuga maxime sint culpa obcaecati vero? Est, illum. Culpa, repudiandae voluptatum corrupti nulla voluptatibus impedit nesciunt odit natus non quae?
+                    Libero officia ullam quos amet blanditiis architecto cumque nisi harum error, quas aliquam enim aut consequatur. Vitae, placeat fugiat? Atque quisquam sint aspernatur perferendis harum? Consequuntur sit sunt repellat pariatur.
+                    Doloribus, nulla. Nemo laborum voluptates repellat animi ducimus, repellendus praesentium alias non eveniet quos eius est quo earum amet! Ut pariatur iste, quo quibusdam consectetur vel rem laboriosam aspernatur aliquid!
+                    Corrupti, iusto obcaecati fuga maiores et ut quasi itaque id, adipisci expedita a officiis? Omnis, suscipit quae cum laborum natus ipsum, tenetur, velit quod error nemo laudantium. Quia, deserunt tempora!
+                    Quae hic molestiae beatae, sequi reiciendis deserunt voluptates dolorem sit ducimus, eligendi necessitatibus obcaecati assumenda? Odit tempora iusto excepturi tenetur totam eum vitae qui dolorem et mollitia eaque, eveniet magni?
+                    Incidunt beatae animi corrupti assumenda vero. Soluta quisquam obcaecati incidunt eligendi tempora in illo deserunt eum! Asperiores reiciendis molestias, dolores quaerat consequuntur autem velit vel, officiis possimus, perspiciatis laboriosam error?
+                    Quam ad modi quae aspernatur voluptatum libero iusto aperiam eos saepe a tempore distinctio dolore impedit corporis, possimus repellat! Iusto culpa nemo, repudiandae repellendus pariatur quae qui sint perferendis nesciunt!
+                    Quaerat dolor consequatur exercitationem debitis tempora molestias voluptatum eligendi fuga aliquid. Vitae saepe illo unde cum eius facilis dolorum minus accusamus tenetur, quam quibusdam nam repellendus quia ea nihil sed.
+                    Quae deserunt corporis aliquid nulla dolorum maxime nostrum obcaecati, architecto ea illum numquam! Eaque fuga illo distinctio, consequuntur dolorem commodi labore ratione eos quis nobis, quo deleniti dicta dignissimos omnis.
+                    Quae hic molestiae beatae, sequi reiciendis deserunt voluptates dolorem sit ducimus, eligendi necessitatibus obcaecati assumenda? Odit tempora iusto excepturi tenetur totam eum vitae qui dolorem et mollitia eaque, eveniet magni?
+                    Incidunt beatae animi corrupti assumenda vero. Soluta quisquam obcaecati incidunt eligendi tempora in illo deserunt eum! Asperiores reiciendis molestias, dolores quaerat consequuntur autem velit vel, officiis possimus, perspiciatis laboriosam error?
+                    Quam ad modi quae aspernatur voluptatum libero iusto aperiam eos saepe a tempore distinctio dolore impedit corporis, possimus repellat! Iusto culpa nemo, repudiandae repellendus pariatur quae qui sint perferendis nesciunt!
+                    Quaerat dolor consequatur exercitationem debitis tempora molestias voluptatum eligendi fuga aliquid. Vitae saepe illo unde cum eius facilis dolorum minus accusamus tenetur, quam quibusdam nam repellendus quia ea nihil sed.
+                    Quae deserunt corporis aliquid nulla dolorum maxime nostrum obcaecati, architecto ea illum numquam! Eaque fuga illo distinctio, consequuntur dolorem commodi labore ratione eos quis nobis, quo deleniti dicta dignissimos omnis.
+
+                  </div>
+                  <div className="terms-close-button">
+                    <button type="button" className="terms-popup-close-button" onClick={() => setShowTerms(false)}>
+                      Cerrar
+                    </button>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              console.log("Hello React!")
+            )}
         </div>
         <button type="button" className="form-btn-is" onClick={handleSubmit}>
           Registrarse
