@@ -56,9 +56,11 @@
 }
 
 .editor {
-  margin-top: 20px;
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #b60114;
 }
 
 .paper {
@@ -80,10 +82,10 @@
   height: 20px;
   position: relative;
   font-family: 'Fira Code', monospace;
-  font-size: 12px;
+  font-size: 14px;
   color: #ffffff;
   text-align: center;
-  width: 250px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,6 +93,5 @@
 
 .boton:hover {
   cursor: pointer;
-  background-color: #ffffff;
-  color: black;
+  background-color: #cb0115;
 }

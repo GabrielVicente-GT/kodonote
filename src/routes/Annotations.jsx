@@ -121,14 +121,14 @@ const Annotations = () => {
           className="boton"
           onClick={() => switchDisplay('flex')}
         >
-          columna
+          Ver por filas
         </button>
         <button
           type="button"
           className="boton"
           onClick={() => switchDisplay('grid')}
         >
-          grid
+          Ver por columnas
         </button>
       </div>
       <div className="paper">
