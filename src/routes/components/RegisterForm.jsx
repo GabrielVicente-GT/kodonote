@@ -142,7 +142,6 @@ const RegisterForm = ({
                     Quam ad modi quae aspernatur voluptatum libero iusto aperiam eos saepe a tempore distinctio dolore impedit corporis, possimus repellat! Iusto culpa nemo, repudiandae repellendus pariatur quae qui sint perferendis nesciunt!
                     Quaerat dolor consequatur exercitationem debitis tempora molestias voluptatum eligendi fuga aliquid. Vitae saepe illo unde cum eius facilis dolorum minus accusamus tenetur, quam quibusdam nam repellendus quia ea nihil sed.
                     Quae deserunt corporis aliquid nulla dolorum maxime nostrum obcaecati, architecto ea illum numquam! Eaque fuga illo distinctio, consequuntur dolorem commodi labore ratione eos quis nobis, quo deleniti dicta dignissimos omnis.
-
                   </div>
                   <div className="terms-close-button">
                     <button type="button" className="terms-popup-close-button" onClick={() => setShowTerms(false)}>
@@ -152,7 +151,7 @@ const RegisterForm = ({
                 </div>
               </div>
             ) : (
-              console.log("Hello React!")
+              null
             )}
         </div>
         <button type="button" className="form-btn-is" onClick={handleSubmit}>
