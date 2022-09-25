@@ -14,6 +14,7 @@ module.exports = {
   plugins: ['react'],
   rules: {
     semi: ['error', 'never'],
+    'no-undef': 'off',
     'no-alert': 'off',
     'no-console': 'off',
     'react/no-array-index-key': 'off',
