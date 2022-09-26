@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ThemeContext } from '../hooks/ThemeProvider'
+// import { ThemeContext } from '../hooks/ThemeProvider'
 import Logo from '../images/logo-negative.png'
 import themes from '../utils/themeGetter'
 import '../styles/ThemesPage.css'
 
 const ThemesPage = () => {
-  const { theme } = useContext(ThemeContext)
+  // const { theme } = useContext(ThemeContext)
 
   const [purchasedTheme, setPurchasedTheme] = useState()
   const [onPurchaseProcess, setOnPurchaseProcess] = useState(false)
@@ -64,9 +64,9 @@ const ThemesPage = () => {
               </p>
               <span>¿Seguro que quieres proceder a la compra?</span>
               <button type="button" onClick={() => {
-                console.log(theme)
+                // console.log("Theme", theme)
                 setOnPurchaseProcess(false)
-                theme.setBackgroundTheme(purchasedTheme)
+                // theme.setBackgroundTheme(purchasedTheme)
                 alert("¡Muchas gracias por tu compra!")
               }}>Comprar</button>
               <button type="button" onClick={() => setOnPurchaseProcess(false)}>Cancelar</button>

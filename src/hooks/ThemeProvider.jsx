@@ -5,7 +5,7 @@ const ThemeContext = createContext()
 
 const ThemeProvider = ({ children }) => {
   const [purchasedThemes, setPurchasedThemes] = useState([])
-  const [backgroundTheme, setBackgroundTheme] = useState()
+  const [backgroundTheme, setBackgroundTheme] = useState({})
 
   const state = useMemo(() => ({ purchasedThemes, setPurchasedThemes, backgroundTheme, setBackgroundTheme }), [purchasedThemes, backgroundTheme])
 
