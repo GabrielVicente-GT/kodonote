@@ -8,6 +8,7 @@ import { UserAuthContext } from '../hooks/UserAuthProvider'
 import '../styles/App.css'
 
 const MainMenu = () => {
+  
   const { user, logOut } = useContext(UserAuthContext)
 
   const popupOff = {
@@ -76,7 +77,7 @@ const MainMenu = () => {
     position: 'fixed',
     zIndex: '1',
   }
-  // Agregue esto
+
   const tableroGridCSS = {
     background: 'var(--accent-color-white)',
     display: 'grid',
@@ -99,14 +100,12 @@ const MainMenu = () => {
     height: 'auto',
     color: '000',
   }
-  // Hasta aquí
 
   const [popupActiveAccount, setpopupActiveAccount] = useState(popupOff)
   const [blurActive, setblurActive] = useState(noBlur)
   const [popupActiveSetting, setpopupActiveSetting] = useState(popupOff)
   const [popupActiveOpinion, setpopupActiveOpinion] = useState(popupOff)
-  
-  // Agregue esto
+
   const [tableroGrid, settableroGrid] = useState(tableroGridCSS)
 
   const displayGrid = (option) => {
@@ -171,7 +170,6 @@ const MainMenu = () => {
       <ConfigPopUp
         style={popupActiveSetting}
         activePopup={activePopupSettings}
-        // Agregue esta línea
         typeTablero = {displayGrid}
       />
       <OpinPopUp 
@@ -184,7 +182,6 @@ const MainMenu = () => {
           activePopupAccount={activePopupAccount}
           activePopupSettings={activePopupSettings}
           activePopupOpinion={activePopupOpinion}
-          // Agregue estilo a GridContainer
         />
         <GridContainer style={tableroGrid} />
       </div>

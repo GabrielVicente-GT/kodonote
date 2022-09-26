@@ -6,7 +6,7 @@ import { FirebaseContext } from '../../hooks/FirebaseProvider'
 import { UserAuthContext } from '../../hooks/UserAuthProvider'
 import '../../styles/AddNotebook.css'
 
-const AddPopUp = ({ trigger }) => {
+const AddPopUp = ({ setActive }) => {
   const { db } = useContext(FirebaseContext)
   const { user } = useContext(UserAuthContext)
 
@@ -18,7 +18,7 @@ const AddPopUp = ({ trigger }) => {
   const getNewName = (event) => setNewNotebookName(event.target.value)
 
   const handleNotebookCreation = async () => {
-    trigger(false)
+    setActive(false)
     await addDoc(collection(db, 'Notebooks'), {
       color: newNotebookColor,
       lastEdited: getCurrentDate(),
@@ -56,7 +56,7 @@ const AddPopUp = ({ trigger }) => {
         </button>
         <button
           type="button"
-          onClick={() => trigger(false)}
+          onClick={() => setActive(false)}
         >
           Cerrar
         </button>
@@ -66,7 +66,7 @@ const AddPopUp = ({ trigger }) => {
 }
 
 AddPopUp.propTypes = {
-  trigger: propTypes.func.isRequired,
+  setActive: propTypes.func.isRequired,
 }
 
 export default AddPopUp

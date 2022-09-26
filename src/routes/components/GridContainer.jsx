@@ -53,7 +53,8 @@ const GridContainer = ({ style }) => {
               color={notebook.color}
             />
           </div>
-        ))}
+        ))
+      }
     </div>
   )
 }
