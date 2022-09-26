@@ -161,6 +161,7 @@ const Annotations = () => {
               <CodeEditor
                 key={index.toString()}
                 className="code-area"
+                style={{ fontFamily: 'monospace', fontSize: '18px' }}
                 value={contentBlock.value}
                 language="js"
                 padding={10}
