@@ -12,6 +12,7 @@
   outline: none;
   border: 1px solid white;
   border-radius: 15px;
+  margin: 20px;
 }
 
 .notes-area {
@@ -28,6 +29,7 @@
   font-family: Arial;
   font-size: 18px;
   border-radius: 15px;
+  margin: 20px;
 }
 
 .espacio {
@@ -39,7 +41,7 @@
   height: 70px;
 }
 
-.laboratorioStyle {
+.annotations-container {
   display: flex;
   flex-direction: column;
   align-items: center;

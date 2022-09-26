@@ -77,8 +77,7 @@ const Annotations = () => {
 
   const gridDisplay = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gridTemplateRows: 'repeat(3, 300px)',
+    gridTemplateColumns: 'repeat(2, 1fr)',
     justifyContent: 'center',
   }
 
@@ -96,7 +95,7 @@ const Annotations = () => {
   }
 
   return (
-    <div className="laboratorioStyle">
+    <div className="annotations-container">
       <div className="editor">
         <button
           className="boton"
