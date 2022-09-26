@@ -17,7 +17,7 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: var(--titles-important)
+  font-family: var(--titles-important);
 }
 
 .add-notebook-options {

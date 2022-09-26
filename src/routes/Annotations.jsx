@@ -6,6 +6,7 @@ import {
   updateDoc,
   doc,
 } from 'firebase/firestore'
+import CodeEditor from '@uiw/react-textarea-code-editor'
 import { useNavigate } from 'react-router-dom'
 import { FirebaseContext } from '../hooks/FirebaseProvider'
 import { FocusedNotebookContext } from '../hooks/FocusedNotebookProvider'
@@ -156,20 +157,35 @@ const Annotations = () => {
       <div className="paper">
         <div className="paper-container" style={display}>
           {notebook.notebook.map((contentBlock, index) => (
-            <textarea
-              value={contentBlock.value}
-              key={index.toString()}
-              className={
-                contentBlock.sectionType === 'code' ? 'code-area' : 'notes-area'
-              }
-              onChange={(event) => {
-                setNotebook((previousState) => {
-                  const temp = [...previousState.notebook]
-                  temp[index].value = event.target.value
-                  return { ...notebook, notebook: temp }
-                })
-              }}
-            />
+            (contentBlock.sectionType === 'code') ? (
+              <CodeEditor
+                key={index.toString()}
+                className="code-area"
+                value={contentBlock.value}
+                language="js"
+                padding={10}
+                onChange={(event) => {
+                  setNotebook((previousState) => {
+                    const temp = [...previousState.notebook]
+                    temp[index].value = event.target.value
+                    return { ...notebook, notebook: temp, }
+                  })
+                }}
+              />
+            ) : (
+              <textarea
+                key={index.toString()}
+                className="notes-area"
+                value={contentBlock.value}
+                onChange={(event) => {
+                  setNotebook((previousState) => {
+                    const temp = [...previousState.notebook]
+                    temp[index].value = event.target.value
+                    return { ...notebook, notebook: temp, }
+                  })
+                }}
+              />
+            )
           ))}
         </div>
       </div>

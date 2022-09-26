@@ -32,7 +32,7 @@ const GridContainer = ({ style }) => {
     <div className="tablero" style={style}>
       {(activateNewNotebook) ? (
         <div className="add-popup-container">
-          <AddPopUp trigger={setActivateNewNotebook} />
+          <AddPopUp setActive={setActivateNewNotebook} />
         </div>
       ) : (
         null
