@@ -1,12 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
+import { ThemeContext } from '../hooks/ThemeProvider'
 import Logo from '../images/logo-negative.png'
 import themes from '../utils/themeGetter'
 import '../styles/ThemesPage.css'
 
 const ThemesPage = () => {
+  const { theme } = useContext(ThemeContext)
+
   const [purchasedTheme, setPurchasedTheme] = useState()
   const [onPurchaseProcess, setOnPurchaseProcess] = useState(false)
+
+  const purchasing = (selectedTheme) => {
+    setPurchasedTheme(selectedTheme)
+    setOnPurchaseProcess(true)
+  }
 
   return (
     <>
@@ -26,20 +34,17 @@ const ThemesPage = () => {
         <Link to="/main" className="theme-aside-button">Volver</Link>
       </aside>
       <main>
-        {themes.map((theme) => (
+        {themes.map((availableTheme) => (
           <div className="theme-card">
-            <img src={theme.source} alt="Tema de Kodonote" />
+            <img src={availableTheme.source} alt="Tema de Kodonote" />
             <div className="theme-info">
               <div className="theme-title">
-                <h3>{theme.title}</h3>
+                <h3>{availableTheme.title}</h3>
               </div>
               <div className="theme-purchase-info">
-                <span>{theme.price}</span>
+                <span>{availableTheme.price}</span>
                 <div className="theme-purchase-button">
-                  <button type="button" onClick={() => {
-                    setPurchasedTheme(theme)
-                    setOnPurchaseProcess(true)
-                  }}>Comprar</button>
+                  <button type="button" onClick={() => purchasing(availableTheme)}>Comprar</button>
                 </div>
               </div>
             </div>
@@ -47,7 +52,27 @@ const ThemesPage = () => {
         ))}
       </main>
       {(onPurchaseProcess) ? (
-        null
+        <div className="theme-purchase-background">
+          <div className="theme-purchase-card">
+            <img src={purchasedTheme.source} alt="Tema a comprar" />
+            <div className="theme-purchase-card-info">
+              <p>
+                ¡Muchas gracias por tu elección! Te encuentras por comprar
+                el tema {purchasedTheme.title}. Kodonote no acepta cambios
+                ni devoluciones por sus compras, por lo que no podremos
+                devloverte tu dinero luego de comprar este tema.
+              </p>
+              <span>¿Seguro que quieres proceder a la compra?</span>
+              <button type="button" onClick={() => {
+                console.log(theme)
+                setOnPurchaseProcess(false)
+                theme.setBackgroundTheme(purchasedTheme)
+                alert("¡Muchas gracias por tu compra!")
+              }}>Comprar</button>
+              <button type="button" onClick={() => setOnPurchaseProcess(false)}>Cancelar</button>
+            </div>
+          </div>
+        </div>
       ) : (
         null
       )}

@@ -9,43 +9,46 @@ import ProtectedRoute from './utils/ProtectedRoute'
 import UserAuthProvider from './hooks/UserAuthProvider'
 import FirebaseProvider from './hooks/FirebaseProvider'
 import FocusedNotebookProvider from './hooks/FocusedNotebookProvider'
+import ThemeProvider from './hooks/ThemeProvider'
 import './styles/App.css'
 
 const App = () => (
   <UserAuthProvider>
     <FirebaseProvider>
       <FocusedNotebookProvider>
-        <Routes>
-          <Route exact path="/" element={<LandingPage />} />
-          <Route exact path="/login" element={<LogregPage />} />
-          <Route
-            exact
-            path="/main"
-            element={
-              <ProtectedRoute>
-                <MainMenu />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            exact
-            path="/editor"
-            element={
-              <ProtectedRoute>
-                <Annotations />
-              </ProtectedRoute>
-            }
-          />
-          <Route
-            exact
-            path="/themes"
-            element={
-              <ProtectedRoute>
-                <ThemesPage />
-              </ProtectedRoute>
-            }
-          />
-        </Routes>
+        <ThemeProvider>
+          <Routes>
+            <Route exact path="/" element={<LandingPage />} />
+            <Route exact path="/login" element={<LogregPage />} />
+            <Route
+              exact
+              path="/main"
+              element={
+                <ProtectedRoute>
+                  <MainMenu />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              exact
+              path="/editor"
+              element={
+                <ProtectedRoute>
+                  <Annotations />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              exact
+              path="/themes"
+              element={
+                <ProtectedRoute>
+                  <ThemesPage />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </ThemeProvider>
       </FocusedNotebookProvider>
     </FirebaseProvider>
   </UserAuthProvider>

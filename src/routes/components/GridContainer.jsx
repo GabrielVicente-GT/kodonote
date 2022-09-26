@@ -3,6 +3,7 @@ import { query, collection, onSnapshot } from 'firebase/firestore'
 import propTypes from 'prop-types'
 import { FirebaseContext } from '../../hooks/FirebaseProvider'
 import { UserAuthContext } from '../../hooks/UserAuthProvider'
+import { ThemeContext } from '../../hooks/ThemeProvider'
 import Notebook from './Notebook'
 import '../../styles/Notebooks.css'
 import AddPopUp from './AddPopUp'
@@ -10,6 +11,7 @@ import AddPopUp from './AddPopUp'
 const GridContainer = ({ style }) => {
   const { db } = useContext(FirebaseContext)
   const { user } = useContext(UserAuthContext)
+  const { theme } = useContext(ThemeContext)
 
   const [notebooks, setNotebooks] = useState([])
   const [activateNewNotebook, setActivateNewNotebook] = useState(false)
@@ -28,8 +30,12 @@ const GridContainer = ({ style }) => {
     }
   }, [db])
 
+  useEffect(() => {
+    console.log(theme.backgroundTheme.source)
+  }, [])
+
   return (
-    <div className="tablero" style={style}>
+    <div className="tablero" style={{ ...style, backgroundImage: `url(${theme.backgroundTheme.source})` }}>
       {(activateNewNotebook) ? (
         <div className="add-popup-container">
           <AddPopUp setActive={setActivateNewNotebook} />
@@ -60,7 +66,7 @@ const GridContainer = ({ style }) => {
 }
 
 GridContainer.propTypes = {
-  style: propTypes.node.isRequired,
+  style: propTypes.objectOf(node).isRequired,
 }
 
 export default GridContainer
