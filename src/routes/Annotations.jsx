@@ -6,8 +6,10 @@ import {
   updateDoc,
   doc,
 } from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom'
 import { FirebaseContext } from '../hooks/FirebaseProvider'
 import { FocusedNotebookContext } from '../hooks/FocusedNotebookProvider'
+import GoBack from '../images/icons/go-back.png'
 import AddCode from '../images/icons/add-code.png'
 import AddNote from '../images/icons/add-note.png'
 import DeleteSection from '../images/icons/delete-section.png'
@@ -17,6 +19,8 @@ import SetColumnView from '../images/icons/set-column-view.png'
 import '../styles/Annotations.css'
 
 const Annotations = () => {
+  const navigate = useNavigate()
+
   const { db } = useContext(FirebaseContext)
   const { focusedNotebook } = useContext(FocusedNotebookContext)
 
@@ -97,6 +101,14 @@ const Annotations = () => {
   return (
     <div className="annotations-container">
       <div className="editor">
+        <button
+          className="boton"
+          type="button"
+          onClick={() => navigate('/main')}
+        >
+          <img src={GoBack} alt="Botón para volver al menú" />
+          Regresar
+        </button>
         <button
           className="boton"
           type="button"
