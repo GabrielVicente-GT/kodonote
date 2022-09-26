@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import propTypes from 'prop-types'
 import logo from '../../images/logo-negative.png'
 import '../../styles/Menu.css'
@@ -50,6 +51,9 @@ const Options = ({
         <button type="button" className="config-link" onClick={handleSettings}>
           Configuración
         </button>
+        <Link to="/themes" className="themes-link">
+          Ver temas
+        </Link>
         <button type="button" className="config-link" onClick={handleOpinion}>
           Cuéntanos tu opinión
         </button>

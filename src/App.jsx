@@ -4,6 +4,7 @@ import LandingPage from './routes/LandingPage'
 import LogregPage from './routes/LogregPage'
 import MainMenu from './routes/MainMenu'
 import Annotations from './routes/Annotations'
+import ThemesPage from './routes/ThemesPage'
 import ProtectedRoute from './utils/ProtectedRoute'
 import UserAuthProvider from './hooks/UserAuthProvider'
 import FirebaseProvider from './hooks/FirebaseProvider'
@@ -32,6 +33,15 @@ const App = () => (
             element={
               <ProtectedRoute>
                 <Annotations />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            exact
+            path="/themes"
+            element={
+              <ProtectedRoute>
+                <ThemesPage />
               </ProtectedRoute>
             }
           />
