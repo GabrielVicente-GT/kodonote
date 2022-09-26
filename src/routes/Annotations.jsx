@@ -106,6 +106,7 @@ const Annotations = () => {
           type="button"
           onClick={() => navigate('/main')}
         >
+
           <img src={GoBack} alt="Botón para volver al menú" />
           Regresar
         </button>
