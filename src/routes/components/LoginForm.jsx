@@ -20,13 +20,22 @@ const LoginForm = ({
   const navigate = useNavigate()
 
   const handleError = (error) => {
+    let msg = ''
+
     if (error === 'auth/wrong-password') {
       setLoginError('Contraseña incorrecta')
-    } else if (error === 'auth/invalid-email') {
+      msg = 'case 1'
+
+    } if (error === 'auth/invalid-email') {
       setLoginError('Has ingresado un email inexistente o invalido')
-    } else if (error === 'auth/user-not-found') {
+      msg = 'case 2'
+
+    } if (error === 'auth/user-not-found') {
       setLoginError('Este correo no está registrado')
+      msg = 'case 3'
     }
+
+    return msg
   }
 
   const handleSubmit = async (event) => {
@@ -44,7 +53,7 @@ const LoginForm = ({
       await logIn(loginEmail, loginPassword)
       navigate('/main')
     } catch (error) {
-      setLoginError('')
+      handleError(error.code)
     }
   }
 
@@ -111,3 +120,5 @@ LoginForm.propTypes = {
 }
 
 export default LoginForm
+
+
