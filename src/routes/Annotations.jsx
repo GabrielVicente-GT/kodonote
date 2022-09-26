@@ -8,6 +8,12 @@ import {
 } from 'firebase/firestore'
 import { FirebaseContext } from '../hooks/FirebaseProvider'
 import { FocusedNotebookContext } from '../hooks/FocusedNotebookProvider'
+import AddCode from '../images/icons/add-code.png'
+import AddNote from '../images/icons/add-note.png'
+import DeleteSection from '../images/icons/delete-section.png'
+import SaveNotebook from '../images/icons/save-notebook.png'
+import SetRowView from '../images/icons/set-row-view.png'
+import SetColumnView from '../images/icons/set-column-view.png'
 import '../styles/Annotations.css'
 
 const Annotations = () => {
@@ -97,6 +103,7 @@ const Annotations = () => {
           type="button"
           onClick={() => addSection('code')}
         >
+          <img src={AddCode} alt="Botón para agregar código" />
           Agregar código
         </button>
         <button
@@ -104,9 +111,11 @@ const Annotations = () => {
           type="button"
           onClick={() => addSection('text')}
         >
+          <img src={AddNote} alt="Botón para agregar notas" />
           Agregar nota
         </button>
         <button className="boton" type="button" onClick={removeSection}>
+          <img src={DeleteSection} alt="Botón para borrar una sección" />
           Borrar sección
         </button>
         <button
@@ -114,6 +123,7 @@ const Annotations = () => {
           type="button"
           onClick={() => saveNotebook(notebook.title)}
         >
+          <img src={SaveNotebook} alt="Botón para guardar el cuaderno" />
           Guardar cuaderno
         </button>
         <button
@@ -121,6 +131,7 @@ const Annotations = () => {
           className="boton"
           onClick={() => switchDisplay('flex')}
         >
+          <img src={SetRowView} alt="Botón para cambiar la vista a filas" />
           Ver por filas
         </button>
         <button
@@ -128,6 +139,7 @@ const Annotations = () => {
           className="boton"
           onClick={() => switchDisplay('grid')}
         >
+          <img src={SetColumnView} alt="Botón para cambiar la vista a columnas" />
           Ver por columnas
         </button>
       </div>
