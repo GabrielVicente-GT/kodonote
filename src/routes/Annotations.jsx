@@ -6,11 +6,21 @@ import {
   updateDoc,
   doc,
 } from 'firebase/firestore'
+import { useNavigate } from 'react-router-dom'
 import { FirebaseContext } from '../hooks/FirebaseProvider'
 import { FocusedNotebookContext } from '../hooks/FocusedNotebookProvider'
+import GoBack from '../images/icons/go-back.png'
+import AddCode from '../images/icons/add-code.png'
+import AddNote from '../images/icons/add-note.png'
+import DeleteSection from '../images/icons/delete-section.png'
+import SaveNotebook from '../images/icons/save-notebook.png'
+import SetRowView from '../images/icons/set-row-view.png'
+import SetColumnView from '../images/icons/set-column-view.png'
 import '../styles/Annotations.css'
 
 const Annotations = () => {
+  const navigate = useNavigate()
+
   const { db } = useContext(FirebaseContext)
   const { focusedNotebook } = useContext(FocusedNotebookContext)
 
@@ -71,8 +81,7 @@ const Annotations = () => {
 
   const gridDisplay = {
     display: 'grid',
-    gridTemplateColumns: 'repeat(3, 1fr)',
-    gridTemplateRows: 'repeat(3, 300px)',
+    gridTemplateColumns: 'repeat(2, 1fr)',
     justifyContent: 'center',
   }
 
@@ -90,13 +99,22 @@ const Annotations = () => {
   }
 
   return (
-    <div className="laboratorioStyle">
+    <div className="annotations-container">
       <div className="editor">
+        <button
+          className="boton"
+          type="button"
+          onClick={() => navigate('/main')}
+        >
+          <img src={GoBack} alt="Botón para volver al menú" />
+          Regresar
+        </button>
         <button
           className="boton"
           type="button"
           onClick={() => addSection('code')}
         >
+          <img src={AddCode} alt="Botón para agregar código" />
           Agregar código
         </button>
         <button
@@ -104,9 +122,11 @@ const Annotations = () => {
           type="button"
           onClick={() => addSection('text')}
         >
+          <img src={AddNote} alt="Botón para agregar notas" />
           Agregar nota
         </button>
         <button className="boton" type="button" onClick={removeSection}>
+          <img src={DeleteSection} alt="Botón para borrar una sección" />
           Borrar sección
         </button>
         <button
@@ -114,6 +134,7 @@ const Annotations = () => {
           type="button"
           onClick={() => saveNotebook(notebook.title)}
         >
+          <img src={SaveNotebook} alt="Botón para guardar el cuaderno" />
           Guardar cuaderno
         </button>
         <button
@@ -121,6 +142,7 @@ const Annotations = () => {
           className="boton"
           onClick={() => switchDisplay('flex')}
         >
+          <img src={SetRowView} alt="Botón para cambiar la vista a filas" />
           Ver por filas
         </button>
         <button
@@ -128,6 +150,7 @@ const Annotations = () => {
           className="boton"
           onClick={() => switchDisplay('grid')}
         >
+          <img src={SetColumnView} alt="Botón para cambiar la vista a columnas" />
           Ver por columnas
         </button>
       </div>
