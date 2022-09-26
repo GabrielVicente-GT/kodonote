@@ -2,6 +2,9 @@ import React, { useContext, useState } from 'react'
 import propTypes from 'prop-types'
 import { UserAuthContext } from '../../hooks/UserAuthProvider'
 import Information from '../../images/info.png'
+import checkEmailValidity from '../../utils/checkEmailValidity'
+import checkPasswordValidity from '../../utils/checkPasswordValidity'
+import validatePassword from '../../utils/validatePassword'
 import '../../styles/LoginPage.css'
 
 const RegisterForm = ({
@@ -31,9 +34,9 @@ const RegisterForm = ({
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    if (termsAgreed) {
+    if (termsAgreed && checkEmailValidity(registerEmail) && checkPasswordValidity(registerPassword)) {
       try {
-        if (registerPassword === registerPasswordConfirm) {
+        if (validatePassword(registerPassword, registerPasswordConfirm)) {
           await registerUser(registerEmail, registerPassword)
         } else {
           alert('Las contraseñas ingresadas no coinciden')
