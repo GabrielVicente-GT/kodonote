@@ -8,28 +8,14 @@ const ConfigPopUp = ({ style, activePopup, typeTablero }) => {
     activePopup('off')
   }
 
-  // Agregue estos metodos
-  const changeToGrid = async () => {
+  const changeGridOn = () => {
     typeTablero('on')
   }
 
-  const changeToNoGrid = async () => {
+  const changeGridOff = () => {
     typeTablero('off')
   }
-  
-  if(document.getElementById('row-radio-button') != null){
-    if(document.getElementById('row-radio-button').checked) {
-      changeToNoGrid()
-    }
-  } 
-  
-  if (document.getElementById('column-radio-button') != null) {
-    if(document.getElementById('column-radio-button').checked) {
-      changeToGrid()
-    }
-  }
-  // Hasta aqui
-    
+
   return (
     <div className="popup-config" style={style}>
       <button type="button" className="btn-close" onClick={handleClose}>
@@ -59,11 +45,11 @@ const ConfigPopUp = ({ style, activePopup, typeTablero }) => {
           <label className="popup-text" htmlFor="row-radio-button">
             Filas
           </label>
-          <input type="radio" name="display-mode" id="row-radio-button" />
+          <input type="radio" name="display-mode" id="row-radio-button" onClick={changeGridOn}/>
           <label className="popup-text" htmlFor="column-radio-button">
             Columnas
           </label>
-          <input type="radio" name="display-mode" id="column-radio-button" />
+          <input type="radio" name="display-mode" id="column-radio-button" onClick={changeGridOff}/>
         </form>
       </div>
     </div>

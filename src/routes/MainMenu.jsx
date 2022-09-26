@@ -107,18 +107,16 @@ const MainMenu = () => {
   const [popupActiveOpinion, setpopupActiveOpinion] = useState(popupOff)
   
   // Agregue esto
-  const [tableroGrid, settableroGrid] = useState(tableroNoGridCSS)
+  const [tableroGrid, settableroGrid] = useState(tableroGridCSS)
 
   const displayGrid = (option) => {
-    if (option === 'on') {
-      console.log('Grid')
-    } else if (option === 'off') {
-      console.log('NoGrid')
+    if (option === 'off') {
+      settableroGrid(tableroGridCSS)
+    } else if (option === 'on') {
+      settableroGrid(tableroNoGridCSS)
     }
   }
 
-  // Hasta aquí
-  
   const activePopupAccount = (option) => {
     if (option === 'on') {
       setblurActive(blur)
@@ -188,7 +186,7 @@ const MainMenu = () => {
           activePopupOpinion={activePopupOpinion}
           // Agregue estilo a GridContainer
         />
-        <GridContainer style={tableroNoGridCSS} />
+        <GridContainer style={tableroGrid} />
       </div>
     </div>
   )

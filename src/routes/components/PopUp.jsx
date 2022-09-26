@@ -7,7 +7,6 @@ import '../../styles/Menu.css'
 const PopUp = ({ title, style }) => (
   <div style={style} className="popup">
     <h1>{title}</h1>
-    <button type="button"> x </button>
   </div>
 )
 
