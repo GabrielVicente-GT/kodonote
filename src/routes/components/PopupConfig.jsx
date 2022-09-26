@@ -2,10 +2,20 @@ import React from 'react'
 import '../../styles/Menu.css'
 import propTypes from 'prop-types'
 
-const ConfigPopUp = ({ style, activePopup }) => {
+// Agregue typeTablero
+const ConfigPopUp = ({ style, activePopup, typeTablero }) => {
   const handleClose = () => {
     activePopup('off')
   }
+
+  const changeGridOn = () => {
+    typeTablero('on')
+  }
+
+  const changeGridOff = () => {
+    typeTablero('off')
+  }
+
   return (
     <div className="popup-config" style={style}>
       <button type="button" className="btn-close" onClick={handleClose}>
@@ -35,11 +45,11 @@ const ConfigPopUp = ({ style, activePopup }) => {
           <label className="popup-text" htmlFor="row-radio-button">
             Filas
           </label>
-          <input type="radio" name="display-mode" id="row-radio-button" />
+          <input type="radio" name="display-mode" id="row-radio-button" onClick={changeGridOn}/>
           <label className="popup-text" htmlFor="column-radio-button">
             Columnas
           </label>
-          <input type="radio" name="display-mode" id="column-radio-button" />
+          <input type="radio" name="display-mode" id="column-radio-button" onClick={changeGridOff}/>
         </form>
       </div>
     </div>
@@ -49,6 +59,8 @@ const ConfigPopUp = ({ style, activePopup }) => {
 ConfigPopUp.propTypes = {
   style: propTypes.node.isRequired,
   activePopup: propTypes.node.isRequired,
+  // Agregue este proptype
+  typeTablero: propTypes.node.isRequired,
 }
 
 export default ConfigPopUp

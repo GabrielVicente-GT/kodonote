@@ -76,11 +76,46 @@ const MainMenu = () => {
     position: 'fixed',
     zIndex: '1',
   }
+  // Agregue esto
+  const tableroGridCSS = {
+    background: 'var(--accent-color-white)',
+    display: 'grid',
+    gridTemplateRows: 'repeat(4, 150px)',
+    gridTemplateColumns: 'repeat(3, 1fr)',
+    gridGap: '20px',
+    gridAutoFlow: 'row',
+    padding: '20px',
+    width: '100%',
+    overflow: 'auto',
+    height: 'auto',
+    color: '000',
+  }
+
+  const tableroNoGridCSS = {
+    background: 'var(--accent-color-white)',
+    padding: '20px',
+    width: '100%',
+    overflow: 'auto',
+    height: 'auto',
+    color: '000',
+  }
+  // Hasta aquí
 
   const [popupActiveAccount, setpopupActiveAccount] = useState(popupOff)
   const [blurActive, setblurActive] = useState(noBlur)
   const [popupActiveSetting, setpopupActiveSetting] = useState(popupOff)
   const [popupActiveOpinion, setpopupActiveOpinion] = useState(popupOff)
+  
+  // Agregue esto
+  const [tableroGrid, settableroGrid] = useState(tableroGridCSS)
+
+  const displayGrid = (option) => {
+    if (option === 'off') {
+      settableroGrid(tableroGridCSS)
+    } else if (option === 'on') {
+      settableroGrid(tableroNoGridCSS)
+    }
+  }
 
   const activePopupAccount = (option) => {
     if (option === 'on') {
@@ -136,6 +171,8 @@ const MainMenu = () => {
       <ConfigPopUp
         style={popupActiveSetting}
         activePopup={activePopupSettings}
+        // Agregue esta línea
+        typeTablero = {displayGrid}
       />
       <OpinPopUp 
         style={popupActiveOpinion}
@@ -147,8 +184,9 @@ const MainMenu = () => {
           activePopupAccount={activePopupAccount}
           activePopupSettings={activePopupSettings}
           activePopupOpinion={activePopupOpinion}
+          // Agregue estilo a GridContainer
         />
-        <GridContainer />
+        <GridContainer style={tableroGrid} />
       </div>
     </div>
   )
