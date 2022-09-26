@@ -4,17 +4,15 @@ import propTypes from 'prop-types'
 import { FirebaseContext } from '../../hooks/FirebaseProvider'
 import { UserAuthContext } from '../../hooks/UserAuthProvider'
 import Notebook from './Notebook'
-import AddPopUp from './AddPopUp'
-import PopUp from './PopUp'
 import '../../styles/Notebooks.css'
+import AddPopUp from './AddPopUp'
 
-// Agregue style y proptypes
 const GridContainer = ({ style }) => {
   const { db } = useContext(FirebaseContext)
   const { user } = useContext(UserAuthContext)
 
   const [notebooks, setNotebooks] = useState([])
-  const [accountPopupButton, setAccountPopupButton] = useState(false)
+  const [activateNewNotebook, setActivateNewNotebook] = useState(false)
 
   useEffect(() => {
     if (db) {
@@ -32,29 +30,26 @@ const GridContainer = ({ style }) => {
 
   return (
     <div className="tablero" style={style}>
-      <Notebook
-        id={-1}
-        title="Agregar Cuaderno +"
-        lastTimeEdited=""
-        className="notebook add-notebook"
-        setNotebookMenu={setAccountPopupButton}
-        color="#333"
-      />
+      {(activateNewNotebook) ? (
+        <div className="add-popup-container">
+          <AddPopUp trigger={setActivateNewNotebook} />
+        </div>
+      ) : (
+        null
+      )}
+      <div className="notebook add-notebook">
+        <button type="button" className="add-notebook-button" onClick={() => setActivateNewNotebook(true)}>
+          Agregar cuaderno
+        </button>
+      </div>
       {notebooks.length &&
         notebooks.map((notebook, index) => (
           <div id={index}>
-            <PopUp
-              trigger={accountPopupButton}
-              setTrigger={setAccountPopupButton}
-            >
-              <AddPopUp />
-            </PopUp>
             <Notebook
               id={index}
               title={notebook.title}
               lastEdited={notebook.lastEdited}
               className="notebook"
-              setNotebookMenu={setAccountPopupButton}
               color={notebook.color}
             />
           </div>

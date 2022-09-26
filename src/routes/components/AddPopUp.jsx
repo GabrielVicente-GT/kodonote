@@ -1,11 +1,12 @@
 import React, { useState, useContext } from 'react'
+import propTypes from 'prop-types'
 import { collection, addDoc } from 'firebase/firestore'
 import getCurrentDate from '../../utils/getCurrentDate'
 import { FirebaseContext } from '../../hooks/FirebaseProvider'
 import { UserAuthContext } from '../../hooks/UserAuthProvider'
-import '../../styles/Menu.css'
+import '../../styles/AddNotebook.css'
 
-const AddPopUp = () => {
+const AddPopUp = ({ trigger }) => {
   const { db } = useContext(FirebaseContext)
   const { user } = useContext(UserAuthContext)
 
@@ -17,6 +18,7 @@ const AddPopUp = () => {
   const getNewName = (event) => setNewNotebookName(event.target.value)
 
   const handleNotebookCreation = async () => {
+    trigger(false)
     await addDoc(collection(db, 'Notebooks'), {
       color: newNotebookColor,
       lastEdited: getCurrentDate(),
@@ -27,39 +29,44 @@ const AddPopUp = () => {
   }
 
   return (
-    <div className="popup-body">
-      <div
-        className="popup preferences-link-popup hide"
-        id="preferences-link-popup"
-      >
-        <div className="popup-body">
-          <div className="option-pair">
-            <h2 className="titulo-popup">Cuadernos</h2>
-          </div>
-          <div className="option-pair">
-            <label className="popup-text" htmlFor="identation-input">
-              Nombre del cuaderno:{' '}
-            </label>
-            <input type="text" id="name-input" onInput={getNewName} />
-          </div>
-          <div className="option-pair">
-            <label className="popup-text" htmlFor="identation-input">
-              Color del cuaderno:{' '}
-            </label>
-            <input type="color" id="color-input" onChange={getNewColor} />
-          </div>
-          <button
-            type="button"
-            className="CreateNotebook"
-            id="InputColor"
-            onClick={handleNotebookCreation}
-          >
-            Crear cuaderno
-          </button>
+    <div className="add-notebook-popup">
+      <div className="add-notebook-title">
+        <h1>Crear cuaderno</h1>
+      </div>
+      <div className="add-notebook-options">
+        <div className="add-notebook-option-pair">
+          <label htmlFor="name-input">Nombre</label>
+          <input type="text" id="name-input" onInput={getNewName} />
         </div>
+        <div className="add-notebook-option-pair">
+          <label htmlFor="color-input">Color</label>
+          <input type="color" id="color-input" onChange={getNewColor} />
+        </div>
+        <div className="add-notebook-option-pair">
+          <label htmlFor="autosave-input">Autoguardar</label>
+          <input type="checkbox" id="autosave-input" />
+        </div>
+      </div>
+      <div className="add-notebook-buttons">
+        <button
+          type="button"
+          onClick={handleNotebookCreation}
+        >
+          Crear cuaderno
+        </button>
+        <button
+          type="button"
+          onClick={() => trigger(false)}
+        >
+          Cerrar
+        </button>
       </div>
     </div>
   )
+}
+
+AddPopUp.propTypes = {
+  trigger: propTypes.func.isRequired,
 }
 
 export default AddPopUp

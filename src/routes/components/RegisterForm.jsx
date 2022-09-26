@@ -62,7 +62,7 @@ const RegisterForm = ({
     }
   }
 
-  document.addEventListener('keypress', (event) => {
+  window.addEventListener('keypress', (event) => {
     if (event.key === 'Enter') handleEnterSubmit()
   })
 

@@ -71,8 +71,7 @@ const Annotations = () => {
     })
   }
 
-  const saveNotebook = async (title) => {
-    console.log('Notebook title', title)
+  const saveNotebook = async () => {
     const userNotebook = doc(db, 'Notebooks', notebookId)
     const newFields = { ...notebook, notebook: notebook.notebook }
     await updateDoc(userNotebook, newFields)
@@ -156,7 +155,7 @@ const Annotations = () => {
         </button>
       </div>
       <div className="paper">
-        <div className="estiloCompleto" style={display}>
+        <div className="paper-container" style={display}>
           {notebook.notebook.map((contentBlock, index) => (
             <textarea
               value={contentBlock.value}
@@ -166,7 +165,6 @@ const Annotations = () => {
               }
               onChange={(event) => {
                 setNotebook((previousState) => {
-                  console.log('previousState', previousState)
                   const temp = [...previousState.notebook]
                   temp[index].value = event.target.value
                   return { ...notebook, notebook: temp }

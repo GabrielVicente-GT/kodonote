@@ -48,7 +48,7 @@
   background-color: #153645;
 }
 
-.estiloCompleto {
+.paper-container {
   display: grid;
   width: 100%;
   background: white;

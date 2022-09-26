@@ -10,7 +10,6 @@ const Notebook = ({
   title,
   lastEdited,
   className,
-  setNotebookMenu,
   color,
 }) => {
   const { user } = useContext(UserAuthContext)
@@ -18,27 +17,21 @@ const Notebook = ({
 
   return (
     <div key={id} className={className}>
-      {title === 'Agregar Cuaderno +' ? (
-        <Link to="/main" className="link" onClick={() => setNotebookMenu(true)}>
-          <h4>{title}</h4>
-        </Link>
-      ) : (
-        <Link
-          to={title === 'Agregar Cuaderno +' ? '/main' : '/editor'}
-          className="link"
-          style={{ backgroundColor: color }}
-          onClick={() => {
-            setFocusedNotebook({
-              userId: user.uid,
-              color,
-              title,
-            })
-          }}
-        >
-          <h4>{title}</h4>
-          <p>{lastEdited}</p>
-        </Link>
-      )}
+      <Link
+        to={title === 'Agregar Cuaderno +' ? '/main' : '/editor'}
+        className="link"
+        style={{ backgroundColor: color }}
+        onClick={() => {
+          setFocusedNotebook({
+            userId: user.uid,
+            color,
+            title,
+          })
+        }}
+      >
+        <h4>{title}</h4>
+        <p>{lastEdited}</p>
+      </Link>
     </div>
   )
 }
@@ -48,7 +41,6 @@ Notebook.propTypes = {
   title: propTypes.string.isRequired,
   lastEdited: propTypes.string.isRequired,
   className: propTypes.string.isRequired,
-  setNotebookMenu: propTypes.func.isRequired,
   color: propTypes.string.isRequired,
 }
 
