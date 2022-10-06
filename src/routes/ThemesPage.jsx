@@ -33,7 +33,7 @@ const ThemesPage = () => {
         <button type="button" className="theme-aside-button">Ver mis temas</button>
         <Link to="/main" className="theme-aside-button">Volver</Link>
       </aside>
-      <main>
+      <main className="themes-main">
         {themes.map((availableTheme) => (
           <div className="theme-card">
             <img src={availableTheme.source} alt="Tema de Kodonote" />

@@ -52,7 +52,7 @@ aside > .theme-aside-button:hover {
   transform: translateY(-2px);
 }
 
-main {
+.themes-main {
   position: fixed;
   left: 16.5%;
   width: 83.5%;
@@ -64,7 +64,7 @@ main {
   padding-top: 30px;
 }
 
-main > .theme-card {
+.themes-main > .theme-card {
   width: 90%;
   height: 80%;
   border: 1px solid rgb(200, 200, 200);
@@ -75,7 +75,7 @@ main > .theme-card {
   border-radius: 10px;
 }
 
-main > .theme-card:hover {
+.themes-main > .theme-card:hover {
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
 }
 
