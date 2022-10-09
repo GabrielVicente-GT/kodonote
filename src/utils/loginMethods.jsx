@@ -24,17 +24,16 @@ const handleError = (error) => {
 
   const logIn = (email, password) => signInWithEmailAndPassword(auth, email, password)
 
-  const handleSubmit =  (loginEmail, loginPassword) => {
+  const handleSubmit = async (loginEmail, loginPassword) => {
     
     let currentEmail = loginEmail
 
-    console.log(currentEmail)
     try {
-      logIn(loginEmail, loginPassword)
+      await logIn(loginEmail, loginPassword)
       currentEmail = loginEmail
     } catch (error) {
       console.log(error.code)
-      currentEmail = loginEmail
+      currentEmail = 'error'
     }
 
     return currentEmail
