@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 // import { ThemeContext } from '../hooks/ThemeProvider'
+import ThemeCard from './components/ThemeCard'
 import Logo from '../images/logo-negative.png'
 import themes from '../utils/themeGetter'
 import '../styles/ThemesPage.css'
@@ -35,20 +36,10 @@ const ThemesPage = () => {
       </aside>
       <main className="themes-main">
         {themes.map((availableTheme) => (
-          <div className="theme-card">
-            <img src={availableTheme.source} alt="Tema de Kodonote" />
-            <div className="theme-info">
-              <div className="theme-title">
-                <h3>{availableTheme.title}</h3>
-              </div>
-              <div className="theme-purchase-info">
-                <span>{availableTheme.price}</span>
-                <div className="theme-purchase-button">
-                  <button type="button" onClick={() => purchasing(availableTheme)}>Comprar</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ThemeCard
+            availableTheme={availableTheme}
+            purchaseFunction={purchasing}
+          />
         ))}
       </main>
       {(onPurchaseProcess) ? (
