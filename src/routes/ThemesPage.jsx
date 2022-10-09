@@ -7,7 +7,7 @@ import themes from '../utils/themeGetter'
 import '../styles/ThemesPage.css'
 
 const ThemesPage = () => {
-  const { setBackgroundTheme } = useContext(ThemeContext)
+  const { purchasedThemes, setPurchasedThemes, setBackgroundTheme } = useContext(ThemeContext)
 
   const [purchasedTheme, setPurchasedTheme] = useState()
   const [onPurchaseProcess, setOnPurchaseProcess] = useState(false)
@@ -58,6 +58,7 @@ const ThemesPage = () => {
                 setOnPurchaseProcess(false)
                 alert("¡Muchas gracias por tu compra!")
                 setBackgroundTheme(purchasedTheme)
+                setPurchasedThemes([...purchasedThemes, purchasedTheme])
               }}>Comprar</button>
               <button type="button" onClick={() => setOnPurchaseProcess(false)}>Cancelar</button>
             </div>

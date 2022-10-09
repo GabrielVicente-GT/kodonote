@@ -3,7 +3,7 @@ import { query, collection, onSnapshot } from 'firebase/firestore'
 import propTypes from 'prop-types'
 import { FirebaseContext } from '../../hooks/FirebaseProvider'
 import { UserAuthContext } from '../../hooks/UserAuthProvider'
-// import { ThemeContext } from '../../hooks/ThemeProvider'
+import { ThemeContext } from '../../hooks/ThemeProvider'
 import Notebook from './Notebook'
 import '../../styles/Notebooks.css'
 import AddPopUp from './AddPopUp'
@@ -11,7 +11,7 @@ import AddPopUp from './AddPopUp'
 const GridContainer = ({ style }) => {
   const { db } = useContext(FirebaseContext)
   const { user } = useContext(UserAuthContext)
-  // const { theme } = useContext(ThemeContext)
+  const { backgroundTheme } = useContext(ThemeContext)
 
   const [notebooks, setNotebooks] = useState([])
   const [activateNewNotebook, setActivateNewNotebook] = useState(false)
@@ -31,7 +31,10 @@ const GridContainer = ({ style }) => {
   }, [db])
 
   return (
-    <div className="tablero" style={style}>
+    <div
+      className="notebook-container"
+      style={{ ...style, backgroundImage: `url(${backgroundTheme.source})`, backgroundSize: '100vw' }}
+    >
       {(activateNewNotebook) ? (
         <div className="add-popup-container">
           <AddPopUp setActive={setActivateNewNotebook} />
