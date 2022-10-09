@@ -15,8 +15,8 @@ import './styles/App.css'
 const App = () => (
   <UserAuthProvider>
     <FirebaseProvider>
+      <ThemeProvider>
       <FocusedNotebookProvider>
-        <ThemeProvider>
           <Routes>
             <Route exact path="/" element={<LandingPage />} />
             <Route exact path="/login" element={<LogregPage />} />
@@ -48,8 +48,8 @@ const App = () => (
               }
             />
           </Routes>
-        </ThemeProvider>
-      </FocusedNotebookProvider>
+        </FocusedNotebookProvider>
+      </ThemeProvider>
     </FirebaseProvider>
   </UserAuthProvider>
 )
