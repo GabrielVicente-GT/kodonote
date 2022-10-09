@@ -124,6 +124,10 @@ input::placeholder {
   color: var(--accent-color-white);
 }
 
+input:focus {
+  color: var(--accent-color-white);
+}
+
 .form-btn-is {
   background-color: var(--accent-color-white);
   color: var(--accent-color-black);
