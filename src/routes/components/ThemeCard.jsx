@@ -1,5 +1,6 @@
 import React from 'react'
 import propTypes, { string } from 'prop-types'
+import '../../styles/ThemeCard.css'
 
 const ThemeCard = ({ availableTheme, purchaseFunction }) => (
   <div className="theme-card">
