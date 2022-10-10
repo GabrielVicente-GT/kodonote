@@ -52,6 +52,7 @@
     "build": "webpack --mode production",
     "build-dev": "webpack --mode development",
     "test": "jest",
+    "test-coverage": "jest --coverage",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/**.jsx"
   },
