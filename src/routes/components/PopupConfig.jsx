@@ -2,7 +2,6 @@ import React from 'react'
 import '../../styles/Menu.css'
 import propTypes from 'prop-types'
 
-// Agregue typeTablero
 const ConfigPopUp = ({ style, activePopup, typeTablero }) => {
   const handleClose = () => {
     activePopup('off')
@@ -59,7 +58,6 @@ const ConfigPopUp = ({ style, activePopup, typeTablero }) => {
 ConfigPopUp.propTypes = {
   style: propTypes.node.isRequired,
   activePopup: propTypes.node.isRequired,
-  // Agregue este proptype
   typeTablero: propTypes.node.isRequired,
 }
 
