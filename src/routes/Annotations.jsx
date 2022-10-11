@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useEffect, useContext, useRef } from 'react'
 import {
   query,
   collection,
@@ -7,6 +7,7 @@ import {
   doc,
 } from 'firebase/firestore'
 import CodeEditor from '@uiw/react-textarea-code-editor'
+import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock'
 import { useNavigate } from 'react-router-dom'
 import { FirebaseContext } from '../hooks/FirebaseProvider'
 import { FocusedNotebookContext } from '../hooks/FocusedNotebookProvider'
@@ -17,6 +18,7 @@ import DeleteSection from '../images/icons/delete-section.png'
 import SaveNotebook from '../images/icons/save-notebook.png'
 import SetRowView from '../images/icons/set-row-view.png'
 import SetColumnView from '../images/icons/set-column-view.png'
+import Alert from './components/Alert'
 import '../styles/Annotations.css'
 
 const Annotations = () => {
@@ -25,7 +27,10 @@ const Annotations = () => {
   const { db } = useContext(FirebaseContext)
   const { focusedNotebook } = useContext(FocusedNotebookContext)
 
+  const [saved, setSaved] = useState(false)
   const [display, setDisplay] = useState()
+
+  const alertRef = useRef(null)
 
   const [notebookId, setNotebookId] = useState()
   const [notebook, setNotebook] = useState({
@@ -35,6 +40,14 @@ const Annotations = () => {
     lastEdited: '',
     notebook: [],
   })
+
+  useEffect(() => {
+    if (saved) {
+      disableBodyScroll(alertRef.current)
+    } else {
+      enableBodyScroll(alertRef.current)
+    }
+  }, [saved])
 
   useEffect(() => {
     if (db) {
@@ -76,7 +89,7 @@ const Annotations = () => {
     const userNotebook = doc(db, 'Notebooks', notebookId)
     const newFields = { ...notebook, notebook: notebook.notebook }
     await updateDoc(userNotebook, newFields)
-    alert('¡Cuaderno guardado!')
+    setSaved(true)
   }
 
   const gridDisplay = {
@@ -190,6 +203,17 @@ const Annotations = () => {
           ))}
         </div>
       </div>
+      {(saved) ? (
+        <div className="saved-alert-background">
+          <Alert
+            alertTitle="¡Cuaderno guardado!"
+            alertText="El cuaderno se ha guardado con éxito. Ya puedes cerrar el cuaderno sin preocuparte."
+            closeFunction={setSaved}
+          />
+        </div>
+      ) : (
+        null
+      )}
     </div>
   )
 }
