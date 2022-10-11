@@ -2,8 +2,6 @@ import React from 'react'
 import propTypes from 'prop-types'
 import '../../styles/Menu.css'
 
-// El boton aparece siempre por alguna razon
-
 const PopUp = ({ title, style }) => (
   <div style={style} className="popup">
     <h1>{title}</h1>

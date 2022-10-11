@@ -124,6 +124,10 @@ input::placeholder {
   color: var(--accent-color-white);
 }
 
+input:focus {
+  color: var(--accent-color-white);
+}
+
 .form-btn-is {
   background-color: var(--accent-color-white);
   color: var(--accent-color-black);
@@ -199,7 +203,8 @@ button > img {
   outline: none;
 }
 
-span {
+/* */
+.login-span {
   width: 100%;
   text-align: center;
   font-family: var(--subtitles);

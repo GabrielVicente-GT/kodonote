@@ -7,7 +7,10 @@ const ThemeProvider = ({ children }) => {
   const [purchasedThemes, setPurchasedThemes] = useState([])
   const [backgroundTheme, setBackgroundTheme] = useState({})
 
-  const state = useMemo(() => ({ purchasedThemes, setPurchasedThemes, backgroundTheme, setBackgroundTheme }), [purchasedThemes, backgroundTheme])
+  const state = useMemo(
+    () => ({ purchasedThemes, setPurchasedThemes, backgroundTheme, setBackgroundTheme }),
+    [purchasedThemes, backgroundTheme]
+  )
 
   return (
     <ThemeContext.Provider value={state}>

@@ -90,7 +90,7 @@ const LoginForm = ({
         <button type="button" className="form-btn-is" onClick={handleSubmit}>
           Iniciar Sesión
         </button>
-        <span>
+        <span className="login-span">
           ¿No tienes una cuenta? Regístrate{' '}
           <button type="button" className="link-button" onClick={giveRegister}>
             aquí

@@ -1,12 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
-// import { ThemeContext } from '../hooks/ThemeProvider'
+import { ThemeContext } from '../hooks/ThemeProvider'
+import ThemeCard from './components/ThemeCard'
 import Logo from '../images/logo-negative.png'
 import themes from '../utils/themeGetter'
 import '../styles/ThemesPage.css'
 
 const ThemesPage = () => {
-  // const { theme } = useContext(ThemeContext)
+  const { purchasedThemes, setPurchasedThemes, setBackgroundTheme } = useContext(ThemeContext)
 
   const [purchasedTheme, setPurchasedTheme] = useState()
   const [onPurchaseProcess, setOnPurchaseProcess] = useState(false)
@@ -35,20 +36,10 @@ const ThemesPage = () => {
       </aside>
       <main className="themes-main">
         {themes.map((availableTheme) => (
-          <div className="theme-card">
-            <img src={availableTheme.source} alt="Tema de Kodonote" />
-            <div className="theme-info">
-              <div className="theme-title">
-                <h3>{availableTheme.title}</h3>
-              </div>
-              <div className="theme-purchase-info">
-                <span>{availableTheme.price}</span>
-                <div className="theme-purchase-button">
-                  <button type="button" onClick={() => purchasing(availableTheme)}>Comprar</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <ThemeCard
+            availableTheme={availableTheme}
+            purchaseFunction={purchasing}
+          />
         ))}
       </main>
       {(onPurchaseProcess) ? (
@@ -64,10 +55,10 @@ const ThemesPage = () => {
               </p>
               <span>¿Seguro que quieres proceder a la compra?</span>
               <button type="button" onClick={() => {
-                // console.log("Theme", theme)
                 setOnPurchaseProcess(false)
-                // theme.setBackgroundTheme(purchasedTheme)
                 alert("¡Muchas gracias por tu compra!")
+                setBackgroundTheme(purchasedTheme)
+                setPurchasedThemes([...purchasedThemes, purchasedTheme])
               }}>Comprar</button>
               <button type="button" onClick={() => setOnPurchaseProcess(false)}>Cancelar</button>
             </div>

@@ -10,6 +10,10 @@
   --text: 'Hind Madurai', sans-serif;
 }
 
+.notebook-container {
+  background-size: auto;
+}
+
 .notebook {
   display: flex;
   justify-content: center;
