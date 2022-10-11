@@ -99,6 +99,7 @@ const MainMenu = () => {
     overflow: 'auto',
     height: 'auto',
     color: '000',
+    gap: '20px'
   }
 
   const [popupActiveAccount, setpopupActiveAccount] = useState(popupOff)
@@ -170,7 +171,7 @@ const MainMenu = () => {
       <ConfigPopUp
         style={popupActiveSetting}
         activePopup={activePopupSettings}
-        typeTablero = {displayGrid}
+        typeTablero={displayGrid}
       />
       <OpinPopUp 
         style={popupActiveOpinion}
