@@ -45,6 +45,8 @@
 .theme-purchase-info > span {
   width: 50%;
   color: var(--secondary-color);
+  font-family: var(--subtitles);
+  text-align: center;
 }
 
 .theme-purchase-info > .theme-purchase-button {
