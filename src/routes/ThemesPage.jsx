@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { ThemeContext } from '../hooks/ThemeProvider'
 import ThemeCard from './components/ThemeCard'
+import Alert from './components/Alert'
 import Logo from '../images/logo-negative.png'
 import themes from '../utils/themeGetter'
 import '../styles/ThemesPage.css'
@@ -11,6 +12,7 @@ const ThemesPage = () => {
 
   const [purchasedTheme, setPurchasedTheme] = useState()
   const [onPurchaseProcess, setOnPurchaseProcess] = useState(false)
+  const [purchased, setPurchased] = useState(false)
 
   const purchasing = (selectedTheme) => {
     setPurchasedTheme(selectedTheme)
@@ -56,13 +58,24 @@ const ThemesPage = () => {
               <span>¿Seguro que quieres proceder a la compra?</span>
               <button type="button" onClick={() => {
                 setOnPurchaseProcess(false)
-                alert("¡Muchas gracias por tu compra!")
                 setBackgroundTheme(purchasedTheme)
                 setPurchasedThemes([...purchasedThemes, purchasedTheme])
+                setPurchased(true)
               }}>Comprar</button>
               <button type="button" onClick={() => setOnPurchaseProcess(false)}>Cancelar</button>
             </div>
           </div>
+        </div>
+      ) : (
+        null
+      )}
+      {(purchased) ? (
+        <div className="purchased-alert-background">
+          <Alert
+            alertTitle="¡Compra finalizada!"
+            alertText="Tu compra ha sido efectuada con éxito. Como equipo de Kodonote, te agradecemos mucho el apoyo."
+            closeFunction={setPurchased}
+          />
         </div>
       ) : (
         null
