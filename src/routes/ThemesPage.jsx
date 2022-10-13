@@ -33,7 +33,7 @@ const ThemesPage = () => {
           className="theme-search-bar"
           placeholder="Buscar tema"
         />
-        <button type="button" className="theme-aside-button">Ver mis temas</button>
+        <Link to="/my-themes" className="theme-aside-button">Ver mis temas</Link>
         <Link to="/main" className="theme-aside-button">Volver</Link>
       </aside>
       <main className="themes-main">
