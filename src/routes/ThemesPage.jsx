@@ -41,6 +41,7 @@ const ThemesPage = () => {
           <ThemeCard
             availableTheme={availableTheme}
             purchaseFunction={purchasing}
+            usable={false}
           />
         ))}
       </main>
