@@ -56,7 +56,7 @@
     "build-dev": "webpack --mode development",
     "test": "jest",
     "test-coverage": "jest --coverage",
-    "test-newman": "newman run https://www.getpostman.com/collections/fbc3033ab95ceb7c90a5",
+    "newman": "newman run src/collections/KT_V2.postman_collection.json",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/**.jsx"
   },
