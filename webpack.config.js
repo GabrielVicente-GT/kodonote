@@ -2,7 +2,7 @@ const path = require('path')
 const htmlwebpackplugin = require('html-webpack-plugin')
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/index.jsx',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -10,13 +10,13 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.m?jsx$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: ['@babel/transform-runtime'],
+            plugins: ['@babel/transform-runtime', '@babel/plugin-transform-react-jsx'],
           },
         },
       },
