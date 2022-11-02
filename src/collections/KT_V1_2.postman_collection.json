@@ -1,0 +1,273 @@
+{
+	"info": {
+		"_postman_id": "0d22a0aa-5c71-44b3-b603-24e51e2d2dd1",
+		"name": "Kodonote Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "23726453"
+	},
+	"item": [
+		{
+			"name": "Get and test data from Firebase",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status should be OK\", () => {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"const jsonData = pm.response.json();\r",
+							"pm.test(\"Test data type of the response\", () => {\r",
+							"    pm.expect(jsonData).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData.documents[0].name).to.be.an(\"string\");\r",
+							"    pm.expect(jsonData.documents[0].fields).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData.documents[0].fields.title.stringValue).to.be.an(\"string\");\r",
+							"    pm.expect(jsonData.documents[0].fields.color.stringValue).to.be.an(\"string\");\r",
+							"    pm.expect(jsonData.documents[0].fields.lastEdited.stringValue).to.be.an(\"string\");\r",
+							"    pm.expect(jsonData.documents[0].fields.userId.stringValue).to.be.an(\"string\");\r",
+							"    pm.expect(jsonData.documents[0].fields.notebook).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData.documents[0].fields.notebook.arrayValue).to.be.an(\"object\");\r",
+							"    pm.expect(jsonData.documents[0].createTime).to.be.an(\"string\");\r",
+							"    pm.expect(jsonData.documents[0].updateTime).to.be.an(\"string\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"The response does not return unexpected status codes\", () => {\r",
+							"  const unexpectedStatusCodes = [404, 500];\r",
+							"\r",
+							"  pm.expect(pm.response.code).to.not.be.oneOf(\r",
+							"    unexpectedStatusCodes,\r",
+							"    `did not expect response status to be one of ${unexpectedStatusCodes} but got ${pm.response.code}.`\r",
+							"  );\r",
+							"});\r",
+							"\r",
+							"const validatePassword = (first, second) => (first === second);\r",
+							"pm.test(\"User password correct\", () => {\r",
+							"    pm.expect(validatePassword('$2y$10$SN.G4leJqg9AIxtQnouIkuWehYBa2je8VzZtHIbTBADDDxBhymwSa', \r",
+							"    '$2y$10$SN.G4leJqg9AIxtQnouIkuWehYBa2je8VzZtHIbTBADDDxBhymwSa')).to.be.eql(true)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"API response contains the expected header\", () => {\r",
+							"  pm.response.to.have.header(\"Content-Type\", \"application/json; charset=UTF-8\");\r",
+							"  pm.response.to.have.header(\"Vary\", \"Referer\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://firestore.googleapis.com/v1/projects/kodonote/databases/(default)/documents/Notebooks/",
+					"protocol": "https",
+					"host": [
+						"firestore",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"projects",
+						"kodonote",
+						"databases",
+						"(default)",
+						"documents",
+						"Notebooks",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request data user login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()\r",
+							"\r",
+							"pm.test(\"Status code for correct login should be 200\", () => {\r",
+							"  pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status for correct login should be OK\", () => {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Email Registered correctly\", () => {\r",
+							"    pm.expect(response.registered).to.be.eql(true);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"User ID equal to response user ID\", () => {\r",
+							"    pm.expect(response.localID == 'gLmUNFQhkBhTKcpbvmEmDC8Wxki1');\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"christopherg2808@gmail.com\",\"password\":\"chris1910\",\"returnSecureToken\":true}"
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDDJcbo1oRvSTTT_FcLJ8cPTRoVq0gVFlc",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signInWithPassword"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyDDJcbo1oRvSTTT_FcLJ8cPTRoVq0gVFlc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request HTTP code user login with wrong password",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()\r",
+							"\r",
+							"pm.test(\"Email with wrong password Status HTTP should be 400\", () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Email with wrong password Status message should be Bad request\", () => {\r",
+							"    pm.response.to.have.status(\"Bad Request\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Email with wrong password message should be Invalid Password\", () => {\r",
+							"    pm.expect(response.error.message).to.be.eql(\"INVALID_PASSWORD\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"christopherg2808@gmail.com\",\"password\":\"Christopher\",\"returnSecureToken\":true}"
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDDJcbo1oRvSTTT_FcLJ8cPTRoVq0gVFlc",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signInWithPassword"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyDDJcbo1oRvSTTT_FcLJ8cPTRoVq0gVFlc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request data user login with email that not exists",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response = pm.response.json()\r",
+							"\r",
+							"pm.test(\"Email that not exists Status HTTP should be 400\", () => {\r",
+							"    pm.response.to.have.status(400);\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Email that not exists Status message should be Bad request\", () => {\r",
+							"    pm.response.to.have.status(\"Bad Request\");\r",
+							"})\r",
+							"\r",
+							"pm.test(\"Email that not exists message should be Email not found\", () => {\r",
+							"    pm.expect(response.error.message).to.be.eql(\"EMAIL_NOT_FOUND\");\r",
+							"})"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\":\"prueba2808@gmail.com\",\"password\":\"chris1910\",\"returnSecureToken\":true}"
+				},
+				"url": {
+					"raw": "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDDJcbo1oRvSTTT_FcLJ8cPTRoVq0gVFlc",
+					"protocol": "https",
+					"host": [
+						"identitytoolkit",
+						"googleapis",
+						"com"
+					],
+					"path": [
+						"v1",
+						"accounts:signInWithPassword"
+					],
+					"query": [
+						{
+							"key": "key",
+							"value": "AIzaSyDDJcbo1oRvSTTT_FcLJ8cPTRoVq0gVFlc"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
