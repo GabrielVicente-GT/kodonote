@@ -3,6 +3,9 @@ const htmlwebpackplugin = require('html-webpack-plugin')
 
 module.exports = {
   entry: './src/index.jsx',
+  resolve: {
+    extensions : ['', '.js', '.jsx'],
+  },
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -16,7 +19,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
-            plugins: ['@babel/transform-runtime', '@babel/plugin-transform-react-jsx'],
+            plugins: ['@babel/transform-runtime'],
           },
         },
       },
