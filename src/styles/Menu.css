@@ -10,9 +10,7 @@
   --text: 'Hind Madurai', sans-serif;
 }
 
-*,
-::before,
-::after {
+*, ::before, ::after {
   margin: 0;
   padding: 0;
 }
@@ -132,11 +130,6 @@
   background-color: white;
 }
 
-.popup-text {
-  text-align: center;
-  font-weight: bold;
-}
-
 .popup-account {
   padding: 30px;
   display: flex;
@@ -185,12 +178,6 @@
   min-height: 15px;
   min-width: 15px;
   margin-bottom: 0;
-}
-
-.titulo-popup {
-  font-weight: bolder;
-  padding: 20px;
-  font-size: 50px;
 }
 
 /* CSS */
