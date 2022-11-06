@@ -31,7 +31,6 @@ ThemeCard.propTypes = {
   availableTheme: propTypes.objectOf(string).isRequired,
   purchaseFunction: propTypes.func.isRequired,
   usable: propTypes.bool.isRequired,
-
 }
 
 export default ThemeCard
