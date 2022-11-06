@@ -10,6 +10,7 @@ import UserAuthProvider from './hooks/UserAuthProvider'
 import FirebaseProvider from './hooks/FirebaseProvider'
 import FocusedNotebookProvider from './hooks/FocusedNotebookProvider'
 import ThemeProvider from './hooks/ThemeProvider'
+import MyThemes from './routes/MyThemesPage'
 import './styles/App.css'
 
 const App = () => (
@@ -44,6 +45,15 @@ const App = () => (
               element={
                 <ProtectedRoute>
                   <ThemesPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              exact
+              path="/my-themes"
+              element={
+                <ProtectedRoute>
+                  <MyThemes />
                 </ProtectedRoute>
               }
             />

@@ -1,14 +1,14 @@
 import React, { useContext, useState } from 'react'
-import GridContainer from './components/GridContainer'
-import Options from './components/options'
-import AccoPopUp from './components/PopupAccount'
-import OpinPopUp from './components/PopupOpi'
-import ConfigPopUp from './components/PopupConfig'
-import { UserAuthContext } from '../hooks/UserAuthProvider'
+import Options from '../routes/components/options'
+import AccoPopUp from '../routes/components/PopupAccount'
+import OpinPopUp from '../routes/components/PopupOpi'
+import ConfigPopUp from '../routes/components/PopupConfig'
 import '../styles/App.css'
 
-const MainMenu = () => {
-  const { user, logOut } = useContext(UserAuthContext)
+const MainMenuMock = () => {
+
+  const setNotes="setNotes"
+  const logOut="setNotes"
 
   const popupOff = {
     fontFamily: 'Hind Madurai, sans-serif',
@@ -105,6 +105,7 @@ const MainMenu = () => {
   const [blurActive, setblurActive] = useState(noBlur)
   const [popupActiveSetting, setpopupActiveSetting] = useState(popupOff)
   const [popupActiveOpinion, setpopupActiveOpinion] = useState(popupOff)
+
   const [tableroGrid, settableroGrid] = useState(tableroGridCSS)
 
   const displayGrid = (option) => {
@@ -155,13 +156,9 @@ const MainMenu = () => {
   })
 
   return (
-    <div className="main-menu">
+    <div className="mainmenu">
       <div className="blur" style={blurActive} />
-      <header className="header">
-        <h2 className="title">
-          {(user) ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
-        </h2>
-      </header>
+      <header className="header" />
       <AccoPopUp
         style={popupActiveAccount} 
         activePopup={activePopupAccount} 
@@ -178,14 +175,14 @@ const MainMenu = () => {
       <div className="content">
         <Options
           logOut={logOut}
+          setNotes={setNotes}
           activePopupAccount={activePopupAccount}
           activePopupSettings={activePopupSettings}
           activePopupOpinion={activePopupOpinion}
         />
-        <GridContainer style={tableroGrid} />
       </div>
     </div>
   )
 }
 
-export default MainMenu
+export default MainMenuMock

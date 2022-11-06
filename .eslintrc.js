@@ -11,6 +11,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
+  settings: {
+    'import/extensions': ['.jx', '.jsx']
+  },
   plugins: ['react'],
   rules: {
     semi: ['error', 'never'],
@@ -27,5 +30,6 @@ module.exports = {
     ],
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'jsx-a11y/label-has-associated-control': ['error', { assert: 'either' }],
+    'react/jsx-filename-extension': [1, { 'extensions': ['.js', '.jsx'] }],
   },
 }

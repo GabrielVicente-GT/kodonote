@@ -22,7 +22,7 @@ const ThemesPage = () => {
   return (
     <>
       <header>
-        <h2>Observa y compra temas para Kodonote</h2>
+        <h2>Observa y compra nuevos temas para Kodonote</h2>
       </header>
       <aside>
         <img src={Logo} alt="Logo de Kodonote" />
@@ -33,7 +33,7 @@ const ThemesPage = () => {
           className="theme-search-bar"
           placeholder="Buscar tema"
         />
-        <button type="button" className="theme-aside-button">Ver mis temas</button>
+        <Link to="/my-themes" className="theme-aside-button">Ver mis temas</Link>
         <Link to="/main" className="theme-aside-button">Volver</Link>
       </aside>
       <main className="themes-main">
@@ -41,6 +41,7 @@ const ThemesPage = () => {
           <ThemeCard
             availableTheme={availableTheme}
             purchaseFunction={purchasing}
+            usable={false}
           />
         ))}
       </main>
