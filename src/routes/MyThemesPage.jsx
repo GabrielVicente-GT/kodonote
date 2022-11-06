@@ -5,7 +5,7 @@ import ThemeCard from './components/ThemeCard'
 import Alert from './components/Alert'
 import Logo from '../images/logo-negative.png'
 import themes from '../utils/purchasedThemesGetter'
-import '../styles/ThemesPage.css'
+import '../styles/MyThemesPage.css'
 
 const MyThemes = () => {
   const { setBackgroundTheme } = useContext(ThemeContext)
@@ -20,7 +20,9 @@ const MyThemes = () => {
   return (
     <>
       <header>
-        <h2>Selecciona uno de los temas que hayas comprado en Kodonote</h2>
+        <h2 className="header-title">
+          Selecciona uno de los temas que hayas comprado en Kodonote
+        </h2>
       </header>
       <aside>
         <img src={Logo} alt="Logo de Kodonote" />
@@ -32,7 +34,7 @@ const MyThemes = () => {
           placeholder="Buscar tema"
         />
         <Link to="/themes" className="theme-aside-button">Comprar temas</Link>
-        <Link to="/main" className="theme-aside-button">Volver</Link>
+        <Link to="/main" className="theme-aside-button">Volver al menú</Link>
       </aside>
       <main className="themes-main">
         {themes.map((availableTheme) => (
@@ -44,7 +46,7 @@ const MyThemes = () => {
         ))}
       </main>
       {(selected) ? (
-        <div className="purchased-alert-background">
+        <div className="selected-alert-background">
           <Alert
             alertTitle="¡Tema seleccionado!"
             alertText="¡Muy buena elección! Esperemos que disfrutes mucho el tema que has seleccionado para Kodonote."
