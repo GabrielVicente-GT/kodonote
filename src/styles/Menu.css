@@ -153,54 +153,6 @@
   border-radius: 10px;
 }
 
-.popup-Opin {
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-radius: 10px;
-  overflow: scroll;
-  overflow-x: hidden;
-  height: 100%;
-}
-
-.popup-Opin::-webkit-scrollbar {
-  background: transparent;
-}
-
-.popup-Opin::-webkit-scrollbar-thumb {
-  background: #000;
-  border-radius: 10px;
-}
-
-.popup-Opin > .option-pair > p {
-  color: #000000;
-  padding-bottom: 20px;
-}
-
-.popup-Opin > .option-pair {
-  padding: 10px;
-}
-
-.popup-opin-send {
-  background-color: #000000;
-  border: 1px solid #1a1a1a;
-  border-radius: 5px;
-  box-sizing: border-box;
-  color: #ffffff;
-  cursor: pointer;
-  font-size: 15px;
-  font-family: 'Hind Madurai', sans-serif;
-  font-weight: medium;
-  line-height: normal;
-  margin: 0;
-  outline: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: 40%;
-}
-
 #identation-input {
   color: #181a1b;
   text-align: center;

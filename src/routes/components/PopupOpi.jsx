@@ -1,14 +1,13 @@
 import React from 'react'
-import '../../styles/Menu.css'
 import propTypes from 'prop-types'
+import '../../styles/OpinionMenu.css'
 
 const OpinPopUp = ({ style, activePopup }) => {
-  const handleClose = () => {
-    activePopup('off')
-  }
-  return(
+  const handleClose = () => activePopup('off')
+
+  return (
     <div style={style}>
-      <div className="popup-Opin">
+      <div className="opinion-menu">
         <button type="button" className="btn-close" onClick={handleClose}>
           {' '}
           x{' '}

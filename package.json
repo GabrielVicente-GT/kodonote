@@ -8,7 +8,6 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@uiw/react-textarea-code-editor": "^2.0.3",
-    "@testing-library/react": "^13.4.0",
     "babel-loader": "^8.2.5",
     "body-scroll-lock": "^4.0.0-beta.0",
     "dotenv": "^16.0.3",
@@ -73,4 +72,3 @@
     ]
   }
 }
-
