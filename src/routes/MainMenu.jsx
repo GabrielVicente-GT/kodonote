@@ -8,7 +8,6 @@ import { UserAuthContext } from '../hooks/UserAuthProvider'
 import '../styles/App.css'
 
 const MainMenu = () => {
-  
   const { user, logOut } = useContext(UserAuthContext)
 
   const popupOff = {
@@ -106,7 +105,6 @@ const MainMenu = () => {
   const [blurActive, setblurActive] = useState(noBlur)
   const [popupActiveSetting, setpopupActiveSetting] = useState(popupOff)
   const [popupActiveOpinion, setpopupActiveOpinion] = useState(popupOff)
-
   const [tableroGrid, settableroGrid] = useState(tableroGridCSS)
 
   const displayGrid = (option) => {
@@ -157,11 +155,11 @@ const MainMenu = () => {
   })
 
   return (
-    <div className="mainmenu">
+    <div className="main-menu">
       <div className="blur" style={blurActive} />
       <header className="header">
         <h2 className="title">
-          {user ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
+          {(user) ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
         </h2>
       </header>
       <AccoPopUp
