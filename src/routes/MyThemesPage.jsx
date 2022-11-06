@@ -6,7 +6,17 @@ import Logo from '../images/logo-negative.png'
 import themes from '../utils/purchasedThemesGetter'
 import '../styles/ThemesPage.css'
 
-const MyThemes = () => (
+const MyThemes = () => {
+  const { setBackgroundTheme } = useContext(ThemeContext)
+
+  const [selected, setSelected] = useState(false)
+
+  const setNewTheme = (selectedTheme) => {
+    setBackgroundTheme(selectedTheme)
+    setSelected(true)
+  }
+
+  return (
     <>
       <header>
         <h2>Tus temas</h2>
@@ -27,11 +37,18 @@ const MyThemes = () => (
         {themes.map((availableTheme) => (
           <ThemeCard
             availableTheme={availableTheme}
+            purchaseFunction={setNewTheme}
             usable
           />
         ))}
       </main>
+      {(selected) ? (
+        <h1>Hello!</h1>
+      ) : (
+        null
+      )}
     </>
   )
+}
 
 export default MyThemes
