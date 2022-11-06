@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import { ThemeContext } from '../hooks/ThemeProvider'
 import ThemeCard from './components/ThemeCard'
+import Alert from './components/Alert'
 import Logo from '../images/logo-negative.png'
 import themes from '../utils/purchasedThemesGetter'
 import '../styles/ThemesPage.css'
@@ -19,7 +20,7 @@ const MyThemes = () => {
   return (
     <>
       <header>
-        <h2>Tus temas</h2>
+        <h2>Selecciona uno de los temas que hayas comprado en Kodonote</h2>
       </header>
       <aside>
         <img src={Logo} alt="Logo de Kodonote" />
@@ -43,7 +44,13 @@ const MyThemes = () => {
         ))}
       </main>
       {(selected) ? (
-        <h1>Hello!</h1>
+        <div className="purchased-alert-background">
+          <Alert
+            alertTitle="¡Tema seleccionado!"
+            alertText="¡Muy buena elección! Esperemos que disfrutes mucho el tema que has seleccionado para Kodonote."
+            closeFunction={setSelected}
+          />
+        </div>
       ) : (
         null
       )}

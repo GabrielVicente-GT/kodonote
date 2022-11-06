@@ -22,7 +22,7 @@ const ThemesPage = () => {
   return (
     <>
       <header>
-        <h2>Observa y compra temas para Kodonote</h2>
+        <h2>Observa y compra nuevos temas para Kodonote</h2>
       </header>
       <aside>
         <img src={Logo} alt="Logo de Kodonote" />
