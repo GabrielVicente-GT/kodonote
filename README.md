@@ -1,9 +1,47 @@
-# Kodonote
-
 ![UVG](https://res.cloudinary.com/webuvg/image/upload/f_auto/v1551291412/WEB/institucional/logouvg.png) <br>
 Facultad de Ingeniería <br>
 Departamento de Ciencias de la Computación <br>
 CC3090 Ingeniería de Software <br>
+
+## Tabla de contenidos
+- [Sobre el proyecto](https://github.com/GabrielVicente-GT/kodonote/blob/main/README.md#Sobre-el-proyecto)
+- [Funciones](https://github.com/GabrielVicente-GT/kodonote/blob/main/README.md#Funciones)
+- [Setup](https://github.com/GabrielVicente-GT/kodonote/blob/main/README.md#Setup)
+- [Status](https://github.com/GabrielVicente-GT/kodonote/blob/main/README.md#Status)
+- [Desarrolladores](https://github.com/GabrielVicente-GT/kodonote/blob/main/README.md#Desarrolladores)
+- [Tecnologías](https://github.com/GabrielVicente-GT/kodonote/blob/main/README.md#Tecnologías)
+
+# Kodonote ![Logo](./public/kodonote-icon.ico)
+
+## Sobre el proyecto
+
+> ***Un cuaderno realizado por programadores, para programadores.*** 
+<br>
+
+**[Kodonote](https://github.com/GabrielVicente-GT/kodonote) es una aplicación web que te permite crear notas de manera ágil y sencilla.** <br>
+**Crea notas, edita y elminia notas, todo desde una interfaz amigable y fácil de usar**
+<br>
+## Funciones:
+- Ingresar con correo
+  - Información de cuenta almacenada en la nube
+- Creación de cuadernos 
+  - Nombre personalizado
+  - Color personalizado
+  - Información de los cuadernos almacenada en la nube
+  - Escritura de bloques de código
+  - Escritura de bloques de texto
+- Personalización
+  - Selección de temática de fondo
+  - Compra de temáticas
+
+## Setup
+- Descargar o clonar el repositorio
+- Correr ```nmp install```
+- Correr ```nmp build```
+- Correr ```npm start```
+
+## Status
+Actualmente, [Kodonote](https://github.com/GabrielVicente-GT/kodonote) sigue en desarrollo. La ```Versión 1.0``` saldrá muy pronto
 
 ## Desarrolladores
 
@@ -17,33 +55,7 @@ CC3090 Ingeniería de Software <br>
   <img src="https://contrib.rocks/image?repo=GabrielVicente-GT/kodonote" />
 </a>
 
-## Sobre el proyecto
-
-> ***Proyecto realizado por programadores, para programadores.*** 
-<br>
-
-**[Kodonote] es una platafomra de cuadernos de notas diseñado especialmente para programadores con la función principal de anotar secciones de código dentro de los apuntes.**
-
-### Incluye:
-- Ingresar con correo
-  - Información de cuenta almacenada en la nube
-- Creación de cuadernos 
-  - Nombre personalizado
-  - Color personalizado
-  - Información de los cuadernos almacenada en la nube
-  - Escritura de bloques de código
-  - Escritura de bloques de texto
-- Personalización
-  - Selección de temática de fondo
-  - Compra de temáticas
-
-# Setup
-- Descargar o clonar el repositorio
-- Correr ```nmp install```
-- - Correr ```nmp build```
-- Correr ```npm start```
-
-## Desarrollado con 
+## Tecnologías
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
