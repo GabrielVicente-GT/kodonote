@@ -9,4 +9,10 @@ describe('Dado un tema a cambiar a tema principal', () => {
   it('No cambia el tema si la URL es inválida', () => {
     expect(setBackgroundTheme('not-a-theme.jpg', proofSetter)).toBe(false)
   })
+  it('Cambia el tema si se coloca un archivo .jpg', () => {
+    expect(setBackgroundTheme('theme.jpg', proofSetter)).toBe(true)
+  })
+  it('No cambia el tema si el archivo no tiene la extensión .jpg', () => {
+    expect(setBackgroundTheme('theme.png', proofSetter)).toBe(false)
+  })
 })
