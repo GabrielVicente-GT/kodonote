@@ -1,14 +1,15 @@
 import React, { useContext, useState } from 'react'
+import GridContainer from '../routes/components/GridContainer'
 import Options from '../routes/components/options'
 import AccoPopUp from '../routes/components/PopupAccount'
 import OpinPopUp from '../routes/components/PopupOpi'
 import ConfigPopUp from '../routes/components/PopupConfig'
+import { UserAuthContext } from '../hooks/UserAuthProvider'
 import '../styles/App.css'
 
-const MainMenuMock = () => {
-
-  const setNotes="setNotes"
-  const logOut="setNotes"
+const MainMenu = () => {
+  
+  const { logOut } = useContext(UserAuthContext)
 
   const popupOff = {
     fontFamily: 'Hind Madurai, sans-serif',
@@ -175,14 +176,14 @@ const MainMenuMock = () => {
       <div className="content">
         <Options
           logOut={logOut}
-          setNotes={setNotes}
           activePopupAccount={activePopupAccount}
           activePopupSettings={activePopupSettings}
           activePopupOpinion={activePopupOpinion}
         />
+        <GridContainer style={tableroGrid} />
       </div>
     </div>
   )
 }
 
-export default MainMenuMock
+export default MainMenu
