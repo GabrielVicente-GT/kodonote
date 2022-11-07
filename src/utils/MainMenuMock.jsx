@@ -1,10 +1,8 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import GridContainer from '../routes/components/GridContainer'
 import Options from '../routes/components/options'
 import AccoPopUp from '../routes/components/PopupAccount'
-import OpinPopUp from '../routes/components/PopupOpi'
 import ConfigPopUp from '../routes/components/PopupConfig'
-import { UserAuthContext } from '../hooks/UserAuthProvider'
 import '../styles/App.css'
 
 const MainMenu = () => {
@@ -153,6 +151,7 @@ const MainMenu = () => {
       setpopupActiveAccount(popupOff)
       setpopupActiveSetting(popupOff)
       setpopupActiveOpinion(popupOff)
+      setpopupActiveOpinion(popupActiveOpinion)
     }
   })
 
@@ -183,3 +182,4 @@ const MainMenu = () => {
 }
 
 export default MainMenu
+
