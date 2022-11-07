@@ -2,29 +2,28 @@ import React from 'react'
 import propTypes from 'prop-types'
 import '../../styles/OpinionMenu.css'
 
-const OpinPopUp = ({ style, activePopup }) => {
+const OpinionMenu = ({ style, activePopup }) => {
   const handleClose = () => activePopup('off')
 
   return (
     <div style={style}>
       <div className="opinion-menu">
-        <button type="button" className="btn-close" onClick={handleClose}>
-          {' '}
-          x{' '}
+        <button type="button" className="btn-close opinion-close-button" onClick={handleClose}>
+          X
         </button>
         <div className="option-pair">
           <h2 className="titulo-popup">Cuéntanos tu opinión</h2>
         </div>
         <div className="option-pair">
           <p>
-            Gracias por utlizar Kodo Note.
-            <br />
-            <br />
+            Gracias por utlizar Kodonote.
+              <br />
+              <br />
             Como desarrolladores de la aplicación 
             tu opinión nos importa para poder hacer cambios en la plataforma y mejorar 
             la experiencia de nuestros usuarios al momento de usarla.
-            <br />
-            <br />
+              <br />
+              <br />
             Por ello, a continuación puedes encontrar una serie de preguntas, enunciados 
             e instrucciones para que podamos calificar tu experiencia y tengas la 
             oportunidad de expresar tu opinión. 
@@ -110,9 +109,9 @@ const OpinPopUp = ({ style, activePopup }) => {
   )
 }
 
-OpinPopUp.propTypes = {
+OpinionMenu.propTypes = {
   style: propTypes.node.isRequired,
   activePopup: propTypes.node.isRequired,
 }
 
-export default OpinPopUp
+export default OpinionMenu

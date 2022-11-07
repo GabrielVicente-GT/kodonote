@@ -12,8 +12,6 @@
   font-weight: medium;
   line-height: normal;
   margin: 0;
-  max-height: 25px;
-  max-width: 15px;
   outline: none;
   padding: 5px 10px;
   text-align: center;
@@ -39,6 +37,10 @@
 .btn-close:active {
   box-shadow: none;
   transform: translateY(0);
+}
+
+.opinion-close-button {
+  width: 100px;
 }
 
 .opinion-menu {
@@ -87,4 +89,15 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   width: 40%;
+}
+
+.titulo-popup {
+  font-weight: bolder;
+  padding: 20px;
+  font-size: 50px;
+}
+
+.popup-text {
+  text-align: center;
+  font-weight: bold;
 }

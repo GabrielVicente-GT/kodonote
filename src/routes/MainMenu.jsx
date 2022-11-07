@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import GridContainer from './components/GridContainer'
 import Options from './components/options'
 import AccoPopUp from './components/PopupAccount'
-import OpinPopUp from './components/PopupOpi'
+import OpinionMenu from './components/OpinionMenu'
 import ConfigPopUp from './components/PopupConfig'
 import { UserAuthContext } from '../hooks/UserAuthProvider'
 import '../styles/App.css'
@@ -171,7 +171,7 @@ const MainMenu = () => {
         activePopup={activePopupSettings}
         typeTablero={displayGrid}
       />
-      <OpinPopUp 
+      <OpinionMenu 
         style={popupActiveOpinion}
         activePopup={activePopupOpinion}
       />
