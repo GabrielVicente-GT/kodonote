@@ -6,7 +6,6 @@ import '../../styles/Menu.css'
 
 const Options = ({
   logOut,
-  setNotes,
   activePopupAccount,
   activePopupSettings,
   activePopupOpinion,
@@ -40,9 +39,6 @@ const Options = ({
         id="search-bar"
         className="search-bar"
         placeholder="Buscar cuaderno"
-        onChange={(e) => {
-          setNotes(e.target.value)
-        }}
       />
       <div className="option-list">
         <button type="button" className="account-link" onClick={handleAccount}>
@@ -67,7 +63,6 @@ const Options = ({
 
 Options.propTypes = {
   logOut: propTypes.func.isRequired,
-  setNotes: propTypes.func.isRequired,
   activePopupAccount: propTypes.func.isRequired,
   activePopupSettings: propTypes.func.isRequired,
   activePopupOpinion: propTypes.func.isRequired,

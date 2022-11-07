@@ -9,7 +9,7 @@ import '../styles/App.css'
 
 const MainMenu = () => {
   
-  const { logOut } = useContext(UserAuthContext)
+  const logOut = () => console.log("logout")
 
   const popupOff = {
     fontFamily: 'Hind Madurai, sans-serif',
@@ -168,10 +168,6 @@ const MainMenu = () => {
         style={popupActiveSetting}
         activePopup={activePopupSettings}
         typeTablero={displayGrid}
-      />
-      <OpinPopUp 
-        style={popupActiveOpinion}
-        activePopup={activePopupOpinion}
       />
       <div className="content">
         <Options
