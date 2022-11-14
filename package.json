@@ -8,6 +8,7 @@
     "@uiw/react-textarea-code-editor": "^2.0.3",
     "babel-loader": "^8.2.5",
     "body-scroll-lock": "^4.0.0-beta.0",
+    "cypress": "^10.11.0",
     "dotenv": "^16.0.3",
     "draft-js": "^0.11.7",
     "firebase": "^9.8.2",
@@ -59,7 +60,9 @@
     "test-coverage": "jest --coverage",
     "newman": "newman run src/collections/KT_V1_2.postman_collection.json",
     "eject": "react-scripts eject",
-    "lint": "eslint ./src/**/**.jsx"
+    "lint": "eslint ./src/**/**.jsx",
+    "cy:run": "cypress run",
+    "cy:open": "cypress open"
   },
   "browserslist": {
     "production": [
