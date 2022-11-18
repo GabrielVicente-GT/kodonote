@@ -297,6 +297,30 @@ button > img {
   color: rgb(200, 200, 200);
 }
 
+@media screen and (max-width: 1200px) {
+  .logreg-form-info {
+  
+  }
+
+  .logreg-form-image-shadow {
+    display: none;
+  }
+
+  .logreg-form{
+    flex-direction: column;
+    width: 50%;
+    min-width: 500px;
+  }
+
+  .logreg-form-info{
+    width: 100%;
+  }
+
+  .logreg-form-image{
+    display: none;
+  }
+}
+
 ::-webkit-scrollbar {
   width: 5px;
 }
