@@ -32,4 +32,8 @@ jobs:
     - run: npm run test
     - run: npm run newman
     - run: npm run lint
-    
+    - name: Cypress run
+      uses: cypress-io/github-action@v4
+      with:
+        build: npm run build
+        start: npm start
