@@ -61,7 +61,7 @@
     "newman": "newman run src/collections/KT_V1_2.postman_collection.json",
     "eject": "react-scripts eject",
     "lint": "eslint ./src/**/**.jsx",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --e2e",
     "cy:open": "cypress open"
   },
   "browserslist": {
