@@ -1,13 +1,22 @@
+<<<<<<< HEAD
+import React, { useContext, useState } from 'react'
+import GridContainer from './components/GridContainer'
+import Options from './components/options'
+import AccoPopUp from './components/PopupAccount'
+import OpinionMenu from './components/OpinionMenu'
+import ConfigPopUp from './components/PopupConfig'
+import { UserAuthContext } from '../hooks/UserAuthProvider'
+=======
 import React, { useState } from 'react'
 import GridContainer from '../routes/components/GridContainer'
 import Options from '../routes/components/options'
 import AccoPopUp from '../routes/components/PopupAccount'
 import ConfigPopUp from '../routes/components/PopupConfig'
+>>>>>>> 21c60ab9af2cbd9396d7d78b5b4d2513918c3170
 import '../styles/App.css'
 
 const MainMenu = () => {
-  
-  const logOut = () => console.log("logout")
+  const { user, logOut } = useContext(UserAuthContext)
 
   const popupOff = {
     fontFamily: 'Hind Madurai, sans-serif',
@@ -104,7 +113,6 @@ const MainMenu = () => {
   const [blurActive, setblurActive] = useState(noBlur)
   const [popupActiveSetting, setpopupActiveSetting] = useState(popupOff)
   const [popupActiveOpinion, setpopupActiveOpinion] = useState(popupOff)
-
   const [tableroGrid, settableroGrid] = useState(tableroGridCSS)
 
   const displayGrid = (option) => {
@@ -156,9 +164,13 @@ const MainMenu = () => {
   })
 
   return (
-    <div className="mainmenu">
+    <div className="main-menu">
       <div className="blur" style={blurActive} />
-      <header className="header" />
+      <header className="header">
+        <h2 className="title">
+          {(user) ? `Hola de nuevo ${user?.email}!` : 'Kodonote'}
+        </h2>
+      </header>
       <AccoPopUp
         style={popupActiveAccount} 
         activePopup={activePopupAccount} 
@@ -167,6 +179,10 @@ const MainMenu = () => {
         style={popupActiveSetting}
         activePopup={activePopupSettings}
         typeTablero={displayGrid}
+      />
+      <OpinionMenu 
+        style={popupActiveOpinion}
+        activePopup={activePopupOpinion}
       />
       <div className="content">
         <Options

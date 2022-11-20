@@ -50,7 +50,7 @@ const Options = ({
         <Link to="/themes" className="themes-link">
           Ver temas
         </Link>
-        <button type="button" className="config-link" onClick={handleOpinion}>
+        <button type="button" className="opinion-link" onClick={handleOpinion}>
           Cuéntanos tu opinión
         </button>
         <button type="button" className="log-out" onClick={handleLogOut}>
