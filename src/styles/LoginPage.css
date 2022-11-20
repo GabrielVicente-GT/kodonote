@@ -211,6 +211,13 @@ button > img {
   color: var(--accent-color-white);
 }
 
+.register-span {
+  width: 100%;
+  text-align: center;
+  font-family: var(--subtitles);
+  color: var(--accent-color-white);
+}
+
 .link-button {
   font-family: var(--subtitles);
   font-size: 16px;
