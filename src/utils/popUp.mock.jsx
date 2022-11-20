@@ -1,5 +1,5 @@
 import React from 'react'
-import '../../styles/Menu.css'
+import '../styles/App.css'
 import propTypes from 'prop-types'
 
 const AccoPopUpmock = ({ style, activePopup }) => {
@@ -32,7 +32,7 @@ const AccoPopUpmock = ({ style, activePopup }) => {
   )
 }
 
-AccoPopUp.propTypes = {
+AccoPopUpmock.propTypes = {
   style: propTypes.node.isRequired,
   activePopup: propTypes.node.isRequired,
 }
