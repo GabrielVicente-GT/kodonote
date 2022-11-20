@@ -157,7 +157,7 @@ const RegisterForm = ({
         <button type="button" className="form-btn-is" onClick={handleSubmit}>
           Registrarse
         </button>
-        <span>
+        <span className='register-span'>
           ¿Ya tienes una cuenta? Inicia sesión{' '}
           <button type="button" className="link-button" onClick={giveLogin}>
             aquí
