@@ -7,8 +7,8 @@ const Alert = ({ alertTitle, alertText, closeFunction }) => (
     <h1 className="alert-title">{alertTitle}</h1>
     <p className="alert-text">{alertText}</p>
     <button
+      id="alert-accept-button"
       type="button"
-      className="alert-accept-button"
       onClick={() => closeFunction(false)}
     >Aceptar</button>
   </div>

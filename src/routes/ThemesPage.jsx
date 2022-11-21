@@ -57,12 +57,16 @@ const ThemesPage = () => {
                 devloverte tu dinero luego de comprar este tema.
               </p>
               <span>¿Seguro que quieres proceder a la compra?</span>
-              <button type="button" onClick={() => {
-                setOnPurchaseProcess(false)
-                setBackgroundTheme(purchasedTheme)
-                setPurchasedThemes([...purchasedThemes, purchasedTheme])
-                setPurchased(true)
-              }}>Comprar</button>
+              <button
+                id="theme-purchase-accept-btn"
+                type="button" 
+                onClick={() => {
+                  setOnPurchaseProcess(false)
+                  setBackgroundTheme(purchasedTheme)
+                  setPurchasedThemes([...purchasedThemes, purchasedTheme])
+                  setPurchased(true)
+                }}
+              >Comprar</button>
               <button type="button" onClick={() => setOnPurchaseProcess(false)}>Cancelar</button>
             </div>
           </div>

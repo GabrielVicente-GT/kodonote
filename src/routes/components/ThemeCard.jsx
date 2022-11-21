@@ -18,7 +18,13 @@ const ThemeCard = ({ availableTheme, purchaseFunction, usable }) => (
           <>
             <span>{availableTheme.price}</span>
             <div className="theme-purchase-button">
-              <button type="button" onClick={() => purchaseFunction(availableTheme)}>Comprar</button>
+              <button
+                id="theme-purchase-btn"
+                type="button"
+                onClick={() => purchaseFunction(availableTheme)}
+              >
+                Comprar
+              </button>
             </div>
           </>
         )}
