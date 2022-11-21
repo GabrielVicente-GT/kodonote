@@ -5,7 +5,6 @@ describe('Login process', () => {
     cy.get('#Email').type('christopherg2808@gmail.com')
     cy.get('#password').type('prueba1234')
     cy.get('.form-btn-is').click()
-
     cy.log('Login successful')
   })
 })
