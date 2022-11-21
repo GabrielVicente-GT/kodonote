@@ -23,7 +23,7 @@
   color: var(--secondary-color);
 }
 
-.alert-card > .alert-accept-button {
+.alert-card > #alert-accept-button {
   width: 150px;
   padding: 10px;
   color: var(--accent-color-white);
@@ -33,7 +33,7 @@
   border: none;
 }
 
-.alert-card > .alert-accept-button:hover {
+.alert-card > #alert-accept-button:hover {
   color: white;
   cursor: pointer;
   box-shadow: 0px 0px 5px rgb(0, 0, 0);
