@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import RegisterForm from './components/RegisterForm'
-import LoginForm from './components/LoginForm'
+import RegisterForm from '../routes/components/RegisterForm'
+import LoginForm from '../routes/components/LoginForm'
 import LoginBackgroundImage from '../images/code.jpg'
 import '../styles/LoginPage.css'
 
