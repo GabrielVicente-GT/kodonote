@@ -44,7 +44,7 @@ const Options = ({
         <button type="button" className="account-link" onClick={handleAccount}>
           Cuenta
         </button>
-        <button type="button" className="config-link" onClick={handleSettings}>
+        <button type="button" id="config-link" className="config-link" onClick={handleSettings}>
           Configuración
         </button>
         <Link to="/themes" className="themes-link">

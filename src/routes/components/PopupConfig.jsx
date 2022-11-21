@@ -17,7 +17,7 @@ const ConfigPopUp = ({ style, activePopup, typeTablero }) => {
 
   return (
     <div className="popup-config" style={style}>
-      <button type="button" className="btn-close" onClick={handleClose}>
+      <button type="button" id="btn-close" className="btn-close" onClick={handleClose}>
         {' '}
         x{' '}
       </button>
